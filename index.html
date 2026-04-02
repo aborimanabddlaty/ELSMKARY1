@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>السمكري ميديا | ELSMKARYMEDIA</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&family=Inter:wght@900&display=swap');
+        
+        body {
+            font-family: 'Cairo', sans-serif;
+            scroll-behavior: smooth;
+            background-color: #020617;
+            color: #f8fafc;
+        }
+
+        .logo-font { font-family: 'Inter', sans-serif; }
+
+        .page-content {
+            display: none;
+            opacity: 0;
+            transition: all 0.4s ease-in-out;
+        }
+        .page-content.active {
+            display: block;
+            opacity: 1;
+        }
+
+        .glass {
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .gradient-primary {
+            background: linear-gradient(135deg, #3b82f6 0%, #d946ef 100%);
+        }
+
+        .text-gradient {
+            background: linear-gradient(135deg, #60a5fa 0%, #f0abfc 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-active {
+            color: #d946ef;
+            border-bottom: 2px solid #d946ef;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        .float-anim { animation: float 3s ease-in-out infinite; }
+        
+        /* تحسينات لمنطقة نتائج الذكاء الاصطناعي */
+        .ai-result-box {
+            max-height: 400px;
+            overflow-y: auto;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- الترويسة (Header) -->
+    <header class="fixed top-0 w-full z-50 glass border-b border-white/5">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="text-2xl font-black logo-font text-gradient cursor-pointer" onclick="navigateTo('home')">
+                ELSMKARYMEDIA
+            </div>
+            
+            <!-- قائمة سطح المكتب -->
+            <div class="hidden md:flex items-center space-x-8 space-x-reverse">
+                <button onclick="navigateTo('home')" class="nav-btn nav-active" id="nav-home">الرئيسية</button>
+                <button onclick="navigateTo('services')" class="nav-btn" id="nav-services">خدماتنا</button>
+                <button onclick="navigateTo('success')" class="nav-btn" id="nav-success">قصص النجاح</button>
+                <button onclick="navigateTo('ai')" class="nav-btn text-fuchsia-400 font-bold" id="nav-ai">المختبر الذكي ✨</button>
+                <button onclick="navigateTo('contact')" class="nav-btn" id="nav-contact">تواصل معنا</button>
+            </div>
+
+            <!-- قائمة الجوال -->
+            <button class="md:hidden text-2xl" onclick="toggleMenu()"><i class="fas fa-bars"></i></button>
+        </nav>
+
+        <!-- قائمة الجوال المنسدلة -->
+        <div id="mobile-menu" class="hidden md:hidden glass absolute w-full p-6 flex flex-col space-y-4 border-t border-white/5">
+            <button onclick="navigateTo('home')" class="text-right py-2">الرئيسية</button>
+            <button onclick="navigateTo('services')" class="text-right py-2">خدماتنا</button>
+            <button onclick="navigateTo('success')" class="text-right py-2">قصص النجاح</button>
+            <button onclick="navigateTo('ai')" class="text-right py-2 text-fuchsia-400">المختبر الذكي ✨</button>
+            <button onclick="navigateTo('contact')" class="text-right py-2">تواصل معنا</button>
+        </div>
+    </header>
+
+    <main class="pt-24 pb-12">
+        
+        <!-- قسم: الرئيسية -->
+        <section id="page-home" class="page-content active container mx-auto px-6 text-center py-20">
+            <div class="float-anim mb-6 inline-block">
+                <span class="bg-fuchsia-500/10 text-fuchsia-400 px-4 py-1 rounded-full text-sm font-bold border border-fuchsia-500/20">
+                    وكالة تسويق رقمية رائدة
+                </span>
+            </div>
+            <h1 class="text-5xl md:text-7xl font-black mb-8 leading-tight">
+                نصنع تأثيراً <span class="text-gradient">يُرى ويُسمع</span>
+            </h1>
+            <p class="text-gray-400 text-xl max-w-2xl mx-auto mb-12">
+                أهلاً بك في السمكري ميديا. نحن هنا لنحول علامتك التجارية إلى واقع ملموس وقصة نجاح تتحدث عنها الأرقام.
+            </p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <button onclick="navigateTo('contact')" class="gradient-primary px-10 py-4 rounded-full font-bold shadow-lg shadow-blue-500/20 hover:scale-105 transition">ابدأ مشروعك</button>
+                <button onclick="navigateTo('success')" class="bg-white/5 border border-white/10 px-10 py-4 rounded-full font-bold hover:bg-white/10 transition">شاهد أعمالنا</button>
+            </div>
+        </section>
+
+        <!-- قسم: خدماتنا -->
+        <section id="page-services" class="page-content container mx-auto px-6 py-12">
+            <h2 class="text-3xl font-bold text-center mb-16 underline decoration-fuchsia-500 underline-offset-8">خدماتنا الاحترافية</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="glass p-8 rounded-3xl hover:border-fuchsia-500/50 transition">
+                    <i class="fas fa-palette text-4xl text-fuchsia-500 mb-6"></i>
+                    <h3 class="text-xl font-bold mb-4">تصميم جرافيك وموشن</h3>
+                    <p class="text-gray-400">تصميمات بصرية تخطف الأنظار وفيديوهات موشن جرافيك تروي قصة منتجك ببراعة.</p>
+                </div>
+                <div class="glass p-8 rounded-3xl hover:border-blue-500/50 transition">
+                    <i class="fas fa-chart-line text-4xl text-blue-500 mb-6"></i>
+                    <h3 class="text-xl font-bold mb-4">حملات إعلانية ممولة</h3>
+                    <p class="text-gray-400">إدارة حملات Meta و Google و TikTok باحترافية لضمان أعلى عائد على الاستثمار (ROI).</p>
+                </div>
+                <div class="glass p-8 rounded-3xl hover:border-green-500/50 transition">
+                    <i class="fas fa-users text-4xl text-green-500 mb-6"></i>
+                    <h3 class="text-xl font-bold mb-4">إدارة السوشيال ميديا</h3>
+                    <p class="text-gray-400">بناء مجتمع متفاعل حول علامتك التجارية وإدارة كاملة للمحتوى اليومي.</p>
+                </div>
+                <div class="glass p-8 rounded-3xl hover:border-red-500/50 transition">
+                    <i class="fas fa-video text-4xl text-red-500 mb-6"></i>
+                    <h3 class="text-xl font-bold mb-4">فيديوهات دعائية</h3>
+                    <p class="text-gray-400">صناعة محتوى مرئي عالي الجودة يناسب منصات التواصل الحديثة.</p>
+                </div>
+                <div class="glass p-8 rounded-3xl hover:border-yellow-500/50 transition">
+                    <i class="fas fa-music text-4xl text-yellow-500 mb-6"></i>
+                    <h3 class="text-xl font-bold mb-4">توزيع موسيقى</h3>
+                    <p class="text-gray-400">صناعة وتوزيع الموسيقى للأعمال الفنية والدعائية (ترندات تيك توك).</p>
+                </div>
+                <div class="glass p-8 rounded-3xl hover:border-purple-500/50 transition">
+                    <i class="fas fa-laptop-code text-4xl text-purple-500 mb-6"></i>
+                    <h3 class="text-xl font-bold mb-4">تطوير المواقع</h3>
+                    <p class="text-gray-400">بناء واجهات رقمية عصرية وسريعة تمثل هويتك بأفضل شكل.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- قسم: قصص النجاح -->
+        <section id="page-success" class="page-content container mx-auto px-6 py-12">
+            <h2 class="text-3xl font-bold text-center mb-4 italic">النجاح مش كلام... إحنا بنحققه 💪</h2>
+            <p class="text-center text-gray-400 mb-16">إليك بعض النتائج التي حققناها لشركائنا</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="glass p-6 rounded-2xl border-r-4 border-green-500">
+                    <h3 class="text-xl font-bold mb-2">🍔 برجر فلو (Burger Flow)</h3>
+                    <p class="text-green-400 font-bold mb-4">النتيجة: مبيعات ×3 في أسبوعين فقط!</p>
+                    <div class="bg-gray-800 h-2 w-full rounded-full overflow-hidden">
+                        <div class="bg-green-500 h-full w-[90%]"></div>
+                    </div>
+                </div>
+                <div class="glass p-6 rounded-2xl border-r-4 border-blue-500">
+                    <h3 class="text-xl font-bold mb-2">🦷 مركز بلسم (Balsam)</h3>
+                    <p class="text-blue-400 font-bold mb-4">النتيجة: حجوزات كاملة من الشهر الأول.</p>
+                    <div class="bg-gray-800 h-2 w-full rounded-full overflow-hidden">
+                        <div class="bg-blue-500 h-full w-[100%]"></div>
+                    </div>
+                </div>
+                <div class="glass p-6 rounded-2xl border-r-4 border-orange-500">
+                    <h3 class="text-xl font-bold mb-2">🏠 شركة الراسخون</h3>
+                    <p class="text-orange-400 font-bold mb-4">النتيجة: 100K مشاهدة من أول فيديو دعائي.</p>
+                    <div class="bg-gray-800 h-2 w-full rounded-full overflow-hidden">
+                        <div class="bg-orange-500 h-full w-[85%]"></div>
+                    </div>
+                </div>
+                <div class="glass p-6 rounded-2xl border-r-4 border-red-500">
+                    <h3 class="text-xl font-bold mb-2">🎤 الفنان حسن عدوية</h3>
+                    <p class="text-red-400 font-bold mb-4">النتيجة: ترند تيك توك ويوتيوب وأرقام قياسية.</p>
+                    <div class="bg-gray-800 h-2 w-full rounded-full overflow-hidden">
+                        <div class="bg-red-500 h-full w-[95%]"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- قسم: المختبر الذكي (AI Lab) المطور -->
+        <section id="page-ai" class="page-content container mx-auto px-6 py-12">
+            <h2 class="text-4xl font-bold text-center mb-12">مختبر السمكري <span class="text-gradient">الذكي ✨</span></h2>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- مولد أفكار المحتوى -->
+                <div class="glass p-8 rounded-3xl border border-fuchsia-500/30 flex flex-col">
+                    <h3 class="text-2xl font-bold mb-4 flex items-center gap-3">
+                        <i class="fas fa-lightbulb text-yellow-400"></i>
+                        مولد أفكار المحتوى
+                    </h3>
+                    <p class="text-gray-400 mb-6">أدخل مجالك وسنقترح عليك 3 أفكار إبداعية فوراً.</p>
+                    <input type="text" id="ai-input-ideas" placeholder="مثال: مطعم شاورما، شركة عقارات..." class="w-full bg-black/40 border border-white/10 rounded-xl p-4 mb-4 focus:border-fuchsia-500 outline-none transition">
+                    <button onclick="generateAI('ideas')" id="ai-btn-ideas" class="w-full gradient-primary py-4 rounded-xl font-bold transition flex justify-center items-center gap-2">
+                        <span>توليد الأفكار ✨</span>
+                    </button>
+                    <div id="ai-result-ideas" class="hidden mt-6 p-6 bg-white/5 rounded-xl border border-white/10 whitespace-pre-line leading-relaxed ai-result-box"></div>
+                </div>
+
+                <!-- كاتب المنشورات الإبداعي -->
+                <div class="glass p-8 rounded-3xl border border-blue-500/30 flex flex-col">
+                    <h3 class="text-2xl font-bold mb-4 flex items-center gap-3">
+                        <i class="fas fa-pen-fancy text-blue-400"></i>
+                        كاتب المنشورات الإبداعي
+                    </h3>
+                    <p class="text-gray-400 mb-6">اكتب موضوع المنشور وسنقوم بصياغته بشكل احترافي.</p>
+                    <input type="text" id="ai-input-posts" placeholder="مثال: عرض خصم 50% بمناسبة الافتتاح..." class="w-full bg-black/40 border border-white/10 rounded-xl p-4 mb-4 focus:border-blue-500 outline-none transition">
+                    <button onclick="generateAI('posts')" id="ai-btn-posts" class="w-full bg-blue-600 hover:bg-blue-700 py-4 rounded-xl font-bold transition flex justify-center items-center gap-2">
+                        <span>كتابة المنشور ✨</span>
+                    </button>
+                    <div id="ai-result-posts" class="hidden mt-6 p-6 bg-white/5 rounded-xl border border-white/10 whitespace-pre-line leading-relaxed ai-result-box"></div>
+                </div>
+                
+                <!-- مولد خطة تسويقية -->
+                <div class="glass p-8 rounded-3xl border border-green-500/30 flex flex-col lg:col-span-2">
+                    <h3 class="text-2xl font-bold mb-4 flex items-center gap-3">
+                        <i class="fas fa-chess text-green-400"></i>
+                        مولد خطة تسويقية سريعة
+                    </h3>
+                    <p class="text-gray-400 mb-6">أدخل اسم مشروعك وأهدافك الرئيسية للحصول على استراتيجية مبدئية.</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                        <input type="text" id="ai-input-plan-name" placeholder="اسم المشروع..." class="w-full bg-black/40 border border-white/10 rounded-xl p-4 outline-none focus:border-green-500 transition">
+                        <input type="text" id="ai-input-plan-goal" placeholder="الهدف (مثلاً: زيادة المبيعات، شهرة العلامة)..." class="w-full bg-black/40 border border-white/10 rounded-xl p-4 outline-none focus:border-green-500 transition">
+                    </div>
+                    <button onclick="generateAI('plan')" id="ai-btn-plan" class="w-full bg-green-600 hover:bg-green-700 py-4 rounded-xl font-bold transition flex justify-center items-center gap-2">
+                        <span>توليد الاستراتيجية ✨</span>
+                    </button>
+                    <div id="ai-result-plan" class="hidden mt-6 p-6 bg-white/5 rounded-xl border border-white/10 whitespace-pre-line leading-relaxed ai-result-box text-right"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- قسم: تواصل معنا -->
+        <section id="page-contact" class="page-content container mx-auto px-6 py-12 text-center">
+            <h2 class="text-4xl font-black mb-8">تواصل مع <span class="text-gradient">السمكري</span></h2>
+            <p class="text-gray-400 mb-12">نحن متواجدون في مصر والإمارات لخدمتكم</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto mb-16">
+                <a href="https://wa.me/971585470450" target="_blank" class="glass p-8 rounded-2xl hover:bg-green-500/10 transition">
+                    <i class="fab fa-whatsapp text-4xl text-green-500 mb-4"></i>
+                    <h3 class="font-bold">واتساب الإمارات</h3>
+                    <p dir="ltr">971585470450</p>
+                </a>
+                <a href="https://wa.me/201030085653" target="_blank" class="glass p-8 rounded-2xl hover:bg-green-500/10 transition">
+                    <i class="fab fa-whatsapp text-4xl text-green-500 mb-4"></i>
+                    <h3 class="font-bold">واتساب مصر</h3>
+                    <p dir="ltr">201030085653</p>
+                </a>
+            </div>
+
+            <div class="flex justify-center gap-6 flex-wrap">
+                <a href="https://www.tiktok.com/@omarelsmkary" target="_blank" class="text-3xl text-gray-400 hover:text-white transition"><i class="fab fa-tiktok"></i></a>
+                <a href="https://www.instagram.com/elsmkary_media" target="_blank" class="text-3xl text-gray-400 hover:text-pink-500 transition"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.facebook.com/share/1CHBHEEp5X/?mibextid=wwXIfr" target="_blank" class="text-3xl text-gray-400 hover:text-blue-500 transition"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.youtube.com/channel/UCBVGPt9Xrp2DBFYRqZmV8ew" target="_blank" class="text-3xl text-gray-400 hover:text-red-500 transition"><i class="fab fa-youtube"></i></a>
+                <a href="mailto:elsmkarymedia@gmail.com" class="text-3xl text-gray-400 hover:text-yellow-500 transition"><i class="fas fa-envelope"></i></a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- زر الواتساب العائم -->
+    <a href="https://wa.me/201030085653" target="_blank" class="fixed bottom-6 right-6 bg-green-500 text-white w-16 h-16 rounded-full flex items-center justify-center text-3xl shadow-2xl z-50 hover:scale-110 transition">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <footer class="bg-black/80 py-8 border-t border-white/5 text-center text-sm text-gray-500">
+        <p>© 2025 ELSMKARYMEDIA - جميع الحقوق محفوظة لـ عمر السمكري</p>
+    </footer>
+
+    <script>
+        const apiKey = ""; // سيتم تزويد المفتاح عند التشغيل في البيئة المناسبة
+
+        function navigateTo(pageId) {
+            document.querySelectorAll('.page-content').forEach(p => p.classList.remove('active'));
+            document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('nav-active'));
+            
+            document.getElementById('page-' + pageId).classList.add('active');
+            const btn = document.getElementById('nav-' + pageId);
+            if(btn) btn.classList.add('nav-active');
+
+            window.scrollTo(0,0);
+            document.getElementById('mobile-menu').classList.add('hidden');
+        }
+
+        function toggleMenu() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        }
+
+        // وظيفة استدعاء واجهة Gemini API مع معالجة الأخطاء والتكرار
+        async function fetchGemini(prompt, retries = 5, delay = 1000) {
+            const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`;
+            const payload = {
+                contents: [{ parts: [{ text: prompt }] }],
+                systemInstruction: {
+                    parts: [{ text: "أنت مساعد ذكاء اصطناعي خبير في التسويق وصناعة المحتوى لوكالة السمكري ميديا. ساعد المستخدمين في توليد محتوى تسويقي احترافي وجذاب باللغة العربية بلهجة مصرية محببة أو لغة عربية فصحى حسب السياق." }]
+                }
+            };
+
+            for (let i = 0; i < retries; i++) {
+                try {
+                    const response = await fetch(url, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+                    const data = await response.json();
+                    if (data.candidates && data.candidates[0].content.parts[0].text) {
+                        return data.candidates[0].content.parts[0].text;
+                    }
+                    throw new Error("Invalid response format");
+                } catch (error) {
+                    if (i === retries - 1) throw error;
+                    await new Promise(resolve => setTimeout(resolve, delay));
+                    delay *= 2; // تأخير أسي (Exponential Backoff)
+                }
+            }
+        }
+
+        // الوظيفة الرئيسية لتوليد محتوى الذكاء الاصطناعي بناءً على النوع
+        async function generateAI(type) {
+            let inputId, resultId, btnId, prompt;
+            
+            if (type === 'ideas') {
+                inputId = 'ai-input-ideas';
+                resultId = 'ai-result-ideas';
+                btnId = 'ai-btn-ideas';
+                const val = document.getElementById(inputId).value;
+                if (!val) return;
+                prompt = `اقترح 3 أفكار فيديوهات Reels أو TikTok إبداعية لمجال: ${val}. ركز على جذب الانتباه وزيادة المتابعين.`;
+            } else if (type === 'posts') {
+                inputId = 'ai-input-posts';
+                resultId = 'ai-result-posts';
+                btnId = 'ai-btn-posts';
+                const val = document.getElementById(inputId).value;
+                if (!val) return;
+                prompt = `اكتب منشوراً تسويقياً جذاباً ومقنعاً عن الموضوع التالي: ${val}. استخدم إيموجي مناسب وهاشتاجات قوية.`;
+            } else if (type === 'plan') {
+                const name = document.getElementById('ai-input-plan-name').value;
+                const goal = document.getElementById('ai-input-plan-goal').value;
+                if (!name || !goal) return;
+                resultId = 'ai-result-plan';
+                btnId = 'ai-btn-plan';
+                prompt = `قم بإنشاء خطة تسويقية مبدئية وسريعة لمشروع اسمه "${name}" بهدف "${goal}". الخطة يجب أن تشمل: الجمهور المستهدف، المنصات المقترحة، وأفكار للمحتوى.`;
+            }
+
+            const resultDiv = document.getElementById(resultId);
+            const btn = document.getElementById(btnId);
+            
+            btn.disabled = true;
+            const originalBtnText = btn.innerHTML;
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> جاري الذكاء...';
+            
+            resultDiv.classList.remove('hidden');
+            resultDiv.innerText = "جاري الاتصال بالعقل الاصطناعي لوكالة السمكري ميديا... ✨";
+
+            try {
+                const text = await fetchGemini(prompt);
+                resultDiv.innerText = text;
+            } catch (error) {
+                resultDiv.innerText = "عذراً، حدث خطأ أثناء الاتصال بالخادم. يرجى التحقق من اتصالك بالإنترنت والمحاولة لاحقاً.";
+                console.error("Gemini API Error:", error);
+            } finally {
+                btn.disabled = false;
+                btn.innerHTML = originalBtnText;
+            }
+        }
+    </script>
+</body>
+</html>
