@@ -24,7 +24,7 @@
             box-shadow: 0 0 50px rgba(122, 41, 194, 0.3);
         }
         .glass-nav {
-            background: rgba(5, 1, 13, 0.8);
+            background: rgba(5, 1, 13, 0.9);
             backdrop-filter: blur(15px);
             border-bottom: 1px solid rgba(122, 41, 194, 0.2);
         }
@@ -66,9 +66,6 @@
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: var(--bg); }
         ::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 10px; }
-        .social-icon-btn {
-            @apply p-4 rounded-2xl bg-white/5 border border-white/10 hover:bg-purple-600 hover:border-purple-500 transition-all duration-300 flex items-center justify-center;
-        }
     </style>
 </head>
 <body>
@@ -90,7 +87,7 @@
                 <a href="#success" class="hover:text-purple-500 transition">النجاحات</a>
             </div>
             <div class="flex gap-4">
-                <a href="https://wa.me/00971585470450" target="_blank" class="btn-primary px-6 py-2.5 rounded-full text-xs font-black shadow-lg">احجز موعدك</a>
+                <a href="https://wa.me/971585470450" target="_blank" rel="noopener noreferrer" class="btn-primary px-6 py-2.5 rounded-full text-xs font-black shadow-lg">احجز موعدك</a>
             </div>
         </div>
     </nav>
@@ -100,35 +97,35 @@
         <!-- Hero Section -->
         <section id="home" class="min-h-screen flex items-center justify-center pt-28 relative hero-gradient px-6">
             <div class="max-w-6xl mx-auto text-center">
-                <div class="mb-8 inline-block px-6 py-2 rounded-full border border-purple-500/30 bg-purple-500/5 text-purple-400 text-xs font-black tracking-widest uppercase">
+                <div class="mb-8 inline-block px-6 py-2 rounded-full border border-purple-500/30 bg-purple-500/5 text-purple-400 text-xs font-black tracking-widest uppercase text-white">
                     🚀 نطور مستقبل التسويق والترفيه
                 </div>
                 <h1 class="text-6xl md:text-[90px] font-black leading-[0.9] tracking-tighter mb-8 text-white">
                     نصنع <span class="text-purple-500">التأثير</span> <br> ونصنع النجوم.
                 </h1>
                 <p class="text-zinc-400 text-lg md:text-2xl max-w-3xl mx-auto mb-10 leading-relaxed font-light">
-                    وكالة <span class="text-white font-bold">السمكري ميديا</span> تدمج بين الذكاء الاصطناعي وتنظيم الحفلات بأقوى نجوم مصر، لتجعل براندك أو حدثك يتصدر المشهد.
+                    وكالة <span class="text-white font-bold text-white">السمكري ميديا</span> تدمج بين الذكاء الاصطناعي وتنظيم الحفلات بأقوى نجوم مصر، لتجعل براندك أو حدثك يتصدر المشهد.
                 </p>
                 
                 <!-- Direct Social Links in Hero -->
-                <div class="flex flex-wrap justify-center gap-4 mb-12">
-                    <a href="https://www.tiktok.com/@omarelsmkary" target="_blank" class="social-icon-btn group">
-                        <span class="text-xs font-bold px-2">TikTok 1</span>
+                <div class="flex flex-wrap justify-center gap-4 mb-12 relative z-[110]">
+                    <a href="https://www.tiktok.com/@omarelsmkary" target="_blank" rel="noopener noreferrer" class="p-4 rounded-2xl bg-white/5 border border-white/10 hover:bg-purple-600 hover:border-purple-500 transition-all duration-300 flex items-center justify-center min-w-[120px]">
+                        <span class="text-xs font-black text-white">TikTok</span>
                     </a>
-                    <a href="https://www.tiktok.com/@elsmkary2" target="_blank" class="social-icon-btn group">
-                        <span class="text-xs font-bold px-2">TikTok 2</span>
+                    <a href="https://www.instagram.com/elsmkary_media/" target="_blank" rel="noopener noreferrer" class="p-4 rounded-2xl bg-white/5 border border-white/10 hover:bg-purple-600 hover:border-purple-500 transition-all duration-300 flex items-center justify-center min-w-[120px]">
+                        <span class="text-xs font-black text-white">Instagram</span>
                     </a>
-                    <a href="https://instagram.com/elsmkary_media" target="_blank" class="social-icon-btn group">
-                        <span class="text-xs font-bold px-2">Instagram</span>
+                    <a href="https://www.facebook.com/ELSMARYMEDIA/" target="_blank" rel="noopener noreferrer" class="p-4 rounded-2xl bg-white/5 border border-white/10 hover:bg-purple-600 hover:border-purple-500 transition-all duration-300 flex items-center justify-center min-w-[120px]">
+                        <span class="text-xs font-black text-white">Facebook</span>
                     </a>
-                    <a href="https://facebook.com/elsmkarymedia" target="_blank" class="social-icon-btn group">
-                        <span class="text-xs font-bold px-2">Facebook</span>
+                    <a href="https://www.youtube.com/@OMARELSMKARY" target="_blank" rel="noopener noreferrer" class="p-4 rounded-2xl bg-white/5 border border-white/10 hover:bg-purple-600 hover:border-purple-500 transition-all duration-300 flex items-center justify-center min-w-[120px]">
+                        <span class="text-xs font-black text-white">YouTube</span>
                     </a>
                 </div>
 
                 <div class="flex flex-wrap justify-center gap-6">
-                    <a href="#services" class="btn-primary px-12 py-5 rounded-2xl font-black text-lg">استعرض خدماتنا</a>
-                    <a href="mailto:elsmkarymedi@gmail.com" class="bg-white/5 border border-white/10 hover:bg-white/10 px-12 py-5 rounded-2xl font-black text-lg transition">تواصل بالإيميل</a>
+                    <a href="#services" class="btn-primary px-12 py-5 rounded-2xl font-black text-lg text-white">استعرض خدماتنا</a>
+                    <a href="mailto:elsmkarymedi@gmail.com" class="bg-white/5 border border-white/10 hover:bg-white/10 px-12 py-5 rounded-2xl font-black text-lg transition text-white">تواصل بالإيميل</a>
                 </div>
             </div>
         </section>
@@ -141,7 +138,7 @@
                     <div class="w-20 h-1.5 bg-white mx-auto rounded-full mt-4"></div>
                 </div>
                 
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 text-white">
                     <!-- Event Planning -->
                     <div onclick="showPage('service-events')" class="p-10 rounded-[3rem] border border-purple-500/30 bg-purple-600/10 card-hover transition-all duration-500 cursor-pointer group shadow-2xl">
                         <div class="text-5xl mb-8 group-hover:scale-110 transition">🎸</div>
@@ -150,9 +147,9 @@
                         <div class="mt-6 text-purple-400 font-bold text-xs uppercase tracking-widest">شوف النجوم ←</div>
                     </div>
                     <!-- Social Media Management -->
-                    <div onclick="showPage('service-social')" class="p-10 rounded-[3rem] border border-white/5 bg-zinc-900/30 card-hover transition-all duration-500 cursor-pointer group text-white">
+                    <div onclick="showPage('service-social')" class="p-10 rounded-[3rem] border border-white/5 bg-zinc-900/30 card-hover transition-all duration-500 cursor-pointer group">
                         <div class="text-5xl mb-8 group-hover:scale-110 transition">📲</div>
-                        <h3 class="text-2xl font-black mb-4">إدارة السوشيال ميديا</h3>
+                        <h3 class="text-2xl font-black mb-4 text-white">إدارة السوشيال ميديا</h3>
                         <p class="text-zinc-400 text-sm leading-relaxed">إدارة كاملة لحساباتك، صناعة محتوى يومي، ردود ذكية، وزيادة متابعين حقيقيين وتفاعل.</p>
                         <div class="mt-6 text-purple-500 font-bold text-xs uppercase tracking-widest">إدارة صفحاتك ←</div>
                     </div>
@@ -206,8 +203,8 @@
                         <p class="font-bold text-zinc-500 uppercase text-xs">الراسخون</p>
                     </div>
                     <div class="p-8 border-l-4 border-purple-600">
-                        <h4 class="text-6xl font-black mb-2 tracking-tighter italic">#1</h4>
-                        <p class="font-bold text-zinc-500 uppercase text-xs">حسن عدوية</p>
+                        <h4 class="text-6xl font-black mb-2 tracking-tighter italic text-black font-black">#1</h4>
+                        <p class="font-bold text-zinc-500 uppercase text-xs text-black font-black">حسن عدوية</p>
                     </div>
                 </div>
             </div>
@@ -216,88 +213,79 @@
         <!-- Footer -->
         <footer class="py-20 text-center bg-zinc-950">
             <div class="max-w-7xl mx-auto px-6">
-                <div class="flex flex-wrap justify-center gap-6 mb-10">
-                    <a href="https://www.tiktok.com/@omarelsmkary" target="_blank" class="text-zinc-400 hover:text-white transition font-bold">TikTok 1</a>
-                    <a href="https://www.tiktok.com/@elsmkary2" target="_blank" class="text-zinc-400 hover:text-white transition font-bold">TikTok 2</a>
-                    <a href="https://instagram.com/elsmkary_media" target="_blank" class="text-zinc-400 hover:text-white transition font-bold">Instagram</a>
-                    <a href="https://facebook.com/elsmkarymedia" target="_blank" class="text-zinc-400 hover:text-white transition font-bold">Facebook</a>
-                    <a href="mailto:elsmkarymedi@gmail.com" class="text-zinc-400 hover:text-white transition font-bold text-xs">elsmkarymedi@gmail.com</a>
+                <div class="flex flex-wrap justify-center gap-6 mb-10 relative z-[110]">
+                    <a href="https://www.tiktok.com/@omarelsmkary" target="_blank" rel="noopener noreferrer" class="text-zinc-400 hover:text-white transition font-black">TikTok</a>
+                    <a href="https://www.instagram.com/elsmkary_media/" target="_blank" rel="noopener noreferrer" class="text-zinc-400 hover:text-white transition font-black">Instagram</a>
+                    <a href="https://www.facebook.com/ELSMARYMEDIA/" target="_blank" rel="noopener noreferrer" class="text-zinc-400 hover:text-white transition font-black">Facebook</a>
+                    <a href="https://www.youtube.com/@OMARELSMKARY" target="_blank" rel="noopener noreferrer" class="text-zinc-400 hover:text-white transition font-black">YouTube</a>
+                    <a href="mailto:elsmkarymedi@gmail.com" class="text-zinc-400 hover:text-white transition font-black text-xs">elsmkarymedi@gmail.com</a>
                 </div>
                 <p class="text-zinc-600 text-[10px] font-black uppercase tracking-[0.5em]">ELSMKARYMEDIA GLOBAL AGENCY 2024</p>
             </div>
         </footer>
     </div>
 
-    <!-- DETAIL PAGES (REMAIN UNCHANGED IN LOGIC) -->
+    <!-- DETAIL PAGES -->
     <div id="service-social" class="hidden-page page-transition min-h-screen pt-32 px-6">
-        <div class="max-w-4xl mx-auto">
+        <div class="max-w-4xl mx-auto text-white">
             <button onclick="showPage('main-content')" class="text-purple-500 font-bold mb-8 hover:underline flex items-center gap-2">← العودة للرئيسية</button>
-            <div class="text-6xl mb-8 text-white">📲</div>
-            <h2 class="text-5xl md:text-7xl font-black mb-6 italic text-white">إدارة صفحات <br> <span class="text-purple-500 text-white">السوشيال ميديا</span></h2>
+            <div class="text-6xl mb-8">📲</div>
+            <h2 class="text-5xl md:text-7xl font-black mb-6 italic">إدارة صفحات <br> <span class="text-purple-500">السوشيال ميديا</span></h2>
             <p class="text-zinc-400 text-xl leading-relaxed mb-12">
                 بنريحك من دوشة الصفحات. إحنا في السمكري ميديا بنمسك حساباتك على كل المنصات، بنكتب محتوى بيشد الناس، بنرد على الرسايل، وبنكبر الصفحة بمتابعين حقيقيين مش وهميين.
             </p>
-            <div class="grid md:grid-cols-2 gap-6 mb-12 text-sm text-zinc-300">
-                <div class="p-6 rounded-2xl bg-zinc-900 border border-white/5">✔ صناعة محتوى يومي (Reels & Posts)</div>
-                <div class="p-6 rounded-2xl bg-zinc-900 border border-white/5">✔ إدارة الردود والكومنتات باحترافية</div>
-                <div class="p-6 rounded-2xl bg-zinc-900 border border-white/5">✔ خطط نمو شهرية لزيادة المتابعين</div>
-                <div class="p-6 rounded-2xl bg-zinc-900 border border-white/5">✔ تحليل كامل للأداء والمنافسين</div>
-            </div>
-            <a href="https://wa.me/00971585470450?text=أريد الاستفسار عن خدمة إدارة صفحات السوشيال ميديا" target="_blank" class="btn-primary block text-center py-6 rounded-3xl font-black text-2xl shadow-2xl uppercase text-white">ابدأ إدارة صفحاتك الآن 📲</a>
+            <a href="https://wa.me/971585470450?text=أريد الاستفسار عن خدمة إدارة صفحات السوشيال ميديا" target="_blank" rel="noopener noreferrer" class="btn-primary block text-center py-6 rounded-3xl font-black text-2xl shadow-2xl uppercase text-white">ابدأ إدارة صفحاتك الآن 📲</a>
         </div>
     </div>
 
     <div id="service-events" class="hidden-page page-transition min-h-screen pt-32 px-6">
-        <div class="max-w-4xl mx-auto">
+        <div class="max-w-4xl mx-auto text-white">
             <button onclick="showPage('main-content')" class="text-purple-500 font-bold mb-8 hover:underline flex items-center gap-2">← العودة للرئيسية</button>
             <div class="text-6xl mb-8">🎸</div>
-            <h2 class="text-5xl md:text-7xl font-black mb-6 italic tracking-tighter text-white text-white">تنظيم الحفلات <br> <span class="text-purple-500 text-white">بأقوى نجوم مصر</span></h2>
-            <p class="text-zinc-400 text-xl leading-relaxed mb-12">
+            <h2 class="text-5xl md:text-7xl font-black mb-6 italic tracking-tighter text-white">تنظيم الحفلات <br> <span class="text-purple-500 text-white">بأقوى نجوم مصر</span></h2>
+            <p class="text-zinc-400 text-xl leading-relaxed mb-12 text-white">
                 السمكري ميديا بتنظملك حدث مش هيتنسى. بنتعامل مع أقوى نجوم مصر والوطن العربي، بنوفرلك أحدث أنظمة الصوت والإضاءة، وبنديرلك الحفلة من الألف للياء.
             </p>
-            <a href="https://wa.me/00971585470450?text=أريد تنظيم حفلة مع أقوى نجوم مصر" target="_blank" class="btn-primary block text-center py-6 rounded-3xl font-black text-2xl text-white shadow-2xl">نظّم حفلتك مع النجوم ✨</a>
+            <a href="https://wa.me/971585470450?text=أريد تنظيم حفلة مع أقوى نجوم مصر" target="_blank" rel="noopener noreferrer" class="btn-primary block text-center py-6 rounded-3xl font-black text-2xl text-white shadow-2xl">نظّم حفلتك مع النجوم ✨</a>
         </div>
     </div>
 
-    <div id="service-music" class="hidden-page page-transition min-h-screen pt-32 px-6 text-white">
+    <div id="service-music" class="hidden-page page-transition min-h-screen pt-32 px-6 text-white text-white">
         <div class="max-w-4xl mx-auto">
             <button onclick="showPage('main-content')" class="text-purple-500 font-bold mb-8 hover:underline flex items-center gap-2">← العودة للرئيسية</button>
             <div class="text-6xl mb-8">🎶</div>
-            <h2 class="text-5xl md:text-7xl font-black mb-6">التوزيع الموسيقي <br> <span class="text-purple-500">والحماية الرقمية</span></h2>
+            <h2 class="text-5xl md:text-7xl font-black mb-6 text-white">التوزيع الموسيقي <br> <span class="text-purple-500">والحماية الرقمية</span></h2>
             <p class="text-zinc-400 text-xl leading-relaxed mb-12">
                 سمّع العالم موهبتك! إحنا بنوزع تراكك على أكتر من 150 منصة عالمية زي Spotify و Anghami و YouTube Music مع حماية كاملة لحقوقك.
             </p>
-            <a href="https://wa.me/00971585470450?text=أريد توزيع تراك موسيقي جديد" target="_blank" class="btn-primary block text-center py-6 rounded-3xl font-black text-2xl shadow-2xl">وزّع تراكك الآن 🎶</a>
+            <a href="https://wa.me/971585470450?text=أريد توزيع تراك موسيقي جديد" target="_blank" rel="noopener noreferrer" class="btn-primary block text-center py-6 rounded-3xl font-black text-2xl shadow-2xl">وزّع تراكك الآن 🎶</a>
         </div>
     </div>
 
-    <!-- DETAIL PAGE: DESIGN -->
-    <div id="service-design" class="hidden-page page-transition min-h-screen pt-32 px-6 text-white">
+    <div id="service-design" class="hidden-page page-transition min-h-screen pt-32 px-6 text-white text-white">
         <div class="max-w-4xl mx-auto">
             <button onclick="showPage('main-content')" class="text-purple-500 font-bold mb-8 hover:underline flex items-center gap-2">← العودة للرئيسية</button>
             <div class="text-6xl mb-8">🎨</div>
-            <h2 class="text-5xl md:text-7xl font-black mb-6 uppercase tracking-tighter">جرافيك <br> <span class="text-purple-500">وهوية بصرية</span></h2>
-            <a href="https://wa.me/00971585470450?text=أريد الاستفسار عن خدمة تصميم الجرافيك" target="_blank" class="btn-primary block text-center py-6 mt-12 rounded-3xl font-black text-2xl">صمم هويتك الآن 🚀</a>
+            <h2 class="text-5xl md:text-7xl font-black mb-6 uppercase tracking-tighter text-white">جرافيك <br> <span class="text-purple-500">وهوية بصرية</span></h2>
+            <a href="https://wa.me/971585470450?text=أريد الاستفسار عن خدمة تصميم الجرافيك" target="_blank" rel="noopener noreferrer" class="btn-primary block text-center py-6 mt-12 rounded-3xl font-black text-2xl text-white">صمم هويتك الآن 🚀</a>
         </div>
     </div>
 
-    <!-- DETAIL PAGE: MARKETING -->
-    <div id="service-marketing" class="hidden-page page-transition min-h-screen pt-32 px-6 text-white">
+    <div id="service-marketing" class="hidden-page page-transition min-h-screen pt-32 px-6 text-white text-white">
         <div class="max-w-4xl mx-auto">
             <button onclick="showPage('main-content')" class="text-purple-500 font-bold mb-8 hover:underline flex items-center gap-2">← العودة للرئيسية</button>
-            <div class="text-6xl mb-8 text-white text-white">📈</div>
-            <h2 class="text-5xl md:text-7xl font-black mb-6 uppercase tracking-tighter">حملات <br> <span class="text-purple-500 text-white">ممولة ذكية</span></h2>
-            <a href="https://wa.me/00971585470450?text=أريد الاستفسار عن خدمة الحملات الممولة" target="_blank" class="btn-primary block text-center py-6 mt-12 rounded-3xl font-black text-2xl">اطلب حملتك الآن 🔥</a>
+            <div class="text-6xl mb-8">📈</div>
+            <h2 class="text-5xl md:text-7xl font-black mb-6 uppercase tracking-tighter text-white">حملات <br> <span class="text-purple-500 text-white text-white">ممولة ذكية</span></h2>
+            <a href="https://wa.me/971585470450?text=أريد الاستفسار عن خدمة الحملات الممولة" target="_blank" rel="noopener noreferrer" class="btn-primary block text-center py-6 mt-12 rounded-3xl font-black text-2xl text-white">اطلب حملتك الآن 🔥</a>
         </div>
     </div>
 
-    <!-- DETAIL PAGE: VIDEO -->
-    <div id="service-video" class="hidden-page page-transition min-h-screen pt-32 px-6 text-white">
+    <div id="service-video" class="hidden-page page-transition min-h-screen pt-32 px-6 text-white text-white">
         <div class="max-w-4xl mx-auto">
             <button onclick="showPage('main-content')" class="text-purple-500 font-bold mb-8 hover:underline flex items-center gap-2">← العودة للرئيسية</button>
-            <div class="text-6xl mb-8 text-white">🎞️</div>
-            <h2 class="text-5xl md:text-7xl font-black mb-6 uppercase tracking-tighter text-purple-500">فيديوهات <br> <span class="text-white tracking-tighter">دعائية AI</span></h2>
-            <a href="https://wa.me/00971585470450?text=أريد الاستفسار عن خدمة صناعة الفيديوهات" target="_blank" class="btn-primary block text-center py-6 mt-12 rounded-3xl font-black text-2xl shadow-2xl">ابدأ إنتاجك الآن 🎞️</a>
+            <div class="text-6xl mb-8">🎞️</div>
+            <h2 class="text-5xl md:text-7xl font-black mb-6 uppercase tracking-tighter text-purple-500">فيديوهات <br> <span class="text-white tracking-tighter text-white">دعائية AI</span></h2>
+            <a href="https://wa.me/971585470450?text=أريد الاستفسار عن خدمة صناعة الفيديوهات" target="_blank" rel="noopener noreferrer" class="btn-primary block text-center py-6 mt-12 rounded-3xl font-black text-2xl shadow-2xl text-white">ابدأ إنتاجك الآن 🎞️</a>
         </div>
     </div>
 
