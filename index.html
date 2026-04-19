@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ELSMKARYMEDIA | الوكالة الرائدة في التسويق الذكي</title>
+    <title>ELSMKARYMEDIA | الوكالة الرائدة في التسويق والترفيه</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -76,8 +76,8 @@
             <div class="flex items-center gap-3 cursor-pointer" onclick="showPage('main-content')">
                 <div class="w-10 h-10 logo-clip bg-white"></div>
                 <div class="flex flex-col">
-                    <span class="text-xl font-black tracking-tighter uppercase">ELSMKARY<span class="text-purple-500">MEDIA</span></span>
-                    <span class="text-[7px] uppercase tracking-[0.3em] text-zinc-500 font-bold">Marketing Agency</span>
+                    <span class="text-xl font-black tracking-tighter uppercase leading-none">ELSMKARY<span class="text-purple-500">MEDIA</span></span>
+                    <span class="text-[7px] uppercase tracking-[0.3em] text-zinc-500 font-bold">Marketing & Events Agency</span>
                 </div>
             </div>
             <div class="hidden lg:flex gap-8 text-[11px] font-black uppercase tracking-widest text-zinc-400">
@@ -87,7 +87,7 @@
                 <a href="#success" class="hover:text-purple-500 transition">النجاحات</a>
             </div>
             <div class="flex gap-4">
-                <a href="https://wa.me/00971585470450" target="_blank" class="btn-primary px-6 py-2.5 rounded-full text-xs font-black shadow-lg">ابدأ مشروعك</a>
+                <a href="https://wa.me/00971585470450" target="_blank" class="btn-primary px-6 py-2.5 rounded-full text-xs font-black shadow-lg">احجز موعدك</a>
             </div>
         </div>
     </nav>
@@ -98,17 +98,17 @@
         <section id="home" class="min-h-screen flex items-center justify-center pt-20 relative hero-gradient px-6">
             <div class="max-w-6xl mx-auto text-center">
                 <div class="mb-8 inline-block px-6 py-2 rounded-full border border-purple-500/30 bg-purple-500/5 text-purple-400 text-xs font-black tracking-widest uppercase">
-                    🚀 نطور مستقبل التسويق الرقمي
+                    🚀 نطور مستقبل التسويق والترفيه
                 </div>
                 <h1 class="text-6xl md:text-[100px] font-black leading-[0.9] tracking-tighter mb-8">
-                    نصنع <span class="text-purple-500">التأثير</span> <br> قبل التصميم.
+                    نصنع <span class="text-purple-500">التأثير</span> <br> ونصنع النجوم.
                 </h1>
                 <p class="text-zinc-400 text-lg md:text-2xl max-w-3xl mx-auto mb-12 leading-relaxed font-light">
-                    وكالة <span class="text-white font-bold">عمر السمكري</span> تدمج بين الفن البصري وقوة الـ <span class="text-purple-400">AI</span> لتجعل براندك يتصدر التريند عالمياً.
+                    وكالة <span class="text-white font-bold">عمر السمكري</span> تدمج بين الذكاء الاصطناعي وتنظيم الحفلات بأقوى نجوم مصر، لتجعل براندك أو حدثك يتصدر المشهد.
                 </p>
                 <div class="flex flex-wrap justify-center gap-6">
                     <a href="#services" class="btn-primary px-12 py-5 rounded-2xl font-black text-lg">استعرض خدماتنا</a>
-                    <a href="https://bio.site/ELSMKARYMEDIA" target="_blank" class="bg-white/5 border border-white/10 hover:bg-white/10 px-12 py-5 rounded-2xl font-black text-lg transition">زيارة البايو</a>
+                    <a href="https://bio.site/ELSMKARYMEDIA" target="_blank" class="bg-white/5 border border-white/10 hover:bg-white/10 px-12 py-5 rounded-2xl font-black text-lg transition">بوابة الروابط</a>
                 </div>
             </div>
         </section>
@@ -117,56 +117,53 @@
         <section id="services" class="py-32 px-6">
             <div class="max-w-7xl mx-auto">
                 <div class="text-center mb-20">
-                    <h2 class="text-4xl md:text-6xl font-black mb-4 tracking-tighter">ماذا نقدم؟ 🎨</h2>
+                    <h2 class="text-4xl md:text-6xl font-black mb-4 tracking-tighter">خدماتنا الفاجرة ⚡</h2>
                     <p class="text-zinc-500 font-bold italic mb-4">اضغط على الخدمة للتفاصيل</p>
                     <div class="w-20 h-1.5 bg-purple-600 mx-auto rounded-full"></div>
                 </div>
                 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Event Planning -->
+                    <div onclick="showPage('service-events')" class="p-10 rounded-[3rem] border border-purple-500/30 bg-purple-600/10 card-hover transition-all duration-500 cursor-pointer group shadow-2xl">
+                        <div class="text-5xl mb-8 group-hover:scale-110 transition">🎸</div>
+                        <h3 class="text-2xl font-black mb-4">تنظيم الحفلات</h3>
+                        <p class="text-zinc-400 text-sm leading-relaxed">تنظيم أضخم الحفلات بأقوى نجوم مصر، تجهيزات صوت وإضاءة عالمية وتغطية ميديا جبارة.</p>
+                        <div class="mt-6 text-purple-400 font-bold text-xs uppercase tracking-widest">شوف النجوم ←</div>
+                    </div>
+                    <!-- Marketing -->
+                    <div onclick="showPage('service-marketing')" class="p-10 rounded-[3rem] border border-white/5 bg-zinc-900/30 card-hover transition-all duration-500 cursor-pointer group">
+                        <div class="text-5xl mb-8 group-hover:scale-110 transition">📊</div>
+                        <h3 class="text-2xl font-black mb-4">حملات ممولة 🔥</h3>
+                        <p class="text-zinc-400 text-sm leading-relaxed">استراتيجيات إعلانية تضاعف مبيعاتك وتضمن وصولك للعميل المستهدف بدقة ذكاء اصطناعي.</p>
+                        <div class="mt-6 text-purple-500 font-bold text-xs uppercase tracking-widest">عرض التفاصيل ←</div>
+                    </div>
+                    <!-- Music -->
+                    <div onclick="showPage('service-music')" class="p-10 rounded-[3rem] border border-white/5 bg-zinc-900/30 card-hover transition-all duration-500 cursor-pointer group">
+                        <div class="text-5xl mb-8 group-hover:scale-110 transition">🎶</div>
+                        <h3 class="text-2xl font-black mb-4">توزيع موسيقي</h3>
+                        <p class="text-zinc-400 text-sm leading-relaxed">توزيع أعمالك على المنصات العالمية (Spotify, Apple Music) وحماية حقوقك بالكامل.</p>
+                        <div class="mt-6 text-purple-500 font-bold text-xs uppercase tracking-widest">وزّع تراكك ←</div>
+                    </div>
                     <!-- Design -->
                     <div onclick="showPage('service-design')" class="p-10 rounded-[3rem] border border-white/5 bg-zinc-900/30 card-hover transition-all duration-500 cursor-pointer group">
                         <div class="text-5xl mb-8 group-hover:scale-110 transition">✏️</div>
-                        <h3 class="text-2xl font-black mb-4">تصميم جرافيك وموشن</h3>
-                        <p class="text-zinc-400 text-sm leading-relaxed">نصنع هويات بصرية لا تُنسى، بوستات سوشيال ميديا، وموشن جرافيك يروي قصة نجاحك.</p>
+                        <h3 class="text-2xl font-black mb-4">جرافيك وموشن</h3>
+                        <p class="text-zinc-400 text-sm leading-relaxed">نصنع هويات بصرية فخمة، بوستات سوشيال ميديا، وموشن جرافيك يروي قصة نجاحك.</p>
                         <div class="mt-6 text-purple-500 font-bold text-xs uppercase tracking-widest">عرض التفاصيل ←</div>
                     </div>
-                    <!-- Marketing -->
-                    <div onclick="showPage('service-marketing')" class="p-10 rounded-[3rem] border border-white/5 bg-purple-600 card-hover transition-all duration-500 text-white shadow-2xl shadow-purple-600/20 cursor-pointer group">
-                        <div class="text-5xl mb-8 group-hover:scale-110 transition">📊</div>
-                        <h3 class="text-2xl font-black mb-4 text-white">حملات ممولة 🔥</h3>
-                        <p class="text-purple-100 text-sm leading-relaxed">استراتيجيات إعلانية مدروسة تضاعف مبيعاتك وتضمن وصولك للعميل المستهدف بدقة.</p>
-                        <div class="mt-6 text-white font-bold text-xs uppercase tracking-widest">عرض التفاصيل ←</div>
+                    <!-- Bio Design -->
+                    <div onclick="showPage('service-bio')" class="p-10 rounded-[3rem] border border-white/5 bg-zinc-900/30 card-hover transition-all duration-500 cursor-pointer group">
+                        <div class="text-5xl mb-8 group-hover:scale-110 transition">🔗</div>
+                        <h3 class="text-2xl font-black mb-4">تصميم صفحات البايو</h3>
+                        <p class="text-zinc-400 text-sm leading-relaxed">صفحة روابط احترافية (Link in Bio) تجمع كل شغلك ومنصاتك بتصميم مودرن وسريع.</p>
+                        <div class="mt-6 text-purple-500 font-bold text-xs uppercase tracking-widest">صمم صفحتك ←</div>
                     </div>
                     <!-- Video -->
                     <div onclick="showPage('service-video')" class="p-10 rounded-[3rem] border border-white/5 bg-zinc-900/30 card-hover transition-all duration-500 cursor-pointer group">
                         <div class="text-5xl mb-8 group-hover:scale-110 transition">🎞️</div>
                         <h3 class="text-2xl font-black mb-4">فيديوهات دعائية</h3>
-                        <p class="text-zinc-400 text-sm leading-relaxed">إنتاج فيديوهات احترافية تسيطر على المشاعر وتجبر المشاهد على التفاعل.</p>
+                        <p class="text-zinc-400 text-sm leading-relaxed">إنتاج فيديوهات احترافية تسيطر على المشاعر وتجبر المشاهد على التفاعل بفضل الـ AI.</p>
                         <div class="mt-6 text-purple-500 font-bold text-xs uppercase tracking-widest">عرض التفاصيل ←</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- AI Section -->
-        <section id="ai" class="py-32 relative overflow-hidden">
-            <div class="absolute top-1/2 right-0 w-[600px] h-[600px] bg-purple-600/10 blur-[150px] -z-10 rounded-full"></div>
-            <div class="max-w-7xl mx-auto px-6">
-                <div class="flex flex-col lg:flex-row items-center gap-20">
-                    <div class="lg:w-1/2">
-                        <span class="text-purple-500 font-black text-xs uppercase tracking-[0.4em] mb-4 block">Future Lab</span>
-                        <h2 class="text-5xl md:text-7xl font-black mb-8 leading-tight italic">قوة الـ AI <br> في خدمتك.</h2>
-                        <p class="text-zinc-400 text-xl leading-relaxed mb-10">
-                            في <span class="text-white font-bold">السمكري ميديا</span>، نستخدم تكنولوجيا **ElevenLabs** لإنتاج تعليق صوتي واقعي و **Midjourney** لتوليد صور خيالية.
-                        </p>
-                    </div>
-                    <div class="lg:w-1/2 relative">
-                        <div class="w-full aspect-square rounded-[4rem] border-2 border-purple-600/30 flex items-center justify-center p-10 floating">
-                            <div class="w-full h-full rounded-[3rem] bg-gradient-to-br from-purple-600 to-purple-900 flex flex-col items-center justify-center shadow-2xl shadow-purple-600/40 text-center">
-                                <div class="w-20 h-20 logo-clip bg-white mb-6"></div>
-                                <span class="text-2xl font-black italic">SMKARY AI</span>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -174,23 +171,23 @@
 
         <!-- Success Section -->
         <section id="success" class="py-32 bg-white text-black rounded-[5rem] mx-4">
-            <div class="max-w-7xl mx-auto px-6 text-center lg:text-right">
-                <h2 class="text-5xl font-black italic mb-16">النجاح حقيقة.. مش كلام 💯</h2>
-                <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div class="max-w-7xl mx-auto px-6 text-center">
+                <h2 class="text-5xl font-black italic mb-16 tracking-tighter underline decoration-purple-600 underline-offset-8">السمكري ميديا.. أرقام تتحدث 💯</h2>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
                     <div class="p-8 border-l-4 border-purple-600">
-                        <h4 class="text-5xl font-black mb-2 tracking-tighter">×3</h4>
+                        <h4 class="text-6xl font-black mb-2 tracking-tighter italic">×3</h4>
                         <p class="font-bold text-zinc-500 uppercase text-xs">برجر فلو</p>
                     </div>
                     <div class="p-8 border-l-4 border-purple-600">
-                        <h4 class="text-5xl font-black mb-2 tracking-tighter">Full</h4>
+                        <h4 class="text-6xl font-black mb-2 tracking-tighter italic">Full</h4>
                         <p class="font-bold text-zinc-500 uppercase text-xs">بلسم</p>
                     </div>
                     <div class="p-8 border-l-4 border-purple-600">
-                        <h4 class="text-5xl font-black mb-2 tracking-tighter">100K</h4>
+                        <h4 class="text-6xl font-black mb-2 tracking-tighter italic">100K</h4>
                         <p class="font-bold text-zinc-500 uppercase text-xs">الراسخون</p>
                     </div>
                     <div class="p-8 border-l-4 border-purple-600">
-                        <h4 class="text-5xl font-black mb-2 tracking-tighter">#1</h4>
+                        <h4 class="text-6xl font-black mb-2 tracking-tighter italic">#1</h4>
                         <p class="font-bold text-zinc-500 uppercase text-xs">حسن عدوية</p>
                     </div>
                 </div>
@@ -198,555 +195,121 @@
         </section>
 
         <!-- Footer -->
-        <footer class="py-20 text-center">
-            <p class="text-zinc-600 text-xs font-bold uppercase tracking-[0.4em]">ELSMKARYMEDIA 2024</p>
+        <footer class="py-20 text-center opacity-50">
+            <p class="text-zinc-400 text-[10px] font-black uppercase tracking-[0.5em]">ELSMKARYMEDIA GLOBAL AGENCY 2024</p>
         </footer>
     </div>
 
-    <!-- DETAIL PAGE: DESIGN -->
+    <!-- DETAIL PAGE: EVENTS (تنظيم الحفلات) -->
+    <div id="service-events" class="hidden-page page-transition min-h-screen pt-32 px-6">
+        <div class="max-w-4xl mx-auto">
+            <button onclick="showPage('main-content')" class="text-purple-500 font-bold mb-8 hover:underline flex items-center gap-2">← العودة للرئيسية</button>
+            <div class="text-6xl mb-8">🎸</div>
+            <h2 class="text-5xl md:text-7xl font-black mb-6 italic tracking-tighter">تنظيم الحفلات <br> <span class="text-purple-500">بأقوى نجوم مصر</span></h2>
+            <p class="text-zinc-400 text-xl leading-relaxed mb-12">
+                السمكري ميديا بتنظملك حدث مش هيتنسى. بنتعامل مع أقوى نجوم مصر والوطن العربي، بنوفرلك أحدث أنظمة الصوت والإضاءة، وبنديرلك الحفلة من الألف للياء بتغطية إعلامية فاجرة.
+            </p>
+            <div class="grid md:grid-cols-2 gap-6 mb-12 text-sm text-zinc-300">
+                <div class="p-6 rounded-2xl bg-zinc-900 border border-white/5">✔ حجز وتعاقد مع أقوى الفنانين</div>
+                <div class="p-6 rounded-2xl bg-zinc-900 border border-white/5">✔ أنظمة صوت وإضاءة Stage خرافية</div>
+                <div class="p-6 rounded-2xl bg-zinc-900 border border-white/5">✔ إدارة وتأمين كامل للحدث</div>
+                <div class="p-6 rounded-2xl bg-zinc-900 border border-white/5">✔ حملات تسويقية وتغطية تريند</div>
+            </div>
+            <a href="https://wa.me/00971585470450?text=أريد تنظيم حفلة مع أقوى نجوم مصر" target="_blank" class="btn-primary block text-center py-6 rounded-3xl font-black text-2xl shadow-2xl">نظّم حفلتك مع النجوم ✨</a>
+        </div>
+    </div>
+
+    <!-- DETAIL PAGE: MUSIC (توزيع موسيقي) -->
+    <div id="service-music" class="hidden-page page-transition min-h-screen pt-32 px-6">
+        <div class="max-w-4xl mx-auto">
+            <button onclick="showPage('main-content')" class="text-purple-500 font-bold mb-8 hover:underline flex items-center gap-2">← العودة للرئيسية</button>
+            <div class="text-6xl mb-8">🎶</div>
+            <h2 class="text-5xl md:text-7xl font-black mb-6">التوزيع الموسيقي <br> <span class="text-purple-500">والحماية الرقمية</span></h2>
+            <p class="text-zinc-400 text-xl leading-relaxed mb-12">
+                سمّع العالم موهبتك! إحنا بنوزع تراكك على أكتر من 150 منصة عالمية زي Spotify و Anghami و YouTube Music مع حماية كاملة لحقوقك وتقارير أداء دورية.
+            </p>
+            <div class="grid md:grid-cols-2 gap-6 mb-12 text-sm text-zinc-300">
+                <div class="p-6 rounded-2xl bg-zinc-900 border border-white/5">✔ رفع الأغاني على كل المنصات</div>
+                <div class="p-6 rounded-2xl bg-zinc-900 border border-white/5">✔ توثيق القنوات والحسابات (Verified)</div>
+                <div class="p-6 rounded-2xl bg-zinc-900 border border-white/5">✔ حماية الحقوق من السرقة Content ID</div>
+                <div class="p-6 rounded-2xl bg-zinc-900 border border-white/5">✔ تسويق الأغاني لتصدر التريند</div>
+            </div>
+            <a href="https://wa.me/00971585470450?text=أريد توزيع تراك موسيقي جديد" target="_blank" class="btn-primary block text-center py-6 rounded-3xl font-black text-2xl shadow-2xl">وزّع تراكك الآن 🎶</a>
+        </div>
+    </div>
+
+    <!-- DETAIL PAGE: BIO (صفحات البايو) -->
+    <div id="service-bio" class="hidden-page page-transition min-h-screen pt-32 px-6">
+        <div class="max-w-4xl mx-auto">
+            <button onclick="showPage('main-content')" class="text-purple-500 font-bold mb-8 hover:underline flex items-center gap-2">← العودة للرئيسية</button>
+            <div class="text-6xl mb-8">🔗</div>
+            <h2 class="text-5xl md:text-7xl font-black mb-6">تصميم صفحات <br> <span class="text-purple-500">بايو احترافية</span></h2>
+            <p class="text-zinc-400 text-xl leading-relaxed mb-12">
+                الانطباع الأول بيدوم. بنصمملك صفحة بايو (Link in Bio) فخمة وسريعة، بتجمع كل روابط السوشيال ميديا وشغلك في مكان واحد بتصميم بريميوم بيخلي العميل يثق فيك فوراً.
+            </p>
+            <div class="grid md:grid-cols-2 gap-6 mb-12 text-sm text-zinc-300">
+                <div class="p-6 rounded-2xl bg-zinc-900 border border-white/5">✔ تصميم Custom مش قوالب جاهزة</div>
+                <div class="p-6 rounded-2xl bg-zinc-900 border border-white/5">✔ أزرار تفاعلية وروابط مباشرة</div>
+                <div class="p-6 rounded-2xl bg-zinc-900 border border-white/5">✔ عرض فيديوهات وصور مباشرة</div>
+                <div class="p-6 rounded-2xl bg-zinc-900 border border-white/5">✔ ربط ببيكسل فيسبوك للتحليل</div>
+            </div>
+            <a href="https://wa.me/00971585470450?text=أريد تصميم صفحة بايو احترافية" target="_blank" class="btn-primary block text-center py-6 rounded-3xl font-black text-2xl shadow-2xl">اطلب صفحتك الفاجرة 🔗</a>
+        </div>
+    </div>
+
+    <!-- OTHER PAGES REMAIN SAME (DESIGN, MARKETING, VIDEO) -->
     <div id="service-design" class="hidden-page page-transition min-h-screen pt-32 px-6">
         <div class="max-w-4xl mx-auto">
             <button onclick="showPage('main-content')" class="text-purple-500 font-bold mb-8 hover:underline flex items-center gap-2">← العودة للرئيسية</button>
             <div class="text-6xl mb-8">🎨</div>
-            <h2 class="text-5xl md:text-7xl font-black mb-6">تصميم جرافيك <br> <span class="text-purple-500">وهوية بصرية</span></h2>
-            <p class="text-zinc-400 text-xl leading-relaxed mb-12">
-                الهوية البصرية مش مجرد لوجو، هي "وش" البراند بتاعك. إحنا في السمكري ميديا بنصمم هوية بصرية كاملة، تصاميم سوشيال ميديا، وفيديوهات موشن جرافيك بتخلي البراند بتاعك "يتشاف ويتسمع".
-            </p>
-            <div class="grid md:grid-cols-2 gap-6 mb-12 text-sm text-zinc-300">
-                <div class="p-6 rounded-2xl bg-zinc-900 border border-white/5">✔ تصميم شعارات احترافية</div>
-                <div class="p-6 rounded-2xl bg-zinc-900 border border-white/5">✔ هوية بصرية متكاملة</div>
-                <div class="p-6 rounded-2xl bg-zinc-900 border border-white/5">✔ بوستات سوشيال ميديا مبتكرة</div>
-                <div class="p-6 rounded-2xl bg-zinc-900 border border-white/5">✔ موشن جرافيك دعائي</div>
-            </div>
-            <a href="https://wa.me/00971585470450?text=أريد الاستفسار عن خدمة تصميم الجرافيك" target="_blank" class="btn-primary block text-center py-6 rounded-3xl font-black text-2xl shadow-2xl">صمم هويتك الآن 🚀</a>
+            <h2 class="text-5xl md:text-7xl font-black mb-6 uppercase tracking-tighter">جرافيك <br> <span class="text-purple-500">وهوية بصرية</span></h2>
+            <a href="https://wa.me/00971585470450?text=أريد الاستفسار عن خدمة تصميم الجرافيك" target="_blank" class="btn-primary block text-center py-6 mt-12 rounded-3xl font-black text-2xl">صمم هويتك الآن 🚀</a>
         </div>
     </div>
 
-    <!-- DETAIL PAGE: MARKETING -->
     <div id="service-marketing" class="hidden-page page-transition min-h-screen pt-32 px-6">
         <div class="max-w-4xl mx-auto">
             <button onclick="showPage('main-content')" class="text-purple-500 font-bold mb-8 hover:underline flex items-center gap-2">← العودة للرئيسية</button>
             <div class="text-6xl mb-8">📈</div>
-            <h2 class="text-5xl md:text-7xl font-black mb-6 text-purple-500">الحملات الممولة <br> <span class="text-white">وإدارة النمو</span></h2>
-            <p class="text-zinc-400 text-xl leading-relaxed mb-12">
-                لو عاوز مبيعاتك تزيد 3 أضعاف زي "برجر فلو"، إحنا بنعمل حملات ممولة باستهداف ذكي جداً على فيسبوك، انستجرام، وتيك توك. بنحلل البيانات ونوصلك للعميل اللي محتاجك فعلاً.
-            </p>
-            <div class="grid md:grid-cols-2 gap-6 mb-12 text-sm text-zinc-300">
-                <div class="p-6 rounded-2xl bg-zinc-900 border border-white/5">✔ إعلانات فيسبوك وانستجرام</div>
-                <div class="p-6 rounded-2xl bg-zinc-900 border border-white/5">✔ حملات تيك توك التريند</div>
-                <div class="p-6 rounded-2xl bg-zinc-900 border border-white/5">✔ إدارة ميزانية إعلانية ذكية</div>
-                <div class="p-6 rounded-2xl bg-zinc-900 border border-white/5">✔ تقارير أداء دورية</div>
-            </div>
-            <a href="https://wa.me/00971585470450?text=أريد الاستفسار عن خدمة الحملات الممولة" target="_blank" class="btn-primary block text-center py-6 rounded-3xl font-black text-2xl shadow-2xl">اطلب حملتك الآن 🔥</a>
+            <h2 class="text-5xl md:text-7xl font-black mb-6 uppercase tracking-tighter">حملات <br> <span class="text-purple-500">ممولة ذكية</span></h2>
+            <a href="https://wa.me/00971585470450?text=أريد الاستفسار عن خدمة الحملات الممولة" target="_blank" class="btn-primary block text-center py-6 mt-12 rounded-3xl font-black text-2xl">اطلب حملتك الآن 🔥</a>
         </div>
     </div>
 
-    <!-- DETAIL PAGE: VIDEO -->
     <div id="service-video" class="hidden-page page-transition min-h-screen pt-32 px-6">
         <div class="max-w-4xl mx-auto">
             <button onclick="showPage('main-content')" class="text-purple-500 font-bold mb-8 hover:underline flex items-center gap-2">← العودة للرئيسية</button>
-            <div class="text-6xl mb-8">🎥</div>
-            <h2 class="text-5xl md:text-7xl font-black mb-6">صناعة الفيديو <br> <span class="text-purple-500">والتوزيع الموسيقي</span></h2>
-            <p class="text-zinc-400 text-xl leading-relaxed mb-12">
-                الفيديو هو الملك! إحنا بنصنع فيديوهات دعائية بروح سينمائية، ومع استخدام الذكاء الاصطناعي في الأصوات (ElevenLabs)، بنضمنلك نتيجة مبهرة تخلي أي حد يشوف الفيديو يفتكرك.
-            </p>
-            <div class="grid md:grid-cols-2 gap-6 mb-12 text-sm text-zinc-300">
-                <div class="p-6 rounded-2xl bg-zinc-900 border border-white/5">✔ تصوير ومونتاج احترافي</div>
-                <div class="p-6 rounded-2xl bg-zinc-900 border border-white/5">✔ أصوات AI بـ ElevenLabs</div>
-                <div class="p-6 rounded-2xl bg-zinc-900 border border-white/5">✔ توزيع أعمالك على المنصات</div>
-                <div class="p-6 rounded-2xl bg-zinc-900 border border-white/5">✔ إنتاج ريلز وتيك توك</div>
-            </div>
-            <a href="https://wa.me/00971585470450?text=أريد الاستفسار عن خدمة صناعة الفيديوهات" target="_blank" class="btn-primary block text-center py-6 rounded-3xl font-black text-2xl shadow-2xl">ابدأ إنتاجك الآن 🎞️</a>
+            <div class="text-6xl mb-8">🎞️</div>
+            <h2 class="text-5xl md:text-7xl font-black mb-6 uppercase tracking-tighter text-purple-500">فيديوهات <br> <span class="text-white tracking-tighter">دعائية AI</span></h2>
+            <a href="https://wa.me/00971585470450?text=أريد الاستفسار عن خدمة صناعة الفيديوهات" target="_blank" class="btn-primary block text-center py-6 mt-12 rounded-3xl font-black text-2xl">ابدأ إنتاجك الآن 🎞️</a>
         </div>
     </div>
 
     <script>
-        // SPA Logic for switching pages
         function showPage(pageId) {
-            // Hide all pages
-            const pages = ['main-content', 'service-design', 'service-marketing', 'service-video'];
+            const pages = ['main-content', 'service-events', 'service-music', 'service-bio', 'service-design', 'service-marketing', 'service-video'];
             pages.forEach(id => {
                 const el = document.getElementById(id);
-                el.classList.add('hidden-page');
-                el.style.display = 'none';
+                if (el) {
+                    el.classList.add('hidden-page');
+                    el.style.display = 'none';
+                }
             });
 
-            // Show current page
             const currentPage = document.getElementById(pageId);
-            currentPage.style.display = 'block';
-            setTimeout(() => {
-                currentPage.classList.remove('hidden-page');
-                currentPage.style.opacity = '1';
-                currentPage.style.transform = 'translateY(0)';
-            }, 50);
-
-            // Scroll to top
+            if (currentPage) {
+                currentPage.style.display = 'block';
+                setTimeout(() => {
+                    currentPage.classList.remove('hidden-page');
+                    currentPage.style.opacity = '1';
+                    currentPage.style.transform = 'translateY(0)';
+                }, 50);
+            }
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // Initialize with smooth animations
         document.addEventListener('DOMContentLoaded', () => {
             showPage('main-content');
-        });
-    </script>
-</body>
-</html>
-    <style>
-        :root {
-            --neon-cyan: #00f3ff;
-            --neon-fuchsia: #ff00ff;
-        }
-        body {
-            font-family: 'Tajawal', sans-serif;
-            background-color: #050505;
-            color: #ffffff;
-            scroll-behavior: smooth;
-            overflow-x: hidden;
-        }
-        .neon-glow-cyan {
-            text-shadow: 0 0 10px rgba(0, 243, 255, 0.6), 0 0 20px rgba(0, 243, 255, 0.4);
-        }
-        .glass-panel {
-            background: rgba(15, 23, 42, 0.7);
-            backdrop-filter: blur(15px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        .chart-container {
-            position: relative;
-            width: 100%;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-            height: 350px;
-            max-height: 400px;
-        }
-        .nav-link {
-            position: relative;
-            transition: all 0.3s;
-        }
-        .nav-link.active::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background: var(--neon-cyan);
-            box-shadow: 0 0 10px var(--neon-cyan);
-        }
-        #bg-canvas {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            opacity: 0.4;
-        }
-        .shimmer {
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.05), transparent);
-            background-size: 200% 100%;
-            animation: shimmer-anim 1.5s infinite;
-        }
-        @keyframes shimmer-anim {
-            0% { background-position: -200% 0; }
-            100% { background-position: 200% 0; }
-        }
-        .custom-button {
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        .custom-button:hover {
-            transform: translateY(-2px) scale(1.02);
-            box-shadow: 0 0 25px rgba(0, 243, 255, 0.4);
-        }
-    </style>
-</head>
-<body class="antialiased">
-
-    <!-- 3D BACKGROUND LAYER -->
-    <canvas id="bg-canvas"></canvas>
-
-    <!-- NAVIGATION BAR -->
-    <nav class="fixed top-0 w-full z-50 glass-panel border-b border-white/10">
-        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-            <div class="text-2xl font-black tracking-tighter text-white">
-                ELSMKARY<span class="text-cyan-400">MEDIA</span>
-            </div>
-            <div class="hidden md:flex space-x-8 space-x-reverse font-bold text-sm">
-                <a href="#hero" class="nav-link active hover:text-cyan-400">الرئيسية</a>
-                <a href="#services" class="nav-link hover:text-cyan-400">خدماتنا</a>
-                <a href="#data-hub" class="nav-link hover:text-cyan-400">قصص النجاح</a>
-                <a href="#ai-contact" class="nav-link text-fuchsia-400 hover:text-fuchsia-300 font-black italic underline decoration-fuchsia-500">تواصل مع عمر ✨</a>
-            </div>
-            <div class="flex gap-4">
-                <a href="https://wa.me/201030085653" target="_blank" class="bg-cyan-500 text-black px-5 py-2 rounded-full text-xs font-black custom-button shadow-[0_0_15px_rgba(0,243,255,0.4)]">
-                    مصر 🇪🇬
-                </a>
-                <a href="https://wa.me/971585470450" target="_blank" class="bg-fuchsia-500 text-white px-5 py-2 rounded-full text-xs font-black custom-button shadow-[0_0_15px_rgba(255,0,255,0.4)]">
-                    الإمارات 🇦🇪
-                </a>
-            </div>
-        </div>
-    </nav>
-
-    <!-- HERO SECTION -->
-    <section id="hero" class="relative pt-40 pb-20 px-6 min-h-screen flex items-center">
-        <div class="max-w-6xl mx-auto text-center">
-            <div class="mb-6 inline-block py-2 px-6 rounded-full border border-cyan-500/30 bg-cyan-500/10">
-                <span class="text-cyan-400 text-xs font-black uppercase tracking-widest italic">مستقبل التسويق الرقمي بدأ هنا</span>
-            </div>
-            <h1 class="text-6xl md:text-9xl font-black leading-tight mb-8">
-                نصنع <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-fuchsia-500 neon-glow-cyan uppercase">التأثير</span> <br> بذكاء استثنائي
-            </h1>
-            <p class="text-xl text-gray-400 max-w-3xl mx-auto mb-12 leading-relaxed">
-                في السمكري ميديا، نحن نؤمن بلغة الأرقام وفن الإبداع. نستخدم تقنيات <span class="text-white font-bold">Gemini 2.5 Flash</span> لتحليل السوق وضمان نمو علامتك التجارية بشكل غير مسبوق.
-            </p>
-            <div class="flex flex-wrap justify-center gap-6">
-                <a href="#data-hub" class="bg-white text-black px-12 py-5 rounded-full font-black hover:bg-cyan-400 transition shadow-2xl">
-                    استعرض النتائج 📈
-                </a>
-                <a href="#ai-contact" class="border-2 border-fuchsia-500 text-fuchsia-500 px-12 py-5 rounded-full font-black hover:bg-fuchsia-500 hover:text-white transition shadow-[0_0_20px_rgba(255,0,255,0.2)]">
-                    تواصل مع عمر الآن ✨
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- SERVICES GRID -->
-    <section id="services" class="py-24 px-6 relative">
-        <div class="max-w-7xl mx-auto">
-            <div class="text-right mb-16">
-                <h2 class="text-4xl font-black mb-4">منظومة الخدمات <span class="text-cyan-400 uppercase italic">Smart Matrix</span></h2>
-                <p class="text-gray-400 max-w-2xl leading-relaxed">
-                    يقدم عمر السمكري وفريقه رؤية شاملة للنمو الرقمي، تجمع بين الإدارة الفنية والتحليل الذكي للبيانات.
-                </p>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="glass-panel p-10 rounded-[2.5rem] group hover:border-cyan-400 transition-all duration-500">
-                    <div class="text-5xl mb-6">🎨</div>
-                    <h3 class="text-2xl font-black mb-4 text-white">تصميمات وموشن</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed">تحويل هوية مشروعك إلى لغة بصرية تخطف الأنظار فوراً وتترك انطباعاً لا ينسى.</p>
-                </div>
-                <div class="glass-panel p-10 rounded-[2.5rem] group hover:border-fuchsia-400 transition-all duration-500">
-                    <div class="text-5xl mb-6">🎯</div>
-                    <h3 class="text-2xl font-black mb-4 text-white">حملات ممولة</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed">إدارة ذكية للميزانيات على Meta و Google لتحقيق أعلى عائد ROI ممكن.</p>
-                </div>
-                <div class="glass-panel p-10 rounded-[2.5rem] group hover:border-purple-400 transition-all duration-500">
-                    <div class="text-5xl mb-6">🎬</div>
-                    <h3 class="text-2xl font-black mb-4 text-white">فيديوهات دعائية</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed">إنتاج محتوى مرئي عالي الجودة يعكس احترافية براندك ويحفز على الشراء.</p>
-                </div>
-                <div class="glass-panel p-10 rounded-[2.5rem] group hover:border-green-400 transition-all duration-500">
-                    <div class="text-5xl mb-6">📱</div>
-                    <h3 class="text-2xl font-black mb-4 text-white">إدارة سوشيال</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed">بناء مجتمع متفاعل حول علامتك التجارية وضمان ظهورك الدائم أمام عملائك.</p>
-                </div>
-                <div class="glass-panel p-10 rounded-[2.5rem] group hover:border-yellow-400 transition-all duration-500 lg:col-span-2">
-                    <div class="text-5xl mb-6">🎵</div>
-                    <h3 class="text-2xl font-black mb-4 text-white">توزيع موسيقى وصناعة محتوى حصري</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed">نتميز بتقديم بصمة صوتية وموسيقية خاصة لمشروعك تجعل محتواك "ترند" وتزيد من جاذبية الفيديوهات.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- INTERACTIVE DATA HUB -->
-    <section id="data-hub" class="py-24 px-6 bg-slate-950/50 border-y border-white/5 relative">
-        <div class="max-w-7xl mx-auto">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-black mb-4 uppercase">لوحة مؤشرات <span class="text-fuchsia-500 italic">النجاح</span></h2>
-                <p class="text-gray-400">تحليل حقيقي للنتائج التي حققها عمر السمكري لشركائه.</p>
-            </div>
-
-            <div class="glass-panel rounded-[3rem] p-8 md:p-12 overflow-hidden shadow-2xl">
-                <!-- Select Data Source -->
-                <div class="flex flex-wrap justify-center gap-4 mb-16" id="data-tabs">
-                    <button class="data-tab px-10 py-4 rounded-full border border-white/10 font-black hover:bg-white/5 transition active bg-cyan-500 text-black border-cyan-500" data-key="burger">
-                        🍔 برجر فلو
-                    </button>
-                    <button class="data-tab px-10 py-4 rounded-full border border-white/10 font-black hover:bg-white/5 transition" data-key="balsam">
-                        🦷 مركز بلسم
-                    </button>
-                    <button class="data-tab px-10 py-4 rounded-full border border-white/10 font-black hover:bg-white/5 transition" data-key="rasekh">
-                        🏠 الراسخون
-                    </button>
-                </div>
-
-                <div class="flex flex-col lg:flex-row items-center gap-16">
-                    <div class="w-full lg:w-1/2 text-right">
-                        <h3 id="stat-title" class="text-4xl font-black text-white mb-6">تحليل نمو المبيعات</h3>
-                        <p id="stat-desc" class="text-gray-400 text-xl leading-loose mb-12">
-                            تمت مضاعفة المبيعات بمقدار 3 أضعاف خلال 14 يوماً فقط بفضل استراتيجية المحتوى الفيروسي والاستهداف الدقيق.
-                        </p>
-                        <div class="grid grid-cols-2 gap-6">
-                            <div class="bg-cyan-500/10 p-8 rounded-3xl border border-cyan-500/20">
-                                <span class="block text-cyan-400 text-sm font-black uppercase mb-2 italic">النتيجة</span>
-                                <span id="stat-main" class="text-4xl font-black neon-glow-cyan">×3 مبيعات</span>
-                            </div>
-                            <div class="bg-fuchsia-500/10 p-8 rounded-3xl border border-fuchsia-500/20">
-                                <span class="block text-fuchsia-400 text-sm font-black uppercase mb-2 italic">المدة</span>
-                                <span id="stat-sub" class="text-4xl font-black">أسبوعين</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="w-full lg:w-1/2">
-                        <div class="chart-container">
-                            <canvas id="successChart"></canvas>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- AI CONNECT SECTION: 'Tawasol Ma'a Omar' -->
-    <section id="ai-contact" class="py-24 px-6 relative">
-        <div class="max-w-4xl mx-auto">
-            <div class="text-center mb-16">
-                <h2 class="text-5xl font-black mb-6">تواصل مع <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-fuchsia-500 neon-glow-cyan uppercase italic">عمر</span> ✨</h2>
-                <p class="text-gray-400 text-lg leading-relaxed">
-                    مساعد عمر الذكي المدعوم بـ <span class="text-white font-bold underline decoration-cyan-500">Gemini AI</span> جاهز لتحليل رؤيتك فوراً وإعطائك نصيحة تسويقية قوية لبدء رحلتك معنا.
-                </p>
-            </div>
-
-            <div class="glass-panel p-8 md:p-16 rounded-[4rem] border-2 border-fuchsia-500/30 relative shadow-[0_0_80px_rgba(217,70,239,0.15)]">
-                <div class="mb-10 text-right">
-                    <label class="block text-white font-black mb-6 text-2xl">أخبر عمر: ما هو مجال عملك أو علامتك التجارية؟</label>
-                    <div class="flex flex-col sm:flex-row gap-5">
-                        <input type="text" id="ai-input" placeholder="مثال: مطعم فاخر، شركة شحن، متجر عطور..." class="flex-1 bg-black/60 border-2 border-white/20 rounded-[2rem] px-8 py-5 text-white focus:outline-none focus:border-cyan-400 transition-all text-right text-lg">
-                        <button id="ai-btn" class="bg-fuchsia-600 hover:bg-fuchsia-700 text-white font-black px-12 py-5 rounded-[2rem] transition-all shadow-lg whitespace-nowrap text-lg">
-                            تحدث مع عمر ✨
-                        </button>
-                    </div>
-                </div>
-                
-                <div id="ai-result-container" class="hidden">
-                    <div class="flex items-center justify-end gap-4 mb-8 p-5 bg-fuchsia-500/10 rounded-2xl border border-fuchsia-500/20">
-                        <h4 class="font-black text-white text-xl">رؤية عمر المبدئية لمشروعك:</h4>
-                        <span class="text-3xl">💡</span>
-                    </div>
-                    <div id="ai-loader" class="hidden py-8">
-                        <div class="shimmer h-6 w-full rounded-full mb-4"></div>
-                        <div class="shimmer h-6 w-4/5 rounded-full mb-4"></div>
-                        <div class="shimmer h-6 w-3/5 rounded-full"></div>
-                    </div>
-                    <div id="ai-output" class="text-gray-200 leading-relaxed whitespace-pre-line text-right bg-white/5 p-8 rounded-[2rem] border border-white/10 font-bold text-lg">
-                        <!-- Result from Gemini -->
-                    </div>
-                    <div class="mt-12 text-center">
-                        <a href="https://wa.me/201030085653" target="_blank" class="inline-flex items-center gap-4 bg-cyan-500 text-black px-10 py-4 rounded-full font-black hover:scale-105 transition shadow-2xl">
-                             تحدث معي الآن لمناقشة التفاصيل <i class="fab fa-whatsapp text-xl"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer class="py-24 px-6 bg-black border-t border-white/5">
-        <div class="max-w-7xl mx-auto text-center">
-            <div class="text-5xl font-black mb-12 neon-glow-cyan uppercase tracking-tighter">
-                ELSMKARYMEDIA
-            </div>
-            <div class="flex justify-center gap-10 mb-16">
-                <a href="https://www.facebook.com/share/1CHBHEEp5X/?mibextid=wwXIfr" target="_blank" class="text-gray-500 hover:text-white text-4xl transition transform hover:scale-125"><i class="fab fa-facebook"></i></a>
-                <a href="https://www.instagram.com/elsmkary_media" target="_blank" class="text-gray-500 hover:text-white text-4xl transition transform hover:scale-125"><i class="fab fa-instagram"></i></a>
-                <a href="https://www.tiktok.com/@omarelsmkary" target="_blank" class="text-gray-500 hover:text-white text-4xl transition transform hover:scale-125"><i class="fab fa-tiktok"></i></a>
-                <a href="https://www.youtube.com/channel/UCBVGPt9Xrp2DBFYRqZmV8ew" target="_blank" class="text-gray-500 hover:text-white text-4xl transition transform hover:scale-125"><i class="fab fa-youtube"></i></a>
-            </div>
-            <div class="text-gray-600 font-black text-xs uppercase tracking-[0.5em] italic mb-6">
-                DESIGNED & ENGINEERED BY ELSMKARYMEDIA AI TEAM
-            </div>
-            <p class="text-gray-700 text-sm font-bold">&copy; 2026 جميع الحقوق محفوظة لعمر السمكري - وكالة الحلول الرقمية الذكية</p>
-        </div>
-    </footer>
-
-    <!-- LOGIC SCRIPTS -->
-    <script>
-        // 1. THREE.JS 3D AMBIENT BACKGROUND
-        function init3D() {
-            const canvas = document.getElementById('bg-canvas');
-            const scene = new THREE.Scene();
-            const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-            const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
-            renderer.setSize(window.innerWidth, window.innerHeight);
-
-            // Shape: Wireframe Torus Knot for high-tech feeling
-            const geometry = new THREE.TorusKnotGeometry(12, 4, 120, 18);
-            const material = new THREE.MeshBasicMaterial({ color: 0x00f3ff, wireframe: true, transparent: true, opacity: 0.12 });
-            const mesh = new THREE.Mesh(geometry, material);
-            scene.add(mesh);
-
-            camera.position.z = 35;
-
-            function animate() {
-                requestAnimationFrame(animate);
-                mesh.rotation.x += 0.0015;
-                mesh.rotation.y += 0.0025;
-                renderer.render(scene, camera);
-            }
-            animate();
-
-            window.addEventListener('resize', () => {
-                camera.aspect = window.innerWidth / window.innerHeight;
-                camera.updateProjectionMatrix();
-                renderer.setSize(window.innerWidth, window.innerHeight);
-            });
-        }
-        init3D();
-
-        // 2. SUCCESS DATA ANALYTICS (interactive charts)
-        const successData = {
-            burger: {
-                title: "تحليل نمو المبيعات",
-                desc: "تمت مضاعفة المبيعات بمقدار 3 أضعاف خلال أسبوعين فقط من بدء الحملة الممولة وإدارة المحتوى، مما يوضح الدقة في الاستهداف.",
-                main: "×3 مبيعات",
-                sub: "14 يوم",
-                labels: ['بداية الحملة', 'منتصف الأسبوع 1', 'نهاية الأسبوع 2'],
-                data: [1, 2.2, 3],
-                color: '#00f3ff'
-            },
-            balsam: {
-                title: "معدل حجز المواعيد",
-                desc: "بفضل استراتيجية بناء الثقة الرقمية، وصل مركز بلسم إلى السعة القصوى للحجوزات (حجوزات فل) منذ الشهر الأول للتعاون.",
-                main: "100% فل",
-                sub: "30 يوم",
-                labels: ['الأسبوع 1', 'الأسبوع 2', 'الأسبوع 3', 'الأسبوع 4'],
-                data: [15, 55, 85, 100],
-                color: '#ff00ff'
-            },
-            rasekh: {
-                title: "وصول المحتوى الفيروسي",
-                desc: "حقق أول فيديو دعائي تم إطلاقه لشركة الراسخون أكثر من 100 ألف مشاهدة حقيقية، مما وسع قاعدة العملاء المحتملين فوراً.",
-                main: "+100K مشاهدة",
-                sub: "أول فيديو",
-                labels: ['اليوم 1', 'اليوم 3', 'اليوم 5', 'اليوم 7'],
-                data: [5000, 35000, 75000, 100000],
-                color: '#ffffff'
-            }
-        };
-
-        let currentChart = null;
-        const ctx = document.getElementById('successChart').getContext('2d');
-
-        function updateDisplay(key) {
-            const info = successData[key];
-            document.getElementById('stat-title').innerText = info.title;
-            document.getElementById('stat-desc').innerText = info.desc;
-            document.getElementById('stat-main').innerText = info.main;
-            document.getElementById('stat-sub').innerText = info.sub;
-
-            if (currentChart) currentChart.destroy();
-            
-            currentChart = new Chart(ctx, {
-                type: 'line',
-                data: {
-                    labels: info.labels,
-                    datasets: [{
-                        label: 'مؤشر النمو',
-                        data: info.data,
-                        borderColor: info.color,
-                        backgroundColor: info.color + '22',
-                        fill: true,
-                        tension: 0.45,
-                        borderWidth: 5,
-                        pointRadius: 6,
-                        pointBackgroundColor: info.color
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    plugins: { legend: { display: false } },
-                    scales: {
-                        y: { 
-                            grid: { color: 'rgba(255,255,255,0.05)' }, 
-                            ticks: { color: '#666', font: {family: 'Tajawal'} } 
-                        },
-                        x: { 
-                            grid: { display: false }, 
-                            ticks: { color: '#666', font: {family: 'Tajawal'} } 
-                        }
-                    }
-                }
-            });
-        }
-
-        document.querySelectorAll('.data-tab').forEach(btn => {
-            btn.addEventListener('click', () => {
-                document.querySelectorAll('.data-tab').forEach(b => {
-                    b.classList.remove('bg-cyan-500', 'text-black', 'border-cyan-500');
-                });
-                btn.classList.add('bg-cyan-500', 'text-black', 'border-cyan-500');
-                updateDisplay(btn.dataset.key);
-            });
-        });
-        updateDisplay('burger');
-
-        // 3. AI ACTIVATION (GEMINI 2.5 FLASH API)
-        const apiKey = "AIzaSyA5Dx5gDGmWN0AH3ESpD5Puekcu-JZjILc"; // تم وضع المفتاح الخاص بك
-        
-        const aiBtn = document.getElementById('ai-btn');
-        const aiInput = document.getElementById('ai-input');
-        const aiContainer = document.getElementById('ai-result-container');
-        const aiLoader = document.getElementById('ai-loader');
-        const aiOutput = document.getElementById('ai-output');
-
-        async function fetchGemini(prompt, retries = 5, delay = 1000) {
-            const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`;
-            const payload = {
-                contents: [{ parts: [{ text: prompt }] }],
-                systemInstruction: { 
-                    parts: [{ text: "أنت المساعد الذكي لعمر السمكري، صاحب وكالة ELSMKARYMEDIA. تحدث دائماً بلهجة مصرية احترافية، ذكية، ومحمسة. قدم نصائح تسويقية عملية وقوية جداً لمن يسألك عن مشروعه. ابدأ دائماً بترحيب حار بلسان عمر." }] 
-                }
-            };
-
-            for (let i = 0; i < retries; i++) {
-                try {
-                    const response = await fetch(url, {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify(payload)
-                    });
-                    
-                    if (!response.ok) {
-                        if (response.status === 429) throw new Error("Rate Limit");
-                        throw new Error(`Status: ${response.status}`);
-                    }
-                    
-                    const data = await response.json();
-                    return data.candidates[0].content.parts[0].text;
-                } catch (e) {
-                    if (i === retries - 1) throw e;
-                    await new Promise(r => setTimeout(r, delay));
-                    delay *= 2; // Exponential Backoff
-                }
-            }
-        }
-
-        aiBtn.addEventListener('click', async () => {
-            const topic = aiInput.value.trim();
-            if (!topic) return;
-
-            aiBtn.disabled = true;
-            aiContainer.classList.remove('hidden');
-            aiOutput.classList.add('hidden');
-            aiLoader.classList.remove('hidden');
-
-            try {
-                const prompt = `أنا صاحب مشروع في مجال: ${topic}. أعطني رؤية تسويقية سريعة ومبتكرة لأبدأ بها فوراً مع وكالة السمكري ميديا. اجعل الرد منسقاً وقوياً.`;
-                const result = await fetchGemini(prompt);
-                aiOutput.innerText = result;
-            } catch (err) {
-                console.error(err);
-                aiOutput.innerText = "عذراً يا بطل، حدث ضغط بسيط على السيرفر الذكي. تقدر تتواصل مع عمر مباشرة عبر واتساب وهيحللك كل حاجة!";
-            } finally {
-                aiLoader.classList.add('hidden');
-                aiOutput.classList.remove('hidden');
-                aiBtn.disabled = false;
-            }
         });
     </script>
 </body>
