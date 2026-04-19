@@ -117,9 +117,8 @@
         <section id="services" class="py-32 px-6">
             <div class="max-w-7xl mx-auto">
                 <div class="text-center mb-20">
-                    <h2 class="text-4xl md:text-6xl font-black mb-4 tracking-tighter">خدماتنا الفاجرة ⚡</h2>
-                    <p class="text-zinc-500 font-bold italic mb-4">اضغط على الخدمة للتفاصيل</p>
-                    <div class="w-20 h-1.5 bg-purple-600 mx-auto rounded-full"></div>
+                    <h2 class="text-4xl md:text-6xl font-black mb-4 tracking-tighter text-purple-500">خدماتنا الاحترافية ⚡</h2>
+                    <div class="w-20 h-1.5 bg-white mx-auto rounded-full mt-4"></div>
                 </div>
                 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -130,12 +129,12 @@
                         <p class="text-zinc-400 text-sm leading-relaxed">تنظيم أضخم الحفلات بأقوى نجوم مصر، تجهيزات صوت وإضاءة عالمية وتغطية ميديا جبارة.</p>
                         <div class="mt-6 text-purple-400 font-bold text-xs uppercase tracking-widest">شوف النجوم ←</div>
                     </div>
-                    <!-- Marketing -->
-                    <div onclick="showPage('service-marketing')" class="p-10 rounded-[3rem] border border-white/5 bg-zinc-900/30 card-hover transition-all duration-500 cursor-pointer group">
-                        <div class="text-5xl mb-8 group-hover:scale-110 transition">📊</div>
-                        <h3 class="text-2xl font-black mb-4">حملات ممولة 🔥</h3>
-                        <p class="text-zinc-400 text-sm leading-relaxed">استراتيجيات إعلانية تضاعف مبيعاتك وتضمن وصولك للعميل المستهدف بدقة ذكاء اصطناعي.</p>
-                        <div class="mt-6 text-purple-500 font-bold text-xs uppercase tracking-widest">عرض التفاصيل ←</div>
+                    <!-- Social Media Management -->
+                    <div onclick="showPage('service-social')" class="p-10 rounded-[3rem] border border-white/5 bg-zinc-900/30 card-hover transition-all duration-500 cursor-pointer group">
+                        <div class="text-5xl mb-8 group-hover:scale-110 transition">📲</div>
+                        <h3 class="text-2xl font-black mb-4">إدارة السوشيال ميديا</h3>
+                        <p class="text-zinc-400 text-sm leading-relaxed">إدارة كاملة لحساباتك، صناعة محتوى يومي، ردود ذكية، وزيادة متابعين حقيقيين وتفاعل.</p>
+                        <div class="mt-6 text-purple-500 font-bold text-xs uppercase tracking-widest">إدارة صفحاتك ←</div>
                     </div>
                     <!-- Music -->
                     <div onclick="showPage('service-music')" class="p-10 rounded-[3rem] border border-white/5 bg-zinc-900/30 card-hover transition-all duration-500 cursor-pointer group">
@@ -151,12 +150,12 @@
                         <p class="text-zinc-400 text-sm leading-relaxed">نصنع هويات بصرية فخمة، بوستات سوشيال ميديا، وموشن جرافيك يروي قصة نجاحك.</p>
                         <div class="mt-6 text-purple-500 font-bold text-xs uppercase tracking-widest">عرض التفاصيل ←</div>
                     </div>
-                    <!-- Bio Design -->
-                    <div onclick="showPage('service-bio')" class="p-10 rounded-[3rem] border border-white/5 bg-zinc-900/30 card-hover transition-all duration-500 cursor-pointer group">
-                        <div class="text-5xl mb-8 group-hover:scale-110 transition">🔗</div>
-                        <h3 class="text-2xl font-black mb-4">تصميم صفحات البايو</h3>
-                        <p class="text-zinc-400 text-sm leading-relaxed">صفحة روابط احترافية (Link in Bio) تجمع كل شغلك ومنصاتك بتصميم مودرن وسريع.</p>
-                        <div class="mt-6 text-purple-500 font-bold text-xs uppercase tracking-widest">صمم صفحتك ←</div>
+                    <!-- Marketing -->
+                    <div onclick="showPage('service-marketing')" class="p-10 rounded-[3rem] border border-white/5 bg-zinc-900/30 card-hover transition-all duration-500 cursor-pointer group">
+                        <div class="text-5xl mb-8 group-hover:scale-110 transition">📊</div>
+                        <h3 class="text-2xl font-black mb-4">حملات ممولة 🔥</h3>
+                        <p class="text-zinc-400 text-sm leading-relaxed">استراتيجيات إعلانية تضاعف مبيعاتك وتضمن وصولك للعميل المستهدف بدقة ذكاء اصطناعي.</p>
+                        <div class="mt-6 text-purple-500 font-bold text-xs uppercase tracking-widest">عرض التفاصيل ←</div>
                     </div>
                     <!-- Video -->
                     <div onclick="showPage('service-video')" class="p-10 rounded-[3rem] border border-white/5 bg-zinc-900/30 card-hover transition-all duration-500 cursor-pointer group">
@@ -200,14 +199,33 @@
         </footer>
     </div>
 
-    <!-- DETAIL PAGE: EVENTS (تنظيم الحفلات) -->
+    <!-- DETAIL PAGE: SOCIAL MEDIA MANAGEMENT (إدارة الصفحات) -->
+    <div id="service-social" class="hidden-page page-transition min-h-screen pt-32 px-6">
+        <div class="max-w-4xl mx-auto">
+            <button onclick="showPage('main-content')" class="text-purple-500 font-bold mb-8 hover:underline flex items-center gap-2">← العودة للرئيسية</button>
+            <div class="text-6xl mb-8">📲</div>
+            <h2 class="text-5xl md:text-7xl font-black mb-6 italic">إدارة صفحات <br> <span class="text-purple-500">السوشيال ميديا</span></h2>
+            <p class="text-zinc-400 text-xl leading-relaxed mb-12">
+                بنريحك من دوشة الصفحات. إحنا في السمكري ميديا بنمسك حساباتك على كل المنصات، بنكتب محتوى بيشد الناس، بنرد على الرسايل، وبنكبر الصفحة بمتابعين حقيقيين مش وهميين.
+            </p>
+            <div class="grid md:grid-cols-2 gap-6 mb-12 text-sm text-zinc-300">
+                <div class="p-6 rounded-2xl bg-zinc-900 border border-white/5">✔ صناعة محتوى يومي (Reels & Posts)</div>
+                <div class="p-6 rounded-2xl bg-zinc-900 border border-white/5">✔ إدارة الردود والكومنتات باحترافية</div>
+                <div class="p-6 rounded-2xl bg-zinc-900 border border-white/5">✔ خطط نمو شهرية لزيادة المتابعين</div>
+                <div class="p-6 rounded-2xl bg-zinc-900 border border-white/5">✔ تحليل كامل للأداء والمنافسين</div>
+            </div>
+            <a href="https://wa.me/00971585470450?text=أريد الاستفسار عن خدمة إدارة صفحات السوشيال ميديا" target="_blank" class="btn-primary block text-center py-6 rounded-3xl font-black text-2xl shadow-2xl uppercase">ابدأ إدارة صفحاتك الآن 📲</a>
+        </div>
+    </div>
+
+    <!-- DETAIL PAGE: EVENTS -->
     <div id="service-events" class="hidden-page page-transition min-h-screen pt-32 px-6">
         <div class="max-w-4xl mx-auto">
             <button onclick="showPage('main-content')" class="text-purple-500 font-bold mb-8 hover:underline flex items-center gap-2">← العودة للرئيسية</button>
             <div class="text-6xl mb-8">🎸</div>
             <h2 class="text-5xl md:text-7xl font-black mb-6 italic tracking-tighter">تنظيم الحفلات <br> <span class="text-purple-500">بأقوى نجوم مصر</span></h2>
             <p class="text-zinc-400 text-xl leading-relaxed mb-12">
-                السمكري ميديا بتنظملك حدث مش هيتنسى. بنتعامل مع أقوى نجوم مصر والوطن العربي، بنوفرلك أحدث أنظمة الصوت والإضاءة، وبنديرلك الحفلة من الألف للياء بتغطية إعلامية فاجرة.
+                السمكري ميديا بتنظملك حدث مش هيتنسى. بنتعامل مع أقوى نجوم مصر والوطن العربي، بنوفرلك أحدث أنظمة الصوت والإضاءة، وبنديرلك الحفلة من الألف للياء.
             </p>
             <div class="grid md:grid-cols-2 gap-6 mb-12 text-sm text-zinc-300">
                 <div class="p-6 rounded-2xl bg-zinc-900 border border-white/5">✔ حجز وتعاقد مع أقوى الفنانين</div>
@@ -219,14 +237,14 @@
         </div>
     </div>
 
-    <!-- DETAIL PAGE: MUSIC (توزيع موسيقي) -->
+    <!-- DETAIL PAGE: MUSIC -->
     <div id="service-music" class="hidden-page page-transition min-h-screen pt-32 px-6">
         <div class="max-w-4xl mx-auto">
             <button onclick="showPage('main-content')" class="text-purple-500 font-bold mb-8 hover:underline flex items-center gap-2">← العودة للرئيسية</button>
             <div class="text-6xl mb-8">🎶</div>
             <h2 class="text-5xl md:text-7xl font-black mb-6">التوزيع الموسيقي <br> <span class="text-purple-500">والحماية الرقمية</span></h2>
             <p class="text-zinc-400 text-xl leading-relaxed mb-12">
-                سمّع العالم موهبتك! إحنا بنوزع تراكك على أكتر من 150 منصة عالمية زي Spotify و Anghami و YouTube Music مع حماية كاملة لحقوقك وتقارير أداء دورية.
+                سمّع العالم موهبتك! إحنا بنوزع تراكك على أكتر من 150 منصة عالمية زي Spotify و Anghami و YouTube Music مع حماية كاملة لحقوقك.
             </p>
             <div class="grid md:grid-cols-2 gap-6 mb-12 text-sm text-zinc-300">
                 <div class="p-6 rounded-2xl bg-zinc-900 border border-white/5">✔ رفع الأغاني على كل المنصات</div>
@@ -238,26 +256,7 @@
         </div>
     </div>
 
-    <!-- DETAIL PAGE: BIO (صفحات البايو) -->
-    <div id="service-bio" class="hidden-page page-transition min-h-screen pt-32 px-6">
-        <div class="max-w-4xl mx-auto">
-            <button onclick="showPage('main-content')" class="text-purple-500 font-bold mb-8 hover:underline flex items-center gap-2">← العودة للرئيسية</button>
-            <div class="text-6xl mb-8">🔗</div>
-            <h2 class="text-5xl md:text-7xl font-black mb-6">تصميم صفحات <br> <span class="text-purple-500">بايو احترافية</span></h2>
-            <p class="text-zinc-400 text-xl leading-relaxed mb-12">
-                الانطباع الأول بيدوم. بنصمملك صفحة بايو (Link in Bio) فخمة وسريعة، بتجمع كل روابط السوشيال ميديا وشغلك في مكان واحد بتصميم بريميوم بيخلي العميل يثق فيك فوراً.
-            </p>
-            <div class="grid md:grid-cols-2 gap-6 mb-12 text-sm text-zinc-300">
-                <div class="p-6 rounded-2xl bg-zinc-900 border border-white/5">✔ تصميم Custom مش قوالب جاهزة</div>
-                <div class="p-6 rounded-2xl bg-zinc-900 border border-white/5">✔ أزرار تفاعلية وروابط مباشرة</div>
-                <div class="p-6 rounded-2xl bg-zinc-900 border border-white/5">✔ عرض فيديوهات وصور مباشرة</div>
-                <div class="p-6 rounded-2xl bg-zinc-900 border border-white/5">✔ ربط ببيكسل فيسبوك للتحليل</div>
-            </div>
-            <a href="https://wa.me/00971585470450?text=أريد تصميم صفحة بايو احترافية" target="_blank" class="btn-primary block text-center py-6 rounded-3xl font-black text-2xl shadow-2xl">اطلب صفحتك الفاجرة 🔗</a>
-        </div>
-    </div>
-
-    <!-- OTHER PAGES REMAIN SAME (DESIGN, MARKETING, VIDEO) -->
+    <!-- DETAIL PAGE: DESIGN -->
     <div id="service-design" class="hidden-page page-transition min-h-screen pt-32 px-6">
         <div class="max-w-4xl mx-auto">
             <button onclick="showPage('main-content')" class="text-purple-500 font-bold mb-8 hover:underline flex items-center gap-2">← العودة للرئيسية</button>
@@ -267,6 +266,7 @@
         </div>
     </div>
 
+    <!-- DETAIL PAGE: MARKETING -->
     <div id="service-marketing" class="hidden-page page-transition min-h-screen pt-32 px-6">
         <div class="max-w-4xl mx-auto">
             <button onclick="showPage('main-content')" class="text-purple-500 font-bold mb-8 hover:underline flex items-center gap-2">← العودة للرئيسية</button>
@@ -276,6 +276,7 @@
         </div>
     </div>
 
+    <!-- DETAIL PAGE: VIDEO -->
     <div id="service-video" class="hidden-page page-transition min-h-screen pt-32 px-6">
         <div class="max-w-4xl mx-auto">
             <button onclick="showPage('main-content')" class="text-purple-500 font-bold mb-8 hover:underline flex items-center gap-2">← العودة للرئيسية</button>
@@ -287,7 +288,7 @@
 
     <script>
         function showPage(pageId) {
-            const pages = ['main-content', 'service-events', 'service-music', 'service-bio', 'service-design', 'service-marketing', 'service-video'];
+            const pages = ['main-content', 'service-events', 'service-music', 'service-social', 'service-design', 'service-marketing', 'service-video'];
             pages.forEach(id => {
                 const el = document.getElementById(id);
                 if (el) {
