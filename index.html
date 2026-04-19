@@ -3,38 +3,294 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>عمر السمكري - ELSMKARYMEDIA | منصة الحلول الذكية</title>
-    
-    <!-- Tailwind CSS -->
+    <title>ELSMKARYMEDIA | الوكالة الرائدة في التسويق الذكي</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Chart.js for Data Visualization -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    
-    <!-- Three.js for 3D Background -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
-    
-    <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #7A29C2;
+            --accent: #B388FF;
+            --bg: #05010d;
+        }
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: var(--bg);
+            color: #fff;
+            overflow-x: hidden;
+        }
+        .purple-glow {
+            box-shadow: 0 0 50px rgba(122, 41, 194, 0.3);
+        }
+        .glass-nav {
+            background: rgba(5, 1, 13, 0.8);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(122, 41, 194, 0.2);
+        }
+        .hero-gradient {
+            background: radial-gradient(circle at center, rgba(122, 41, 194, 0.15) 0%, transparent 70%);
+        }
+        .card-hover:hover {
+            transform: translateY(-10px) scale(1.02);
+            border-color: var(--primary);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        }
+        .btn-primary {
+            background: linear-gradient(45deg, var(--primary), var(--accent));
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover {
+            box-shadow: 0 0 30px rgba(122, 41, 194, 0.5);
+            transform: scale(1.05);
+        }
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        @keyframes floating {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        .logo-clip {
+            background: #fff;
+            clip-path: polygon(25% 0%, 100% 0%, 100% 20%, 45% 20%, 75% 40%, 45% 60%, 100% 60%, 100% 80%, 25% 100%, 0% 100%, 30% 50%, 0% 0%);
+        }
+        .page-transition {
+            transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+        }
+        .hidden-page {
+            display: none;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--bg); }
+        ::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 10px; }
+    </style>
+</head>
+<body>
 
-    <!-- Chosen Palette: Midnight Neon (Deep Black background, Electric Cyan and Power Fuchsia accents) -->
-    <!-- Application Structure Plan: 
-    1. Navigation: Modern glassmorphism with 'Connect with Omar' rebrand.
-    2. Hero Area: High-impact 3D animation using Three.js to signal technical expertise.
-    3. Services Matrix: Logical categorization of agency offerings (Design, Ads, Content).
-    4. Data Hub (Success Analytics): Interactive visual proof of the Source Report findings.
-    5. 'Connect with Omar' (AI Interface): Personalized Gemini-powered interaction point.
-    6. Connectivity Hub: Final call to action with direct region-specific WhatsApp links.
-    -->
-    <!-- Visualization & Content Choices: 
-    - Sales/View Data -> Goal: Comparison/Proof -> Chart.js Line/Bar Charts -> Justification: Converts flat report text into compelling growth curves.
-    - AI Integration -> Goal: Demonstration/Engagement -> Gemini API with personalized instructions -> Justification: Shows rather than tells the agency's AI capability.
-    -->
-    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. Canvas used for 3D and Charts. -->
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-[100] glass-nav">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="flex items-center gap-3 cursor-pointer" onclick="showPage('main-content')">
+                <div class="w-10 h-10 logo-clip bg-white"></div>
+                <div class="flex flex-col">
+                    <span class="text-xl font-black tracking-tighter uppercase">ELSMKARY<span class="text-purple-500">MEDIA</span></span>
+                    <span class="text-[7px] uppercase tracking-[0.3em] text-zinc-500 font-bold">Marketing Agency</span>
+                </div>
+            </div>
+            <div class="hidden lg:flex gap-8 text-[11px] font-black uppercase tracking-widest text-zinc-400">
+                <a href="javascript:void(0)" onclick="showPage('main-content')" class="hover:text-purple-500 transition">الرئيسية</a>
+                <a href="#services" class="hover:text-purple-500 transition">خدماتنا</a>
+                <a href="#ai" class="hover:text-purple-500 transition">الذكاء الاصطناعي</a>
+                <a href="#success" class="hover:text-purple-500 transition">النجاحات</a>
+            </div>
+            <div class="flex gap-4">
+                <a href="https://wa.me/00971585470450" target="_blank" class="btn-primary px-6 py-2.5 rounded-full text-xs font-black shadow-lg">ابدأ مشروعك</a>
+            </div>
+        </div>
+    </nav>
 
+    <!-- MAIN CONTENT PAGE -->
+    <div id="main-content" class="page-transition">
+        <!-- Hero Section -->
+        <section id="home" class="min-h-screen flex items-center justify-center pt-20 relative hero-gradient px-6">
+            <div class="max-w-6xl mx-auto text-center">
+                <div class="mb-8 inline-block px-6 py-2 rounded-full border border-purple-500/30 bg-purple-500/5 text-purple-400 text-xs font-black tracking-widest uppercase">
+                    🚀 نطور مستقبل التسويق الرقمي
+                </div>
+                <h1 class="text-6xl md:text-[100px] font-black leading-[0.9] tracking-tighter mb-8">
+                    نصنع <span class="text-purple-500">التأثير</span> <br> قبل التصميم.
+                </h1>
+                <p class="text-zinc-400 text-lg md:text-2xl max-w-3xl mx-auto mb-12 leading-relaxed font-light">
+                    وكالة <span class="text-white font-bold">عمر السمكري</span> تدمج بين الفن البصري وقوة الـ <span class="text-purple-400">AI</span> لتجعل براندك يتصدر التريند عالمياً.
+                </p>
+                <div class="flex flex-wrap justify-center gap-6">
+                    <a href="#services" class="btn-primary px-12 py-5 rounded-2xl font-black text-lg">استعرض خدماتنا</a>
+                    <a href="https://bio.site/ELSMKARYMEDIA" target="_blank" class="bg-white/5 border border-white/10 hover:bg-white/10 px-12 py-5 rounded-2xl font-black text-lg transition">زيارة البايو</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Grid -->
+        <section id="services" class="py-32 px-6">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center mb-20">
+                    <h2 class="text-4xl md:text-6xl font-black mb-4 tracking-tighter">ماذا نقدم؟ 🎨</h2>
+                    <p class="text-zinc-500 font-bold italic mb-4">اضغط على الخدمة للتفاصيل</p>
+                    <div class="w-20 h-1.5 bg-purple-600 mx-auto rounded-full"></div>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Design -->
+                    <div onclick="showPage('service-design')" class="p-10 rounded-[3rem] border border-white/5 bg-zinc-900/30 card-hover transition-all duration-500 cursor-pointer group">
+                        <div class="text-5xl mb-8 group-hover:scale-110 transition">✏️</div>
+                        <h3 class="text-2xl font-black mb-4">تصميم جرافيك وموشن</h3>
+                        <p class="text-zinc-400 text-sm leading-relaxed">نصنع هويات بصرية لا تُنسى، بوستات سوشيال ميديا، وموشن جرافيك يروي قصة نجاحك.</p>
+                        <div class="mt-6 text-purple-500 font-bold text-xs uppercase tracking-widest">عرض التفاصيل ←</div>
+                    </div>
+                    <!-- Marketing -->
+                    <div onclick="showPage('service-marketing')" class="p-10 rounded-[3rem] border border-white/5 bg-purple-600 card-hover transition-all duration-500 text-white shadow-2xl shadow-purple-600/20 cursor-pointer group">
+                        <div class="text-5xl mb-8 group-hover:scale-110 transition">📊</div>
+                        <h3 class="text-2xl font-black mb-4 text-white">حملات ممولة 🔥</h3>
+                        <p class="text-purple-100 text-sm leading-relaxed">استراتيجيات إعلانية مدروسة تضاعف مبيعاتك وتضمن وصولك للعميل المستهدف بدقة.</p>
+                        <div class="mt-6 text-white font-bold text-xs uppercase tracking-widest">عرض التفاصيل ←</div>
+                    </div>
+                    <!-- Video -->
+                    <div onclick="showPage('service-video')" class="p-10 rounded-[3rem] border border-white/5 bg-zinc-900/30 card-hover transition-all duration-500 cursor-pointer group">
+                        <div class="text-5xl mb-8 group-hover:scale-110 transition">🎞️</div>
+                        <h3 class="text-2xl font-black mb-4">فيديوهات دعائية</h3>
+                        <p class="text-zinc-400 text-sm leading-relaxed">إنتاج فيديوهات احترافية تسيطر على المشاعر وتجبر المشاهد على التفاعل.</p>
+                        <div class="mt-6 text-purple-500 font-bold text-xs uppercase tracking-widest">عرض التفاصيل ←</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- AI Section -->
+        <section id="ai" class="py-32 relative overflow-hidden">
+            <div class="absolute top-1/2 right-0 w-[600px] h-[600px] bg-purple-600/10 blur-[150px] -z-10 rounded-full"></div>
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="flex flex-col lg:flex-row items-center gap-20">
+                    <div class="lg:w-1/2">
+                        <span class="text-purple-500 font-black text-xs uppercase tracking-[0.4em] mb-4 block">Future Lab</span>
+                        <h2 class="text-5xl md:text-7xl font-black mb-8 leading-tight italic">قوة الـ AI <br> في خدمتك.</h2>
+                        <p class="text-zinc-400 text-xl leading-relaxed mb-10">
+                            في <span class="text-white font-bold">السمكري ميديا</span>، نستخدم تكنولوجيا **ElevenLabs** لإنتاج تعليق صوتي واقعي و **Midjourney** لتوليد صور خيالية.
+                        </p>
+                    </div>
+                    <div class="lg:w-1/2 relative">
+                        <div class="w-full aspect-square rounded-[4rem] border-2 border-purple-600/30 flex items-center justify-center p-10 floating">
+                            <div class="w-full h-full rounded-[3rem] bg-gradient-to-br from-purple-600 to-purple-900 flex flex-col items-center justify-center shadow-2xl shadow-purple-600/40 text-center">
+                                <div class="w-20 h-20 logo-clip bg-white mb-6"></div>
+                                <span class="text-2xl font-black italic">SMKARY AI</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Success Section -->
+        <section id="success" class="py-32 bg-white text-black rounded-[5rem] mx-4">
+            <div class="max-w-7xl mx-auto px-6 text-center lg:text-right">
+                <h2 class="text-5xl font-black italic mb-16">النجاح حقيقة.. مش كلام 💯</h2>
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                    <div class="p-8 border-l-4 border-purple-600">
+                        <h4 class="text-5xl font-black mb-2 tracking-tighter">×3</h4>
+                        <p class="font-bold text-zinc-500 uppercase text-xs">برجر فلو</p>
+                    </div>
+                    <div class="p-8 border-l-4 border-purple-600">
+                        <h4 class="text-5xl font-black mb-2 tracking-tighter">Full</h4>
+                        <p class="font-bold text-zinc-500 uppercase text-xs">بلسم</p>
+                    </div>
+                    <div class="p-8 border-l-4 border-purple-600">
+                        <h4 class="text-5xl font-black mb-2 tracking-tighter">100K</h4>
+                        <p class="font-bold text-zinc-500 uppercase text-xs">الراسخون</p>
+                    </div>
+                    <div class="p-8 border-l-4 border-purple-600">
+                        <h4 class="text-5xl font-black mb-2 tracking-tighter">#1</h4>
+                        <p class="font-bold text-zinc-500 uppercase text-xs">حسن عدوية</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="py-20 text-center">
+            <p class="text-zinc-600 text-xs font-bold uppercase tracking-[0.4em]">ELSMKARYMEDIA 2024</p>
+        </footer>
+    </div>
+
+    <!-- DETAIL PAGE: DESIGN -->
+    <div id="service-design" class="hidden-page page-transition min-h-screen pt-32 px-6">
+        <div class="max-w-4xl mx-auto">
+            <button onclick="showPage('main-content')" class="text-purple-500 font-bold mb-8 hover:underline flex items-center gap-2">← العودة للرئيسية</button>
+            <div class="text-6xl mb-8">🎨</div>
+            <h2 class="text-5xl md:text-7xl font-black mb-6">تصميم جرافيك <br> <span class="text-purple-500">وهوية بصرية</span></h2>
+            <p class="text-zinc-400 text-xl leading-relaxed mb-12">
+                الهوية البصرية مش مجرد لوجو، هي "وش" البراند بتاعك. إحنا في السمكري ميديا بنصمم هوية بصرية كاملة، تصاميم سوشيال ميديا، وفيديوهات موشن جرافيك بتخلي البراند بتاعك "يتشاف ويتسمع".
+            </p>
+            <div class="grid md:grid-cols-2 gap-6 mb-12 text-sm text-zinc-300">
+                <div class="p-6 rounded-2xl bg-zinc-900 border border-white/5">✔ تصميم شعارات احترافية</div>
+                <div class="p-6 rounded-2xl bg-zinc-900 border border-white/5">✔ هوية بصرية متكاملة</div>
+                <div class="p-6 rounded-2xl bg-zinc-900 border border-white/5">✔ بوستات سوشيال ميديا مبتكرة</div>
+                <div class="p-6 rounded-2xl bg-zinc-900 border border-white/5">✔ موشن جرافيك دعائي</div>
+            </div>
+            <a href="https://wa.me/00971585470450?text=أريد الاستفسار عن خدمة تصميم الجرافيك" target="_blank" class="btn-primary block text-center py-6 rounded-3xl font-black text-2xl shadow-2xl">صمم هويتك الآن 🚀</a>
+        </div>
+    </div>
+
+    <!-- DETAIL PAGE: MARKETING -->
+    <div id="service-marketing" class="hidden-page page-transition min-h-screen pt-32 px-6">
+        <div class="max-w-4xl mx-auto">
+            <button onclick="showPage('main-content')" class="text-purple-500 font-bold mb-8 hover:underline flex items-center gap-2">← العودة للرئيسية</button>
+            <div class="text-6xl mb-8">📈</div>
+            <h2 class="text-5xl md:text-7xl font-black mb-6 text-purple-500">الحملات الممولة <br> <span class="text-white">وإدارة النمو</span></h2>
+            <p class="text-zinc-400 text-xl leading-relaxed mb-12">
+                لو عاوز مبيعاتك تزيد 3 أضعاف زي "برجر فلو"، إحنا بنعمل حملات ممولة باستهداف ذكي جداً على فيسبوك، انستجرام، وتيك توك. بنحلل البيانات ونوصلك للعميل اللي محتاجك فعلاً.
+            </p>
+            <div class="grid md:grid-cols-2 gap-6 mb-12 text-sm text-zinc-300">
+                <div class="p-6 rounded-2xl bg-zinc-900 border border-white/5">✔ إعلانات فيسبوك وانستجرام</div>
+                <div class="p-6 rounded-2xl bg-zinc-900 border border-white/5">✔ حملات تيك توك التريند</div>
+                <div class="p-6 rounded-2xl bg-zinc-900 border border-white/5">✔ إدارة ميزانية إعلانية ذكية</div>
+                <div class="p-6 rounded-2xl bg-zinc-900 border border-white/5">✔ تقارير أداء دورية</div>
+            </div>
+            <a href="https://wa.me/00971585470450?text=أريد الاستفسار عن خدمة الحملات الممولة" target="_blank" class="btn-primary block text-center py-6 rounded-3xl font-black text-2xl shadow-2xl">اطلب حملتك الآن 🔥</a>
+        </div>
+    </div>
+
+    <!-- DETAIL PAGE: VIDEO -->
+    <div id="service-video" class="hidden-page page-transition min-h-screen pt-32 px-6">
+        <div class="max-w-4xl mx-auto">
+            <button onclick="showPage('main-content')" class="text-purple-500 font-bold mb-8 hover:underline flex items-center gap-2">← العودة للرئيسية</button>
+            <div class="text-6xl mb-8">🎥</div>
+            <h2 class="text-5xl md:text-7xl font-black mb-6">صناعة الفيديو <br> <span class="text-purple-500">والتوزيع الموسيقي</span></h2>
+            <p class="text-zinc-400 text-xl leading-relaxed mb-12">
+                الفيديو هو الملك! إحنا بنصنع فيديوهات دعائية بروح سينمائية، ومع استخدام الذكاء الاصطناعي في الأصوات (ElevenLabs)، بنضمنلك نتيجة مبهرة تخلي أي حد يشوف الفيديو يفتكرك.
+            </p>
+            <div class="grid md:grid-cols-2 gap-6 mb-12 text-sm text-zinc-300">
+                <div class="p-6 rounded-2xl bg-zinc-900 border border-white/5">✔ تصوير ومونتاج احترافي</div>
+                <div class="p-6 rounded-2xl bg-zinc-900 border border-white/5">✔ أصوات AI بـ ElevenLabs</div>
+                <div class="p-6 rounded-2xl bg-zinc-900 border border-white/5">✔ توزيع أعمالك على المنصات</div>
+                <div class="p-6 rounded-2xl bg-zinc-900 border border-white/5">✔ إنتاج ريلز وتيك توك</div>
+            </div>
+            <a href="https://wa.me/00971585470450?text=أريد الاستفسار عن خدمة صناعة الفيديوهات" target="_blank" class="btn-primary block text-center py-6 rounded-3xl font-black text-2xl shadow-2xl">ابدأ إنتاجك الآن 🎞️</a>
+        </div>
+    </div>
+
+    <script>
+        // SPA Logic for switching pages
+        function showPage(pageId) {
+            // Hide all pages
+            const pages = ['main-content', 'service-design', 'service-marketing', 'service-video'];
+            pages.forEach(id => {
+                const el = document.getElementById(id);
+                el.classList.add('hidden-page');
+                el.style.display = 'none';
+            });
+
+            // Show current page
+            const currentPage = document.getElementById(pageId);
+            currentPage.style.display = 'block';
+            setTimeout(() => {
+                currentPage.classList.remove('hidden-page');
+                currentPage.style.opacity = '1';
+                currentPage.style.transform = 'translateY(0)';
+            }, 50);
+
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Initialize with smooth animations
+        document.addEventListener('DOMContentLoaded', () => {
+            showPage('main-content');
+        });
+    </script>
+</body>
+</html>
     <style>
         :root {
             --neon-cyan: #00f3ff;
