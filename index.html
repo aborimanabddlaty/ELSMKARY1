@@ -40,7 +40,7 @@
             background: linear-gradient(135deg, var(--primary), #4c1d95);
             border-radius: 30px;
             box-shadow: 
-                0 15px 0 #4c1d95, /* The 3D depth */
+                0 15px 0 #4c1d95, 
                 0 20px 50px rgba(122, 41, 194, 0.5);
             transition: all 0.2s ease;
             cursor: pointer;
@@ -50,16 +50,7 @@
 
         .mega-ai-btn:active {
             transform: translateY(10px);
-            box-shadow: 
-                0 5px 0 #4c1d95,
-                0 10px 30px rgba(122, 41, 194, 0.5);
-        }
-
-        .mega-ai-btn::after {
-            content: '✨';
-            position: absolute;
-            right: 20px;
-            animation: rotate-sparkle 2s linear infinite;
+            box-shadow: 0 5px 0 #4c1d95, 0 10px 30px rgba(122, 41, 194, 0.5);
         }
 
         .mega-ai-btn .badge {
@@ -80,29 +71,13 @@
             50% { transform: translateY(-15px) rotate(1deg); }
         }
 
-        @keyframes rotate-sparkle {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-
-        .glow-overlay {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 150%;
-            height: 150%;
-            background: radial-gradient(circle, rgba(122, 41, 194, 0.2) 0%, transparent 70%);
-            pointer-events: none;
-            z-index: -1;
-        }
-
         /* 3D Canvas Container */
         #services-canvas {
             width: 100%;
-            height: 70vh;
-            cursor: pointer;
+            height: 600px;
+            cursor: grab;
         }
+        #services-canvas:active { cursor: grabbing; }
         
         .logo-clip {
             background: #fff;
@@ -117,6 +92,10 @@
         ::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 10px; }
 
         .chat-container { height: calc(100vh - 350px); }
+
+        .service-3d-section {
+            background: radial-gradient(circle at center, rgba(122, 41, 194, 0.08) 0%, transparent 70%);
+        }
     </style>
 </head>
 <body>
@@ -135,21 +114,15 @@
             <div class="hidden lg:flex gap-8 items-center text-[10px] font-black uppercase tracking-widest text-zinc-400">
                 <a href="javascript:void(0)" onclick="showPage('main-content')" class="hover:text-purple-500 transition">الرئيسية</a>
                 <a href="javascript:void(0)" onclick="showPage('about-page')" class="hover:text-purple-500 transition">من نحن</a>
-                <a href="javascript:void(0)" onclick="showPage('services-page')" class="hover:text-purple-500 transition">خدماتنا (3D)</a>
                 <a href="javascript:void(0)" onclick="showPage('social-page')" class="hover:text-purple-500 transition">تواصل معنا</a>
             </div>
             
-            <!-- Minimal Menu/Toggle Placeholder -->
-            <button class="lg:hidden w-10 h-10 flex flex-col justify-center gap-1.5" onclick="showPage('services-page')">
-                <div class="w-6 h-0.5 bg-white"></div>
-                <div class="w-6 h-0.5 bg-white"></div>
-            </button>
+            <button onclick="showPage('ai-chat-page')" class="btn-primary px-5 py-2 rounded-xl text-[9px] font-black uppercase">عمر AI 🧠</button>
         </div>
     </nav>
 
-    <!-- MEGA AI CALL TO ACTION (RIGHT UNDER HEADER) -->
+    <!-- MEGA AI TRIGGER -->
     <div id="ai-hero-trigger" class="pt-32 pb-10 text-center relative overflow-hidden">
-        <div class="glow-overlay"></div>
         <div class="max-w-4xl mx-auto px-6">
             <button onclick="showPage('ai-chat-page')" class="mega-ai-btn group">
                 <span class="badge">PRO AI</span>
@@ -159,8 +132,9 @@
         </div>
     </div>
 
-    <!-- PAGE: HOME -->
+    <!-- MAIN PAGE -->
     <div id="main-content" class="page-transition min-h-screen">
+        <!-- Hero Section -->
         <section class="flex flex-col items-center justify-center px-6 text-center py-10">
             <div class="max-w-4xl">
                 <h1 class="text-6xl md:text-8xl font-black mb-8 italic tracking-tighter leading-tight">
@@ -173,51 +147,38 @@
         </section>
 
         <!-- Success Numbers -->
-        <section class="py-20 px-6 bg-zinc-950/40">
+        <section class="py-20 px-6 bg-zinc-950/40 border-y border-white/5">
             <div class="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
                 <div class="p-8 border border-white/5 rounded-3xl bg-white/5">
-                    <h2 class="text-5xl font-black text-purple-500 mb-2">50+</h2>
+                    <h2 class="text-5xl font-black text-purple-500 mb-2 italic">50+</h2>
                     <p class="text-zinc-500 text-[10px] font-bold uppercase tracking-widest">حفلة ضخمة</p>
                 </div>
                 <div class="p-8 border border-white/5 rounded-3xl bg-white/5">
-                    <h2 class="text-5xl font-black text-purple-500 mb-2">1M+</h2>
+                    <h2 class="text-5xl font-black text-purple-500 mb-2 italic">1M+</h2>
                     <p class="text-zinc-500 text-[10px] font-bold uppercase tracking-widest">متابع حقيقي</p>
                 </div>
                 <div class="p-8 border border-white/5 rounded-3xl bg-white/5">
-                    <h2 class="text-5xl font-black text-purple-500 mb-2">100+</h2>
+                    <h2 class="text-5xl font-black text-purple-500 mb-2 italic">100+</h2>
                     <p class="text-zinc-500 text-[10px] font-bold uppercase tracking-widest">براند عالمي</p>
                 </div>
                 <div class="p-8 border border-white/5 rounded-3xl bg-white/5">
-                    <h2 class="text-5xl font-black text-white mb-2">#1</h2>
+                    <h2 class="text-5xl font-black text-white mb-2 italic">#1</h2>
                     <p class="text-zinc-500 text-[10px] font-bold uppercase tracking-widest">في الميديا والـ AI</p>
                 </div>
             </div>
         </section>
-    </div>
 
-    <!-- PAGE: SERVICES (3D INTERACTIVE) -->
-    <div id="services-page" class="hidden-page page-transition min-h-screen pt-20">
-        <div class="max-w-7xl mx-auto px-6 text-center mb-10">
-            <h2 class="text-5xl font-black mb-4 italic">عالم <span class="text-purple-500">خدماتنا</span></h2>
-            <p class="text-zinc-500 uppercase text-xs tracking-widest font-bold">استخدم الماوس لاستكشاف الكواكب الذكية</p>
-        </div>
-        <div id="services-canvas"></div>
-
-        <!-- Service Modal -->
-        <div id="service-modal" class="fixed inset-0 z-[200] bg-black/95 hidden items-center justify-center p-6 backdrop-blur-xl">
-            <div class="max-w-4xl w-full bg-zinc-900 rounded-[3rem] border border-purple-500/30 overflow-hidden relative shadow-2xl">
-                <button onclick="closeModal()" class="absolute top-6 left-6 text-4xl text-white/50 hover:text-white">&times;</button>
-                <div class="grid grid-cols-1 md:grid-cols-2 h-full">
-                    <div id="modal-image" class="h-64 md:h-full bg-cover bg-center"></div>
-                    <div class="p-10 flex flex-col justify-center">
-                        <div id="modal-tag" class="text-[10px] font-black text-purple-400 uppercase mb-4 tracking-widest"></div>
-                        <h2 id="modal-title" class="text-4xl font-black mb-6 text-white italic"></h2>
-                        <p id="modal-desc" class="text-zinc-400 text-lg leading-relaxed mb-8"></p>
-                        <a id="modal-link" href="https://wa.me/971585470450" target="_blank" class="mega-ai-btn !text-xl !py-4 !px-10 !shadow-none !bg-purple-600 block text-center">اطلب الخدمة الآن</a>
-                    </div>
-                </div>
+        <!-- 3D SERVICES SECTION (NOW ON HOME) -->
+        <section class="service-3d-section py-24 px-6 overflow-hidden">
+            <div class="max-w-7xl mx-auto text-center mb-10">
+                <h2 class="text-5xl md:text-7xl font-black mb-4 italic tracking-tighter">عالم <span class="text-purple-500">خدماتنا</span></h2>
+                <p class="text-zinc-500 uppercase text-xs tracking-widest font-bold">استخدم الماوس لاستكشاف الكواكب الذكية وانقر للتفاصيل</p>
             </div>
-        </div>
+            
+            <div class="relative">
+                <div id="services-canvas"></div>
+            </div>
+        </section>
     </div>
 
     <!-- PAGE: OMAR AI CHAT -->
@@ -225,31 +186,28 @@
         <div class="max-w-5xl mx-auto flex flex-col rounded-[3rem] bg-zinc-900 border border-white/5 overflow-hidden h-[80vh] shadow-2xl">
             <div class="p-6 border-b border-white/10 flex items-center justify-between bg-zinc-950">
                 <div class="flex items-center gap-4">
-                    <div class="w-14 h-14 rounded-full bg-gradient-to-tr from-purple-600 to-indigo-500 flex items-center justify-center text-2xl shadow-xl shadow-purple-500/20">🧠</div>
+                    <div class="w-14 h-14 rounded-full bg-gradient-to-tr from-purple-600 to-indigo-500 flex items-center justify-center text-2xl">🧠</div>
                     <div>
                         <h3 class="text-xl font-black text-white italic">عمر AI المساعد</h3>
-                        <div class="flex items-center gap-2">
-                            <span class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
-                            <span class="text-[10px] text-zinc-500 uppercase font-bold tracking-widest">Active Intelligence</span>
-                        </div>
+                        <span class="text-[10px] text-green-500 font-bold uppercase tracking-widest">Active Intelligence</span>
                     </div>
                 </div>
                 <div class="flex bg-white/5 p-1 rounded-2xl">
                     <button onclick="toggleMode('chat')" id="chat-mode-btn" class="px-6 py-2 rounded-xl text-xs font-black bg-purple-600">دردشة</button>
-                    <button onclick="toggleMode('image')" id="image-mode-btn" class="px-6 py-2 rounded-xl text-xs font-black">توليد صور</button>
+                    <button onclick="toggleMode('image')" id="image-mode-btn" class="px-6 py-2 rounded-xl text-xs font-black">صور</button>
                 </div>
             </div>
 
-            <div id="chat-messages" class="chat-container flex-1 overflow-y-auto p-8 space-y-6">
+            <div id="chat-messages" class="chat-container flex-1 overflow-y-auto p-8 space-y-6 flex flex-col">
                 <div class="p-6 max-w-[85%] self-start bg-white/5 border border-white/5 rounded-[2rem] text-zinc-300 text-sm">
-                    أهلاً بك يا بطل! أنا "عمر AI". المساعد الذكي لوكالة السمكري ميديا. اقدر اساعدك في كتابة محتوى، تجهيز خطط تسويق، أو حتى اولد لك صور احترافية لبراندك. اطلب اللي في خيالك!
+                    أهلاً بك يا بطل! أنا "عمر AI". المساعد الذكي لوكالة السمكري ميديا. اطلب مني تصميم صورة، خطة تسويقية، أو اسألني عن أي خدمة!
                 </div>
             </div>
 
             <div class="p-6 bg-zinc-950/80 border-t border-white/10">
                 <div class="relative max-w-3xl mx-auto">
-                    <textarea id="ai-input" placeholder="اطلب أي شيء من عمر AI..." class="w-full bg-white/5 border border-white/10 rounded-3xl p-5 pr-14 text-sm focus:outline-none focus:border-purple-500 transition resize-none h-20 shadow-inner"></textarea>
-                    <button onclick="handleInput()" class="absolute left-4 bottom-5 p-4 bg-purple-600 rounded-2xl hover:scale-110 transition shadow-lg shadow-purple-500/20">
+                    <textarea id="ai-input" placeholder="اطلب أي شيء من عمر AI..." class="w-full bg-white/5 border border-white/10 rounded-3xl p-5 pr-14 text-sm focus:outline-none focus:border-purple-500 transition resize-none h-20"></textarea>
+                    <button onclick="handleInput()" class="absolute left-4 bottom-5 p-4 bg-purple-600 rounded-2xl hover:scale-110 transition shadow-lg">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 rotate-180 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
                     </button>
                 </div>
@@ -262,20 +220,34 @@
         <div class="max-w-4xl mx-auto text-center">
             <h2 class="text-7xl font-black mb-10 italic">إمبراطورية <br><span class="text-purple-500">السمكري ميديا</span></h2>
             <div class="p-12 rounded-[4rem] bg-zinc-900 border border-white/5 text-zinc-400 text-xl leading-relaxed">
-                وكالتنا مش مجرد شركة، هي رؤية عمر السمكري لتطوير الميديا في مصر. بدأنا بتنظيم أقوى الحفلات، ودلوقتي بنسيطر على السوشيال ميديا بأقوى ذكاء اصطناعي في السوق.
+                وكالتنا هي رؤية عمر السمكري لتطوير الميديا. بدأنا بتنظيم أقوى الحفلات، ودلوقتي بنسيطر على السوشيال ميديا بأقوى ذكاء اصطناعي.
             </div>
         </div>
     </div>
 
-    <!-- PAGE: SOCIAL -->
-    <div id="social-page" class="hidden-page page-transition min-h-screen pt-32 px-6">
-        <div class="max-w-5xl mx-auto text-center">
-            <h2 class="text-6xl font-black mb-16 italic">Social <span class="text-purple-500">Hub</span></h2>
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
-                <a href="https://www.tiktok.com/@omarelsmkary" target="_blank" class="p-12 rounded-3xl bg-zinc-900 border border-white/5 hover:bg-purple-600 transition shadow-xl">🎵 TikTok</a>
-                <a href="https://www.instagram.com/elsmkary_media/" target="_blank" class="p-12 rounded-3xl bg-zinc-900 border border-white/5 hover:bg-purple-600 transition shadow-xl">📸 Instagram</a>
-                <a href="https://www.facebook.com/ELSMARYMEDIA/" target="_blank" class="p-12 rounded-3xl bg-zinc-900 border border-white/5 hover:bg-purple-600 transition shadow-xl">🔵 Facebook</a>
-                <a href="https://www.youtube.com/@OMARELSMKARY" target="_blank" class="p-12 rounded-3xl bg-zinc-900 border border-white/5 hover:bg-purple-600 transition shadow-xl">📺 YouTube</a>
+    <!-- PAGE: SOCIAL HUB (FOOTER ALTERNATIVE) -->
+    <div id="social-page" class="hidden-page page-transition min-h-screen pt-32 px-6 text-center">
+        <h2 class="text-6xl font-black mb-16 italic">Social <span class="text-purple-500">Hub</span></h2>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-5xl mx-auto">
+            <a href="https://www.tiktok.com/@omarelsmkary" target="_blank" class="p-10 rounded-3xl bg-zinc-900 border border-white/5 hover:bg-purple-600 transition">TikTok</a>
+            <a href="https://www.instagram.com/elsmkary_media/" target="_blank" class="p-10 rounded-3xl bg-zinc-900 border border-white/5 hover:bg-purple-600 transition">Instagram</a>
+            <a href="https://www.facebook.com/ELSMARYMEDIA/" target="_blank" class="p-10 rounded-3xl bg-zinc-900 border border-white/5 hover:bg-purple-600 transition">Facebook</a>
+            <a href="https://www.youtube.com/@OMARELSMKARY" target="_blank" class="p-10 rounded-3xl bg-zinc-900 border border-white/5 hover:bg-purple-600 transition">YouTube</a>
+        </div>
+    </div>
+
+    <!-- Service Modal -->
+    <div id="service-modal" class="fixed inset-0 z-[200] bg-black/95 hidden items-center justify-center p-6 backdrop-blur-xl">
+        <div class="max-w-4xl w-full bg-zinc-900 rounded-[3rem] border border-purple-500/30 overflow-hidden relative shadow-2xl">
+            <button onclick="closeModal()" class="absolute top-6 left-6 text-4xl text-white/50 hover:text-white">&times;</button>
+            <div class="grid grid-cols-1 md:grid-cols-2 h-full">
+                <div id="modal-image" class="h-64 md:h-full bg-cover bg-center"></div>
+                <div class="p-10 flex flex-col justify-center text-right">
+                    <div id="modal-tag" class="text-[10px] font-black text-purple-400 uppercase mb-4 tracking-widest"></div>
+                    <h2 id="modal-title" class="text-4xl font-black mb-6 text-white italic"></h2>
+                    <p id="modal-desc" class="text-zinc-400 text-lg leading-relaxed mb-8"></p>
+                    <a href="https://wa.me/971585470450" target="_blank" class="mega-ai-btn !text-lg !py-4 !px-8 !shadow-none !bg-purple-600 block text-center">اطلب الخدمة الآن</a>
+                </div>
             </div>
         </div>
     </div>
@@ -287,7 +259,6 @@
     <script>
         const apiKey = ""; // API Key handled by environment
 
-        // 3D SERVICES LOGIC
         const servicesData = [
             { id: 1, title: "تنظيم حفلات ضخمة", tag: "Events", desc: "نحن نصنع تجربة لا تُنسى. من أنظمة الإضاءة الليزرية العالمية إلى التعاقد مع أقوى نجوم الصف الأول.", img: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=800" },
             { id: 2, title: "إدارة السوشيال ميديا", tag: "Management", desc: "نحن لا ندير حسابات فقط، بل نبني براند متكامل بذكاء اصطناعي يحلل جمهورك.", img: "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=800" },
@@ -296,39 +267,41 @@
         ];
 
         let scene, camera, renderer, objects = [];
+        
         function init3D() {
             const container = document.getElementById('services-canvas');
-            if (!container) return;
+            if (!container || scene) return;
+
             scene = new THREE.Scene();
             camera = new THREE.PerspectiveCamera(75, container.offsetWidth / container.offsetHeight, 0.1, 1000);
             renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
             renderer.setSize(container.offsetWidth, container.offsetHeight);
             container.appendChild(renderer.domElement);
 
-            const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+            const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
             scene.add(ambientLight);
-            const pointLight = new THREE.PointLight(0x7A29C2, 2);
-            pointLight.position.set(5, 5, 5);
+            const pointLight = new THREE.PointLight(0x7A29C2, 2.5);
+            pointLight.position.set(10, 10, 10);
             scene.add(pointLight);
 
             servicesData.forEach((s, i) => {
-                const geometry = new THREE.SphereGeometry(1.2, 64, 64);
+                const geometry = new THREE.SphereGeometry(1.5, 64, 64);
                 const material = new THREE.MeshPhongMaterial({ 
                     color: 0x7A29C2, 
-                    emissive: 0x220055,
-                    shininess: 100,
-                    wireframe: i % 2 === 0
+                    emissive: 0x110033,
+                    shininess: 120,
+                    wireframe: i % 2 !== 0
                 });
                 const sphere = new THREE.Mesh(geometry, material);
                 const angle = (i / servicesData.length) * Math.PI * 2;
-                sphere.position.x = Math.cos(angle) * 7;
-                sphere.position.z = Math.sin(angle) * 7;
+                sphere.position.x = Math.cos(angle) * 8;
+                sphere.position.z = Math.sin(angle) * 8;
                 sphere.userData = s;
                 scene.add(sphere);
                 objects.push(sphere);
             });
 
-            camera.position.z = 15;
+            camera.position.z = 18;
 
             function animate() {
                 requestAnimationFrame(animate);
@@ -351,6 +324,12 @@
                 const intersects = raycaster.intersectObjects(objects);
                 if (intersects.length > 0) openModal(intersects[0].object.userData);
             });
+
+            window.addEventListener('resize', () => {
+                camera.aspect = container.offsetWidth / container.offsetHeight;
+                camera.updateProjectionMatrix();
+                renderer.setSize(container.offsetWidth, container.offsetHeight);
+            });
         }
 
         function openModal(data) {
@@ -363,9 +342,8 @@
 
         function closeModal() { document.getElementById('service-modal').style.display = 'none'; }
 
-        // NAVIGATION LOGIC
         function showPage(pageId) {
-            const pages = ['main-content', 'about-page', 'social-page', 'ai-chat-page', 'services-page'];
+            const pages = ['main-content', 'about-page', 'social-page', 'ai-chat-page'];
             pages.forEach(id => {
                 const el = document.getElementById(id);
                 if (el) {
@@ -374,13 +352,8 @@
                 }
             });
 
-            // Handle the Mega Button/Trigger Visibility
             const trigger = document.getElementById('ai-hero-trigger');
-            if (pageId === 'main-content') {
-                trigger.style.display = 'block';
-            } else {
-                trigger.style.display = 'none';
-            }
+            trigger.style.display = (pageId === 'main-content') ? 'block' : 'none';
 
             setTimeout(() => {
                 const currentPage = document.getElementById(pageId);
@@ -391,7 +364,7 @@
                         currentPage.style.opacity = '1';
                         currentPage.style.transform = 'translateY(0)';
                     }, 50);
-                    if (pageId === 'services-page' && !scene) init3D();
+                    if (pageId === 'main-content') init3D();
                 }
             }, 350);
             window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -445,7 +418,7 @@
         function removeLoading(id) { document.getElementById(id)?.remove(); }
 
         async function chatWithGemini(userQuery, loadingId) {
-            const systemPrompt = `أنت "عمر AI"، المساعد الرقمي لوكالة ELSMKARYMEDIA. أسلوبك: احترافي، مصري شيك، واثق ومبدع. تحدث بلهجة مصرية بيضاء.`;
+            const systemPrompt = `أنت "عمر AI"، المساعد الرقمي لوكالة ELSMKARYMEDIA. تحدث بلهجة مصرية بيضاء شيك واحترافية.`;
             const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`;
             const res = await fetch(url, {
                 method: 'POST',
@@ -470,7 +443,9 @@
             appendMessage('ai', imgUrl, true);
         }
 
-        document.addEventListener('DOMContentLoaded', () => showPage('main-content'));
+        document.addEventListener('DOMContentLoaded', () => {
+            showPage('main-content');
+        });
     </script>
 </body>
 </html>
