@@ -1,438 +1,626 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ELSMKARYMEDIA | ريادة التسويق والإنتاج الفني والذكاء الاصطناعي</title>
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts (Cairo) -->
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
-    <style>
-        body { font-family: 'Cairo', sans-serif; }
-        .gradient-text {
-            background: linear-gradient(90deg, #8b5cf6, #ec4899);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        /* لإخفاء القائمة في الموبايل */
-        #mobile-menu.hidden { display: none; }
-        
-        /* مظهر مخصص لمربعات الدردشة */
-        .chat-scrollbar::-webkit-scrollbar {
-            width: 4px;
-        }
-        .chat-scrollbar::-webkit-scrollbar-track {
-            background: transparent;
-        }
-        .chat-scrollbar::-webkit-scrollbar-thumb {
-            background: #8b5cf6;
-            border-radius: 10px;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ELSMKARY MEDIA | السمكري ميديا</title>
+<style>
+:root{
+  --black:#02030a;
+  --black2:#050714;
+  --panel:#080b1d;
+  --panel2:#0d1028;
+  --purple:#7c3cff;
+  --purple2:#4d22ff;
+  --blue:#2d7dff;
+  --cyan:#00d9ff;
+  --pink:#c13cff;
+  --white:#f6f7ff;
+  --muted:#9aa4d6;
+  --line:#2b1f6d;
+  --green:#16ff99;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:Tahoma,Arial,sans-serif;
+  color:var(--white);
+  background:
+    radial-gradient(circle at 52% 20%,rgba(55,25,160,.22),transparent 32%),
+    radial-gradient(circle at 10% 30%,rgba(124,60,255,.15),transparent 24%),
+    radial-gradient(circle at 90% 18%,rgba(45,125,255,.14),transparent 25%),
+    linear-gradient(180deg,#03040b,#02030a 45%,#03040b);
+  overflow-x:hidden;
+}
+body:before{
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  background:
+    linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px),
+    linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px);
+  background-size:74px 74px;
+  opacity:.25;
+  mask-image:linear-gradient(to bottom,transparent,#000 15%,#000 70%,transparent);
+}
+body:after{
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  background:radial-gradient(circle at center,transparent 35%,rgba(0,0,0,.75) 100%);
+  z-index:0;
+}
+main,nav,.service-view,.chat-ai,.sound-player{position:relative;z-index:1}
+a{text-decoration:none;color:inherit}
+nav{
+  position:fixed;
+  top:18px;
+  left:32px;
+  right:32px;
+  z-index:100;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:14px 18px;
+  border-radius:22px;
+  background:rgba(5,7,20,.72);
+  border:1px solid rgba(124,60,255,.28);
+  backdrop-filter:blur(18px);
+  box-shadow:0 0 45px rgba(0,0,0,.65);
+}
+.logo-wrap{display:flex;align-items:center;gap:12px;direction:ltr}
+.logo-mark{
+  width:52px;height:52px;border-radius:15px;
+  display:grid;place-items:center;
+  background:linear-gradient(135deg,#9a6cff,#5523ff 55%,#180b5c);
+  box-shadow:0 0 22px rgba(124,60,255,.75), inset 0 0 14px rgba(255,255,255,.22);
+  font-weight:900;font-size:26px;
+}
+.logo-text{line-height:1.05;letter-spacing:4px;font-weight:900}
+.logo-text small{display:block;color:#b4a8ff;font-size:10px;margin-top:5px}
+.menu{display:flex;gap:30px;color:#d7dbff;font-size:14px}
+.menu a{opacity:.82}
+.menu a.active,.menu a:hover{color:#a784ff;opacity:1}
+.nav-btn{
+  padding:13px 22px;border-radius:16px;
+  background:linear-gradient(135deg,#35129b,#7c3cff);
+  border:1px solid rgba(255,255,255,.18);
+  box-shadow:0 0 24px rgba(124,60,255,.55);
+  font-weight:800;
+}
+
+/* HERO */
+.hero{
+  min-height:100vh;
+  padding:120px 6% 65px;
+  display:grid;
+  grid-template-columns:1fr 1.25fr 1fr;
+  gap:28px;
+  align-items:center;
+}
+.left-stack,.right-stack{display:flex;flex-direction:column;gap:20px}
+.pill{
+  width:max-content;
+  padding:11px 18px;
+  border-radius:999px;
+  border:1px solid rgba(124,60,255,.35);
+  color:#a78bff;
+  background:rgba(7,10,30,.7);
+  font-size:12px;
+  letter-spacing:2px;
+  direction:ltr;
+}
+.english-title{
+  font-size:34px;
+  line-height:1.22;
+  direction:ltr;
+  text-align:left;
+  margin:12px 0 10px;
+  color:#eef1ff;
+}
+.english-title span{color:#7d8cff;text-shadow:0 0 20px rgba(124,60,255,.7)}
+.outline-btn{
+  width:max-content;
+  padding:16px 26px;
+  border-radius:15px;
+  border:1px solid rgba(124,60,255,.55);
+  background:rgba(5,7,20,.55);
+  box-shadow:inset 0 0 16px rgba(124,60,255,.14);
+}
+.people{display:flex;align-items:center;gap:10px;margin-top:80px;color:#cdd3ff;font-size:13px}
+.avatars{display:flex;direction:ltr}
+.avatar{width:34px;height:34px;border-radius:50%;margin-left:-8px;border:2px solid #050714;background:linear-gradient(135deg,#7c3cff,#00d9ff)}
+.center-hero{text-align:center;position:relative}
+.center-hero h1{
+  font-size:clamp(58px,8vw,104px);
+  margin:0;
+  letter-spacing:-3px;
+  color:#f4f4ff;
+  text-shadow:0 14px 35px rgba(0,0,0,.75);
+}
+.center-hero h2{
+  margin:10px 0 18px;
+  color:#9e62ff;
+  font-size:clamp(26px,3.1vw,42px);
+  text-shadow:0 0 22px rgba(124,60,255,.65);
+}
+.center-hero p{color:#c2c7ec;line-height:2;font-size:16px;margin:auto;max-width:760px}
+.command-room{
+  margin:36px auto 0;
+  position:relative;
+  max-width:760px;
+  height:330px;
+  border-radius:34px;
+  overflow:hidden;
+  border:1px solid rgba(124,60,255,.24);
+  background:
+    radial-gradient(circle at 50% 50%,rgba(30,75,255,.4),transparent 22%),
+    linear-gradient(180deg,#101439,#03040a);
+  box-shadow:0 0 85px rgba(17,30,120,.38);
+}
+.command-room:before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(circle at 50% 70%,rgba(0,0,0,.1),rgba(0,0,0,.9) 68%),
+    linear-gradient(90deg,transparent,rgba(124,60,255,.12),transparent);
+}
+.person{
+  position:absolute;left:50%;bottom:-10px;transform:translateX(-50%);
+  width:190px;height:245px;border-radius:90px 90px 20px 20px;
+  background:linear-gradient(180deg,#0e143b,#010208);
+  box-shadow:0 0 60px rgba(0,0,0,.8);
+}
+.screens{position:absolute;inset:52px 48px 60px;display:grid;grid-template-columns:1fr 1.1fr 1fr;gap:14px;opacity:.9}
+.screen{
+  border-radius:16px;background:#070b22;border:1px solid rgba(124,60,255,.28);
+  box-shadow:0 0 30px rgba(124,60,255,.18);padding:12px;
+}
+.screen .bar{height:8px;border-radius:12px;background:linear-gradient(90deg,#2d7dff,#7c3cff);margin-bottom:12px}
+.screen .chart{height:78%;border-radius:12px;background:linear-gradient(180deg,rgba(124,60,255,.34),transparent),repeating-linear-gradient(90deg,rgba(255,255,255,.08) 0 1px,transparent 1px 38px)}
+.scroll-hint{margin-top:16px;color:#cbd1ff;font-size:13px}
+.stat-card{
+  padding:20px;border-radius:18px;background:rgba(8,11,29,.78);
+  border:1px solid rgba(124,60,255,.28);
+  display:flex;gap:15px;align-items:center;
+}
+.stat-icon{
+  width:54px;height:54px;border-radius:18px;display:grid;place-items:center;
+  background:rgba(124,60,255,.12);border:1px solid rgba(124,60,255,.45);
+  color:#a784ff;font-size:22px;box-shadow:0 0 20px rgba(124,60,255,.35);
+}
+.stat-card b{font-size:22px}
+.stat-card small{display:block;color:#b2b9e8;margin-top:5px}
+.social-rail{
+  position:fixed;right:24px;top:50%;transform:translateY(-50%);
+  display:flex;flex-direction:column;gap:12px;z-index:80;
+}
+.social-rail a{
+  width:42px;height:42px;border-radius:14px;background:#060817;border:1px solid rgba(124,60,255,.35);
+  display:grid;place-items:center;box-shadow:0 0 18px rgba(0,0,0,.55);
+}
+
+/* SECTIONS */
+section{padding:72px 6%}
+.section-title{text-align:center;margin-bottom:38px}
+.section-title h2{font-size:36px;margin:0 0 10px}
+.section-title p{color:#adb5e7}
+.services-grid{
+  display:grid;grid-template-columns:repeat(6,1fr);gap:16px;
+}
+.service-card{
+  min-height:260px;padding:28px 18px;border-radius:18px;
+  background:linear-gradient(180deg,rgba(13,16,40,.92),rgba(4,6,18,.9));
+  border:1px solid rgba(124,60,255,.38);
+  box-shadow:inset 0 0 25px rgba(124,60,255,.07);
+  text-align:center;cursor:pointer;transition:.35s;position:relative;overflow:hidden;
+}
+.service-card:before{
+  content:"";position:absolute;inset:auto -60px -90px auto;width:160px;height:160px;border-radius:50%;
+  background:rgba(124,60,255,.22);filter:blur(12px);
+}
+.service-card:hover{
+  transform:translateY(-10px);
+  box-shadow:0 0 45px rgba(124,60,255,.45),inset 0 0 25px rgba(124,60,255,.08);
+}
+.service-icon{
+  width:72px;height:72px;margin:0 auto 22px;border-radius:20px;
+  display:grid;place-items:center;font-size:34px;
+  background:linear-gradient(135deg,rgba(45,125,255,.25),rgba(124,60,255,.38));
+  border:1px solid rgba(124,60,255,.45);
+  box-shadow:0 0 25px rgba(124,60,255,.25);
+}
+.service-card h3{font-size:19px;margin:0 0 12px}
+.service-card p{color:#b9c0eb;font-size:14px;line-height:1.8}
+.service-card button{
+  margin-top:14px;padding:10px 24px;border-radius:11px;background:#080b1d;color:white;border:1px solid rgba(124,60,255,.45);
+}
+
+/* ANALYTICS */
+.analytics{
+  display:grid;grid-template-columns:.75fr 1.25fr;gap:46px;align-items:center;
+}
+.analytics h2{font-size:34px;line-height:1.35}
+.analytics p{color:#b9c0eb;line-height:1.9}
+.checks{margin:28px 0;color:#cfd5ff;line-height:2.2}
+.dash{
+  border-radius:28px;background:#070a1b;border:1px solid rgba(124,60,255,.28);
+  padding:22px;box-shadow:0 0 65px rgba(17,30,120,.25);
+}
+.dash-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.dash-metric{padding:18px;border-radius:14px;background:#0b0f26;border:1px solid rgba(255,255,255,.06)}
+.dash-metric small{color:#a784ff}.dash-metric b{display:block;font-size:25px;margin-top:8px}
+.up{color:var(--green);font-size:12px}
+.charts{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:16px}
+.line-chart,.bar-chart{height:230px;border-radius:18px;background:#0b0f26;border:1px solid rgba(255,255,255,.06);position:relative;overflow:hidden;padding:18px}
+.line-chart:before{
+  content:"";position:absolute;inset:70px 25px 55px;border-bottom:5px solid #7c3cff;border-radius:50%;transform:skewY(-11deg);box-shadow:0 0 25px #7c3cff;
+}
+.bars{position:absolute;bottom:30px;left:25px;right:25px;height:150px;display:flex;align-items:end;gap:18px;direction:ltr}
+.bars span{flex:1;border-radius:8px 8px 0 0;background:linear-gradient(180deg,#9a62ff,#5227ff)}
+.logos{
+  display:flex;justify-content:center;gap:55px;flex-wrap:wrap;margin-top:52px;color:#535d85;letter-spacing:2px;font-weight:900
+}
+
+/* AI BOX */
+.chat-ai{
+  position:fixed;right:38px;bottom:28px;z-index:95;
+  width:260px;border-radius:24px;padding:16px;background:linear-gradient(135deg,#111d55,#070a18);
+  border:1px solid rgba(124,60,255,.55);box-shadow:0 0 38px rgba(124,60,255,.6);
+  display:flex;gap:14px;align-items:center;cursor:pointer;
+}
+.bot{
+  width:54px;height:54px;border-radius:18px;display:grid;place-items:center;background:#071336;border:1px solid rgba(0,217,255,.35);
+  box-shadow:0 0 22px rgba(0,217,255,.3);font-size:27px;
+}
+.chat-ai b{display:block}.chat-ai small{color:#b9c0eb}
+
+/* SOUND */
+.sound-player{
+  position:fixed;left:34px;bottom:28px;z-index:95;
+  width:240px;padding:14px;border-radius:20px;background:#07102b;border:1px solid rgba(124,60,255,.45);
+  box-shadow:0 0 30px rgba(45,125,255,.22);display:flex;gap:12px;align-items:center;
+}
+.play-btn{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,#2d7dff,#7c3cff)}
+.sound-bars{position:fixed;left:28%;right:28%;bottom:37px;height:42px;display:flex;align-items:end;gap:4px;z-index:90;pointer-events:none;direction:ltr}
+.sound-bars span{flex:1;background:#4d22ff;border-radius:8px 8px 0 0;box-shadow:0 0 14px #4d22ff;animation:eq 1.2s infinite ease-in-out;opacity:.75}
+.sound-bars span:nth-child(2n){animation-delay:.15s}.sound-bars span:nth-child(3n){animation-delay:.3s}.sound-bars span:nth-child(4n){animation-delay:.45s}
+@keyframes eq{0%,100%{height:5px}50%{height:36px}}
+
+/* SERVICE VIEW */
+.service-view{
+  display:none;position:fixed;inset:0;z-index:200;overflow:auto;
+  background:
+    radial-gradient(circle at 50% 15%,rgba(124,60,255,.28),transparent 30%),
+    radial-gradient(circle at 90% 20%,rgba(45,125,255,.18),transparent 25%),
+    #02030a;
+}
+.service-inner{padding:26px 6% 80px}
+.close-service{
+  position:sticky;top:20px;margin-right:auto;z-index:210;
+  width:54px;height:54px;border-radius:17px;border:1px solid rgba(124,60,255,.45);
+  background:#0b0f26;color:white;font-size:30px;cursor:pointer;
+}
+.service-hero{
+  min-height:440px;display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:center;
+}
+.service-hero h2{font-size:62px;line-height:1.1;margin:0 0 16px}
+.service-hero p{color:#c1c8f3;line-height:2;font-size:18px}
+.service-art{
+  height:380px;border-radius:34px;border:1px solid rgba(124,60,255,.35);
+  background:linear-gradient(135deg,#0c1030,#03040b);
+  box-shadow:0 0 80px rgba(124,60,255,.35);
+  position:relative;overflow:hidden;
+}
+.service-art:before{
+  content:"";position:absolute;inset:30px;border-radius:28px;
+  background:radial-gradient(circle at 50% 50%,rgba(124,60,255,.5),transparent 30%),
+  linear-gradient(135deg,rgba(45,125,255,.2),rgba(193,60,255,.1));
+}
+.service-art:after{
+  content:attr(data-label);position:absolute;left:28px;right:28px;bottom:28px;
+  padding:20px;border-radius:20px;background:rgba(2,3,10,.76);border:1px solid rgba(124,60,255,.28);
+  font-size:28px;font-weight:900;text-align:center;
+}
+.before-after{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin:34px 0}
+.ba{
+  padding:26px;border-radius:24px;background:#080b1d;border:1px solid rgba(124,60,255,.25);
+}
+.ba h3{font-size:28px;margin:0 0 15px}.ba ul{color:#c4cbf4;line-height:2}
+.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;margin-top:24px}
+.shot{
+  height:230px;border-radius:24px;border:1px solid rgba(124,60,255,.28);
+  background:linear-gradient(135deg,#0d1335,#050714);position:relative;overflow:hidden;padding:18px;
+}
+.shot:before{
+  content:"";position:absolute;inset:-50%;background:conic-gradient(#2d7dff33,#7c3cff66,#c13cff33,#2d7dff33);
+  animation:spin 8s linear infinite;
+}
+.shot div{position:relative;z-index:2;height:100%;border-radius:18px;background:rgba(2,3,10,.78);border:1px solid rgba(255,255,255,.08);display:flex;align-items:end;padding:16px;font-size:20px;font-weight:900}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* AI MODAL */
+.ai-modal{
+  display:none;position:fixed;inset:0;background:rgba(0,0,0,.82);z-index:250;place-items:center;padding:22px;
+}
+.ai-box{
+  max-width:720px;width:100%;border-radius:28px;background:#080b1d;border:1px solid rgba(124,60,255,.5);
+  box-shadow:0 0 80px rgba(124,60,255,.45);padding:26px;
+}
+.ai-box textarea{
+  width:100%;height:150px;border-radius:18px;background:#050714;border:1px solid rgba(124,60,255,.32);
+  color:white;padding:16px;font-size:16px;outline:none;
+}
+.ai-output{margin-top:16px;background:#0d1028;border-radius:18px;padding:18px;color:#cbd2ff;line-height:1.8;min-height:90px}
+
+footer{text-align:center;padding:45px;color:#7d86b5}
+
+@media(max-width:1150px){
+  .hero{grid-template-columns:1fr;text-align:center}
+  .left-stack,.right-stack{align-items:center}
+  .english-title{text-align:center}
+  .services-grid{grid-template-columns:repeat(2,1fr)}
+  .analytics,.service-hero,.before-after{grid-template-columns:1fr}
+}
+@media(max-width:700px){
+  nav{left:12px;right:12px}.menu{display:none}.logo-text{letter-spacing:2px}
+  .services-grid{grid-template-columns:1fr}
+  .dash-grid,.charts{grid-template-columns:1fr}
+  .social-rail,.sound-bars{display:none}
+  .sound-player,.chat-ai{position:static;margin:18px auto}
+  .center-hero h1{font-size:52px}
+}
+</style>
 </head>
-<body class="bg-slate-950 text-white selection:bg-purple-500 selection:text-white relative min-h-screen">
+<body>
 
-    <!-- Navigation -->
-    <nav class="fixed w-full z-50 bg-slate-950/80 backdrop-blur-md border-b border-white/10">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-20">
-                <div class="flex items-center">
-                    <span class="text-2xl font-black tracking-tighter text-white">
-                        ELSMKARY<span class="text-purple-500">MEDIA</span>
-                    </span>
-                </div>
-                <div class="hidden md:flex">
-                    <div class="ml-10 flex items-baseline space-x-reverse space-x-8">
-                        <a href="#" class="hover:text-purple-400 transition-colors">الرئيسية</a>
-                        <a href="#services" class="hover:text-purple-400 transition-colors">خدماتنا</a>
-                        <a href="#ai-lab" class="hover:text-purple-400 transition-colors">✨ مختبر الـ AI</a>
-                        <a href="#contact" class="bg-purple-600 px-6 py-2 rounded-full hover:bg-purple-700 transition-all">اتصل بنا</a>
-                    </div>
-                </div>
-                <!-- Mobile menu button -->
-                <div class="md:hidden">
-                    <button id="menu-btn" class="p-2 rounded-md text-gray-400 hover:text-white">
-                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path id="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
-                        </svg>
-                    </button>
-                </div>
-            </div>
-        </div>
-        <!-- Mobile Menu Content -->
-        <div id="mobile-menu" class="hidden md:hidden bg-slate-900 px-4 pt-2 pb-3 space-y-1 border-b border-white/10">
-            <a href="#" class="block px-3 py-2 rounded-md hover:bg-slate-800 text-right">الرئيسية</a>
-            <a href="#services" class="block px-3 py-2 rounded-md hover:bg-slate-800 text-right">خدماتنا</a>
-            <a href="#ai-lab" class="block px-3 py-2 rounded-md hover:bg-slate-800 text-right text-purple-400 font-bold">✨ مختبر الـ AI</a>
-            <a href="#contact" class="block px-3 py-2 rounded-md bg-purple-600 text-center">اتصل بنا</a>
-        </div>
-    </nav>
+<nav>
+  <div class="logo-wrap">
+    <div class="logo-mark">M</div>
+    <div class="logo-text">ELSMKARY<small>MEDIA</small></div>
+  </div>
+  <div class="menu">
+    <a class="active" href="#home">الرئيسية</a>
+    <a href="#services">الخدمات</a>
+    <a href="#work">أعمالنا</a>
+    <a href="#ai">عمر السمكري AI</a>
+    <a href="#pricing">الأسعار</a>
+    <a href="#blog">المدونة</a>
+    <a href="#contact">تواصل</a>
+  </div>
+  <a class="nav-btn" href="https://wa.me/201030085653" target="_blank">ابدأ مشروعك</a>
+</nav>
 
-    <!-- Hero Section -->
-    <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
-        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full -z-10">
-            <div class="absolute top-1/4 left-1/4 w-72 h-72 bg-purple-600/20 rounded-full blur-[120px]"></div>
-            <div class="absolute bottom-1/4 right-1/4 w-72 h-72 bg-pink-600/20 rounded-full blur-[120px]"></div>
+<div class="social-rail">
+  <a href="https://wa.me/201030085653" target="_blank">🟢</a>
+  <a href="https://www.instagram.com/elsmkary_media" target="_blank">📷</a>
+  <a href="https://www.tiktok.com/@omarelsmkary" target="_blank">♪</a>
+  <a href="https://bio.site/ELSMKARYMEDIA" target="_blank">▶</a>
+</div>
+
+<main id="home">
+  <header class="hero">
+    <aside class="left-stack">
+      <div class="pill">DATA. CREATIVE. GROWTH</div>
+      <h3 class="english-title">Never Pay For<br><span>Marketing Analytics</span><br>Again</h3>
+      <a class="outline-btn" href="#work">شاهد الداشبورد ←</a>
+      <div class="people">
+        <div class="avatars"><span class="avatar"></span><span class="avatar"></span><span class="avatar"></span></div>
+        <div><b style="color:#a784ff">+200 عميل</b><br>يثقون في خدماتنا</div>
+      </div>
+    </aside>
+
+    <section class="center-hero">
+      <h1>السمكري ميديا</h1>
+      <h2>غرفة التحكم في علامتك التجارية</h2>
+      <p>إعلانات ممولة • إدارة سوشيال ميديا • صناعة فيديو • هوية بصرية • توزيع موسيقى • حلول AI متكاملة</p>
+      <div class="command-room">
+        <div class="screens">
+          <div class="screen"><div class="bar"></div><div class="chart"></div></div>
+          <div class="screen"><div class="bar"></div><div class="chart"></div></div>
+          <div class="screen"><div class="bar"></div><div class="chart"></div></div>
         </div>
-        <div class="max-w-7xl mx-auto px-4 text-center">
-            <h2 class="text-sm font-bold tracking-widest text-purple-400 uppercase mb-4">LEADING THE DIGITAL SPACE</h2>
-            <h1 class="text-5xl md:text-7xl font-black mb-6 leading-tight">
-                مبيعات <span class="gradient-text">أكبر</span><br>
-                نجاح <span class="gradient-text">أسرع</span>
-            </h1>
-            <p class="text-lg text-gray-400 max-w-2xl mx-auto mb-10">
-                نحن المحرك الذي يدفع علامتك التجارية وفنك نحو القمة باستخدام أحدث تقنيات التسويق والذكاء الاصطناعي.
-            </p>
-            <div class="flex flex-col sm:flex-row justify-center gap-4">
-                <a href="#ai-lab" class="px-8 py-4 bg-purple-600 rounded-xl font-bold hover:scale-105 transition-transform flex items-center justify-center gap-2">
-                    جرب ابتكار فكرة بالـ AI ✨
-                </a>
-                <a href="#services" class="px-8 py-4 border border-white/20 rounded-xl font-bold hover:bg-white/5 transition-colors">اكتشف خدماتنا</a>
-            </div>
-        </div>
+        <div class="person"></div>
+      </div>
+      <div class="scroll-hint">⌄<br>اسحب للأسفل</div>
     </section>
 
-    <!-- Services -->
-    <section id="services" class="py-20 bg-slate-900/50">
-        <div class="max-w-7xl mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-black mb-4">خدمات السمكري MEDIA</h2>
-                <div class="h-1 w-20 bg-purple-600 mx-auto rounded-full"></div>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Service 1 -->
-                <div class="p-8 bg-slate-800/50 border border-white/5 rounded-3xl hover:border-purple-500/50 transition-all flex flex-col justify-between">
-                    <div>
-                        <div class="text-4xl mb-6">📢</div>
-                        <h3 class="text-xl font-bold mb-4">تسويق إلكتروني</h3>
-                        <p class="text-gray-400">إدارة الحملات الإعلانية الممولة وزيادة المبيعات باحترافية على كافة المنصات.</p>
-                    </div>
-                </div>
-                <!-- Service 2 -->
-                <div class="p-8 bg-slate-800/50 border border-white/5 rounded-3xl hover:border-purple-500/50 transition-all flex flex-col justify-between">
-                    <div>
-                        <div class="text-4xl mb-6">🎵</div>
-                        <h3 class="text-xl font-bold mb-4">إنتاج فني وموسيقي</h3>
-                        <p class="text-gray-400">توزيع موسيقي وهندسة صوتية بمستوى عالمي، وصناعة المحتوى الإبداعي والترندات.</p>
-                    </div>
-                </div>
-                <!-- Service 3 -->
-                <div class="p-8 bg-slate-800/50 border border-white/5 rounded-3xl hover:border-purple-500/50 transition-all flex flex-col justify-between">
-                    <div>
-                        <div class="text-4xl mb-6">🤖</div>
-                        <h3 class="text-xl font-bold mb-4">حلول الذكاء الاصطناعي</h3>
-                        <p class="text-gray-400">تطوير أعمالك وتوليد الأفكار اللانهائية باستخدام أحدث تقنيات الـ LLMs والذكاء الاصطناعي التوليدي.</p>
-                    </div>
-                </div>
-            </div>
+    <aside class="right-stack">
+      <div style="color:#8e6cff;font-weight:900">نحو نتائج حقيقية</div>
+      <p style="color:#b9c0eb;line-height:2">نحوّل البيانات إلى قرارات، والإبداع إلى نتائج فعلية تنمو بعلامتك التجارية يوم بعد يوم.</p>
+      <div class="stat-card"><div class="stat-icon">♙</div><div><b>17.5K+</b><small>حملة إعلانية</small></div></div>
+      <div class="stat-card"><div class="stat-icon">◎</div><div><b>392%</b><small>متوسط أداء الحملات</small></div></div>
+      <div class="stat-card"><div class="stat-icon">⌁</div><div><b>98%</b><small>رضا العملاء</small></div></div>
+    </aside>
+  </header>
+
+  <section id="services">
+    <div class="section-title">
+      <h2>خدماتنا الإبداعية</h2>
+      <p>كل ما تحتاجه لنمو وتطوير علامتك التجارية في مكان واحد</p>
+    </div>
+    <div class="services-grid">
+      <article class="service-card" onclick="openService('ads')"><div class="service-icon">📣</div><h3>إعلانات ممولة</h3><p>حملات مدروسة تحقق أفضل عائد على الاستثمار</p><button>استكشف</button></article>
+      <article class="service-card" onclick="openService('social')"><div class="service-icon">☷</div><h3>إدارة سوشيال ميديا</h3><p>من المحتوى إلى التفاعل، ندير حضورك باحتراف</p><button>استكشف</button></article>
+      <article class="service-card" onclick="openService('video')"><div class="service-icon">🎥</div><h3>صناعة الفيديو</h3><p>فيديوهات احترافية تأسر وتحول المشاهدين لعملاء</p><button>استكشف</button></article>
+      <article class="service-card" onclick="openService('brand')"><div class="service-icon">✒</div><h3>هوية بصرية</h3><p>تصاميم تعبر عن هوية تجارتك وتميزك عن غيرك</p><button>استكشف</button></article>
+      <article class="service-card" onclick="openService('music')"><div class="service-icon">🎵</div><h3>توزيع الموسيقى</h3><p>نوزع موسيقاك على جميع المنصات العالمية</p><button>استكشف</button></article>
+      <article class="service-card" onclick="openAI()"><div class="service-icon">AI</div><h3>عمر السمكري AI</h3><p>حلول ذكاء اصطناعي لإنتاج محتوى وأفكار لا نهائية</p><button>استكشف</button></article>
+    </div>
+  </section>
+
+  <section id="work">
+    <div class="analytics">
+      <div>
+        <h2>تحليلات لا تدفع مقابلها مرة أخرى</h2>
+        <p>نوفر لك داشبورد تحليلي متكامل لحملاتك التسويقية بدون أي تكاليف إضافية.</p>
+        <div class="checks">
+          ✓ تتبع الأداء في الوقت الحقيقي<br>
+          ✓ تقارير مفصلة وواضحة<br>
+          ✓ اتخاذ قرارات مبنية على بيانات<br>
+          ✓ زيادة الأرباح وتقليل التكاليف
         </div>
-    </section>
-
-    <!-- ✨ AI Campaign Generator Section (جديد ومميز!) ✨ -->
-    <section id="ai-lab" class="py-20 bg-slate-950 relative overflow-hidden border-t border-b border-white/5">
-        <div class="absolute inset-0 bg-gradient-to-r from-purple-900/10 to-pink-900/10 opacity-30 pointer-events-none"></div>
-        <div class="max-w-4xl mx-auto px-4 relative z-10">
-            <div class="text-center mb-12">
-                <span class="text-xs font-bold text-purple-400 bg-purple-950/60 border border-purple-500/20 px-4 py-1.5 rounded-full uppercase tracking-widest">
-                    مختبر السمكري للابتكار ✨
-                </span>
-                <h2 class="text-3xl md:text-5xl font-black mt-4 mb-3">ابتكر فكرتك الإعلانية القادمة</h2>
-                <p class="text-gray-400 text-sm max-w-lg mx-auto">
-                    أدخل مجال مشروعك ودع محرك الذكاء الاصطناعي يبتكر لك فكرة فيديو تيك توك وسيناريو إبداعي ترند فوراً!
-                </p>
-            </div>
-
-            <!-- نموذج الإدخال -->
-            <div class="bg-slate-900/60 border border-white/10 p-6 sm:p-8 rounded-3xl backdrop-blur-md">
-                <div class="flex flex-col sm:flex-row gap-4 mb-6">
-                    <input type="text" id="business-input" placeholder="مثال: مطعم برجر، عيادة أسنان، متجر ملابس رياضية..." 
-                        class="flex-1 bg-slate-950/80 border border-white/10 rounded-2xl px-5 py-4 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-purple-500 text-right text-sm">
-                    <button id="generate-campaign-btn" class="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-bold px-8 py-4 rounded-2xl transition-all hover:scale-[1.02] flex items-center justify-center gap-2 text-sm whitespace-nowrap">
-                        <span>ابتكر فكرة ترند ✨</span>
-                    </button>
-                </div>
-
-                <!-- رسائل الخطأ والتنبيهات المخصصة -->
-                <div id="ai-error-box" class="hidden bg-red-900/30 border border-red-500/30 text-red-300 text-xs px-4 py-3 rounded-xl text-center mb-4"></div>
-
-                <!-- مكان عرض النتيجة -->
-                <div id="ai-result-box" class="hidden mt-6 bg-slate-950/80 border border-purple-500/20 p-6 rounded-2xl relative">
-                    <div class="flex justify-between items-center mb-4 border-b border-white/5 pb-3">
-                        <button id="copy-idea-btn" class="text-xs bg-slate-800 hover:bg-slate-700 text-purple-300 px-3 py-1.5 rounded-lg font-bold transition-all flex items-center gap-1.5">
-                            <span>نسخ النص 📋</span>
-                        </button>
-                        <span class="text-xs font-bold text-purple-400 flex items-center gap-1">
-                            <span>🤖 الفكرة المقترحة من السمكري AI</span>
-                        </span>
-                    </div>
-                    <div id="ai-result-content" class="text-gray-300 text-sm leading-relaxed text-right whitespace-pre-wrap"></div>
-                </div>
-            </div>
+        <a class="btn" href="https://wa.me/201030085653" target="_blank">جرب الداشبورد الآن</a>
+      </div>
+      <div class="dash">
+        <div class="dash-grid">
+          <div class="dash-metric"><small>Total Ad Spend</small><b>$17,592</b><span class="up">+21.5%</span></div>
+          <div class="dash-metric"><small>Revenue</small><b>$69,012</b><span class="up">+23.7%</span></div>
+          <div class="dash-metric"><small>ROAS</small><b>392%</b><span class="up">+80%</span></div>
+          <div class="dash-metric"><small>Net Profit</small><b>$51,420</b><span class="up">+10.2%</span></div>
         </div>
-    </section>
-
-    <!-- Contact Info / Call to Action -->
-    <section id="contact" class="py-20 bg-slate-900/30 text-center">
-        <div class="max-w-4xl mx-auto px-4">
-            <h2 class="text-3xl md:text-4xl font-black mb-6">جاهز تبدأ رحلة نجاحك؟</h2>
-            <p class="text-gray-400 mb-8 max-w-lg mx-auto">
-                تواصل معنا اليوم ودعنا نحول علامتك التجارية إلى قصة نجاح ملهمة.
-            </p>
-            <div class="flex flex-col sm:flex-row justify-center gap-4">
-                <a href="https://wa.me/00201030085653" class="px-8 py-4 bg-green-600 rounded-xl font-bold hover:bg-green-700 transition-transform hover:scale-105 flex items-center justify-center gap-2">
-                    <span>تواصل عبر واتساب مصر 🇪🇬</span>
-                </a>
-                <a href="https://wa.me/00971585470450" class="px-8 py-4 bg-purple-600 rounded-xl font-bold hover:bg-purple-700 transition-transform hover:scale-105 flex items-center justify-center gap-2">
-                    <span>تواصل عبر واتساب الإمارات 🇦🇪</span>
-                </a>
-            </div>
+        <div class="charts">
+          <div class="line-chart"><b style="color:#a784ff">Revenue Overview</b></div>
+          <div class="bar-chart"><b style="color:#a784ff">Sales Overview</b><div class="bars"><span style="height:45%"></span><span style="height:62%"></span><span style="height:85%"></span><span style="height:52%"></span><span style="height:70%"></span><span style="height:90%"></span><span style="height:100%"></span></div></div>
         </div>
-    </section>
+      </div>
+    </div>
+    <div class="logos"><span>CAIRO COFFEE</span><span>IRON GYM</span><span>ROYAL REAL ESTATE</span><span>LUXURY SHOP</span><span>MUSIC RECORDS</span><span>DRIFT CLOTHING</span></div>
+  </section>
+</main>
 
-    <!-- Footer -->
-    <footer class="py-10 border-t border-white/10 text-center bg-slate-950">
-        <p class="text-gray-500 text-xs mb-2">
-            &copy; 2026 ELSMKARYMEDIA. جميع الحقوق محفوظة لـ عمر.
-        </p>
-        <p class="text-[10px] text-gray-700">
-            مدعوم بتقنيات الذكاء الاصطناعي من Google Gemini
-        </p>
-    </footer>
+<div class="sound-player">
+  <div class="play-btn" onclick="toggleMood()">▶</div>
+  <div><b>Chill Vibes</b><br><small style="color:#9aa4d6">ELSMKARY Playlist</small></div>
+</div>
+<div class="sound-bars" id="soundBars"></div>
 
-    <!-- ✨ Floating AI Chatbot Widget (مستشار السمكري الذكي) ✨ -->
-    <div class="fixed bottom-6 right-6 z-[100] flex flex-col items-end">
-        <!-- نافذة الشات -->
-        <div id="ai-chat-window" class="hidden w-[350px] max-w-[90vw] h-[450px] bg-slate-900 border border-purple-500/30 rounded-3xl shadow-2xl flex flex-col overflow-hidden mb-4 backdrop-blur-lg">
-            <!-- الهيدر -->
-            <div class="bg-gradient-to-r from-purple-900 to-pink-900 px-5 py-4 flex items-center justify-between border-b border-white/10">
-                <div class="flex items-center gap-2.5">
-                    <span class="w-2.5 h-2.5 bg-green-500 rounded-full animate-pulse"></span>
-                    <span class="font-bold text-sm tracking-wide">✨ مستشار السمكري الذكي</span>
-                </div>
-                <button id="close-chat-btn" class="text-gray-400 hover:text-white transition-colors text-sm">✕</button>
-            </div>
-            <!-- الرسائل -->
-            <div id="chat-messages" class="flex-1 p-4 overflow-y-auto space-y-3 flex flex-col chat-scrollbar text-xs">
-                <!-- الرسالة الترحيبية -->
-                <div class="bg-slate-800/80 text-gray-200 p-3 rounded-2xl rounded-tr-none self-start max-w-[85%] text-right leading-relaxed">
-                    يا مرحب بيك يا بطل! 👋 أنا المستشار الذكي لوكالة **السمكري ميديا**. 
-                    قولي إيه هو مجالك، ونفسك نعملك إعلانات وتصميمات تكسر الدنيا إزاي؟ 🚀
-                </div>
-            </div>
-            <!-- مدخلات الشات -->
-            <div class="p-3 bg-slate-950/80 border-t border-white/5 flex gap-2">
-                <input type="text" id="chat-user-input" placeholder="اسأل المستشار الذكي..." 
-                    class="flex-1 bg-slate-900 border border-white/10 rounded-xl px-4 py-2 text-xs focus:outline-none focus:ring-1 focus:ring-purple-500 text-right text-white placeholder-gray-500">
-                <button id="chat-send-btn" class="bg-purple-600 hover:bg-purple-700 text-white font-bold px-4 py-2 rounded-xl transition-all text-xs">
-                    إرسال
-                </button>
-            </div>
+<div class="chat-ai" onclick="openAI()">
+  <div class="bot">🤖</div>
+  <div><b>عمر السمكري AI</b><small>اسألني أي شيء</small></div>
+</div>
+
+<div class="service-view" id="serviceView">
+  <div class="service-inner">
+    <button class="close-service" onclick="closeService()">×</button>
+    <div class="service-hero">
+      <div>
+        <div class="pill" id="servicePill">SERVICE WORLD</div>
+        <h2 id="serviceTitle"></h2>
+        <p id="serviceDesc"></p>
+        <div class="actions">
+          <a class="btn" target="_blank" href="https://wa.me/201030085653">اطلب الخدمة الآن</a>
+          <a class="btn alt" target="_blank" href="https://bio.site/ELSMKARYMEDIA">كل لينكات السمكري</a>
         </div>
-
-        <!-- زر فتح الشات العائم -->
-        <button id="toggle-chat-btn" class="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white w-14 h-14 rounded-full shadow-2xl flex items-center justify-center transition-all hover:scale-110 active:scale-95 duration-200">
-            <span class="text-2xl">✨</span>
-        </button>
+      </div>
+      <div class="service-art" id="serviceArt" data-label=""></div>
     </div>
 
-    <!-- JavaScript logic including Gemini API with Exponential Backoff -->
-    <script>
-        // كود بسيط لفتح وقفل القائمة في الموبايل
-        const btn = document.getElementById('menu-btn');
-        const menu = document.getElementById('mobile-menu');
+    <div class="before-after">
+      <div class="ba"><h3>قبل السمكري</h3><ul id="beforeList"></ul></div>
+      <div class="ba"><h3>بعد السمكري</h3><ul id="afterList"></ul></div>
+    </div>
 
-        btn.addEventListener('click', () => {
-            menu.classList.toggle('hidden');
-        });
+    <div class="section-title"><h2>معرض الخدمة</h2><p>لوحات ومودبورد يشرح للعميل الإحساس والشغل</p></div>
+    <div class="gallery" id="gallery"></div>
+  </div>
+</div>
 
-        // ==========================================
-        //  إعدادات وربط Gemini API الذكي
-        // ==========================================
-        const geminiApiKey = ""; // القيمة خالية ليتم تمرير المفتاح من بيئة التشغيل تلقائياً
+<div class="ai-modal" id="aiModal">
+  <div class="ai-box">
+    <button class="close-service" style="position:static;float:left" onclick="closeAI()">×</button>
+    <h2>عمر السمكري AI</h2>
+    <p style="color:#b9c0eb;line-height:1.8">اكتب نوع مشروعك أو الإعلان المطلوب، وأنا أطلعلك فكرة تسويقية سريعة.</p>
+    <textarea id="aiInput" placeholder="مثال: عاوز إعلان لمطعم حواوشي / حملة لفنان / محتوى لبراند ملابس..."></textarea><br><br>
+    <button class="btn" onclick="generateAI()">ولّد الفكرة 🔥</button>
+    <div class="ai-output" id="aiOutput">النتيجة هتظهر هنا...</div>
+  </div>
+</div>
 
-        // دالة الاتصال بالـ API مع تفعيل نظام الـ Exponential Backoff المتطور
-        async function callGemini(userMessage, systemPrompt) {
-            const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${geminiApiKey}`;
-            
-            const payload = {
-                contents: [
-                    { parts: [{ text: userMessage }] }
-                ],
-                systemInstruction: {
-                    parts: [{ text: systemPrompt }]
-                }
-            };
+<footer id="contact">
+  © 2026 ELSMKARY MEDIA — جميع الحقوق محفوظة
+</footer>
 
-            let retryDelay = 1000; // البداية بـ ثانية واحدة
-            const maxRetries = 5;
+<script>
+const services = {
+  ads:{
+    pill:"PAID ADS PERFORMANCE",
+    title:"إعلانات ممولة",
+    desc:"نحوّل الميزانية لنتيجة حقيقية: استهداف، كرياتيف، رسائل، اختبارات، وتحسين مستمر. الإعلان عند السمكري مش زر Boost وخلاص.",
+    label:"Campaign Control Room",
+    before:["صرف ميزانية بدون خطة","استهداف واسع ومش واضح","تصميمات لا توقف العميل","مفيش قراءة أرقام"],
+    after:["هدف واضح للحملة","كرياتيف مصمم للبيع","تقارير وقرارات مبنية على بيانات","رسائل واتساب وعملاء فعليين"],
+    shots:["Meta Ads Dashboard","Google Campaigns","WhatsApp Leads","A/B Creative Tests"]
+  },
+  social:{
+    pill:"SOCIAL MEDIA SYSTEM",
+    title:"إدارة سوشيال ميديا",
+    desc:"نخلق للبراند شخصية كاملة على السوشيال: شكل، نبرة كلام، أفكار، كابشن، ردود، وجدولة محتوى.",
+    label:"Social Command Center",
+    before:["الصفحة عشوائية","مفيش خطة نشر","تصميمات مش موحدة","تفاعل ضعيف"],
+    after:["هوية واضحة","تقويم محتوى شهري","تفاعل وردود منظمة","شكل احترافي يبيع"],
+    shots:["Content Calendar","Reels Ideas","Community Replies","Monthly Report"]
+  },
+  video:{
+    pill:"VIDEO PRODUCTION",
+    title:"صناعة الفيديو",
+    desc:"فيديوهات ورييلز وسيناريوهات AI بخطاف قوي، مونتاج سريع، وصوت/صورة تخلي العميل يكمل للآخر.",
+    label:"Cinematic Reel Studio",
+    before:["فيديو طويل وممل","بداية ضعيفة","مونتاج عادي","مفيش CTA"],
+    after:["Hook من أول 3 ثواني","مونتاج سريع","قصة واضحة","CTA يخلي العميل يتحرك"],
+    shots:["Reels Hook","AI Video Scenes","Motion Graphics","Cinematic Edit"]
+  },
+  brand:{
+    pill:"PREMIUM BRANDING",
+    title:"هوية بصرية",
+    desc:"مش لوجو وخلاص. Brand Kit كامل: ألوان، خطوط، أشكال، بوستات، منيوهات، وكروت تخلي البراند Premium.",
+    label:"Luxury Brand Kit",
+    before:["لوجو بدون نظام","ألوان متلخبطة","تصميمات مختلفة كل مرة","البراند مش ثابت"],
+    after:["نظام بصري كامل","ألوان وخطوط ثابتة","شكل فاخر","تطبيقات جاهزة للطباعة والسوشيال"],
+    shots:["Logo System","Color Palette","Social Templates","Print Identity"]
+  },
+  music:{
+    pill:"MUSIC DISTRIBUTION",
+    title:"توزيع الموسيقى",
+    desc:"نساعد الفنان يظهر رسميًا: غلاف، Metadata، وصف، توزيع على المنصات، وخطة محتوى للأغنية.",
+    label:"Music Release Room",
+    before:["غلاف ضعيف","بيانات ناقصة","نشر عشوائي","مفيش خطة ترويج"],
+    after:["غلاف رسمي","بيانات منظمة","نشر على المنصات","خطة محتوى وترويج"],
+    shots:["Cover Art","Spotify Release","TikTok Sound","Artist Promo"]
+  }
+};
 
-            for (let i = 0; i < maxRetries; i++) {
-                try {
-                    const response = await fetch(url, {
-                        method: "POST",
-                        headers: {
-                            "Content-Type": "application/json"
-                        },
-                        body: JSON.stringify(payload)
-                    });
+function openService(key){
+  const s = services[key];
+  document.getElementById("servicePill").innerText = s.pill;
+  document.getElementById("serviceTitle").innerText = s.title;
+  document.getElementById("serviceDesc").innerText = s.desc;
+  document.getElementById("serviceArt").setAttribute("data-label", s.label);
+  document.getElementById("beforeList").innerHTML = s.before.map(x=>`<li>${x}</li>`).join("");
+  document.getElementById("afterList").innerHTML = s.after.map(x=>`<li>${x}</li>`).join("");
+  document.getElementById("gallery").innerHTML = s.shots.map(x=>`<div class="shot"><div>${x}</div></div>`).join("");
+  document.getElementById("serviceView").style.display = "block";
+  document.body.style.overflow = "hidden";
+}
+function closeService(){
+  document.getElementById("serviceView").style.display = "none";
+  document.body.style.overflow = "auto";
+}
 
-                    if (response.ok) {
-                        const data = await response.json();
-                        const textOutput = data.candidates?.[0]?.content?.parts?.[0]?.text;
-                        if (textOutput) return textOutput;
-                    }
-                } catch (error) {
-                    // تجاهل الخطأ لإكمال المحاولة مجدداً بنظام Backoff
-                }
-                
-                // انتظار تضاعف الوقت المتزايد
-                await new Promise(resolve => setTimeout(resolve, retryDelay));
-                retryDelay *= 2; 
-            }
+function openAI(){document.getElementById("aiModal").style.display="grid"}
+function closeAI(){document.getElementById("aiModal").style.display="none"}
+function generateAI(){
+  const input = document.getElementById("aiInput").value.trim();
+  const out = document.getElementById("aiOutput");
+  if(!input){out.innerHTML="اكتب الفكرة الأول يا نجم ✨";return}
+  out.innerHTML = "🔥 فكرة من عمر السمكري AI:<br><br>ابدأ بهوك: <b>«الناس مش بتشتري الأرخص… الناس بتشتري اللي فاهمها»</b><br>اعمل محتوى عن: <b>"+input+"</b><br>السكريبت: مشكلة العميل → الحل → إثبات سريع → عرض واضح → زر واتساب. استخدم موود دارك نيون، جملة قصيرة، ومشهد Dashboard يدي ثقة.";
+}
 
-            throw new Error("حدث خطأ في الاتصال بمستشار الذكاء الاصطناعي. يرجى المحاولة لاحقاً.");
-        }
-
-        // ==========================================
-        //  ميزة 1: ✨ مبتكر الأفكار الإعلانية
-        // ==========================================
-        const generateCampaignBtn = document.getElementById('generate-campaign-btn');
-        const businessInput = document.getElementById('business-input');
-        const aiResultBox = document.getElementById('ai-result-box');
-        const aiResultContent = document.getElementById('ai-result-content');
-        const aiErrorBox = document.getElementById('ai-error-box');
-        const copyIdeaBtn = document.getElementById('copy-idea-btn');
-
-        generateCampaignBtn.addEventListener('click', async () => {
-            const biz = businessInput.value.trim();
-            if (!biz) {
-                showGeneratorError("برجاء إدخال نوع مشروعك أولاً لنبدأ الابتكار!");
-                return;
-            }
-
-            hideGeneratorError();
-            aiResultBox.classList.remove('hidden');
-            aiResultContent.innerHTML = `<span class="text-purple-400 animate-pulse">جاري عصر الأفكار وتوليد الاستراتيجية العبقرية... 🧠⚡</span>`;
-            generateCampaignBtn.disabled = true;
-
-            const systemPrompt = `أنت خبير تسويق إعلاني عبقري في وكالة "السمكري ميديا". مهمتك ابتكار فكرة حملة إعلانية إبداعية متكاملة ومفاجئة وسيناريو فيديو قصير (تيك توك أو ريلز) بناءً على نوع المشروع المدخل من العميل. اكتب الرد بأسلوب مصري مبدع، مشوق وجذاب جداً مع عنوان فرعي مدهش للفكرة.`;
-
-            try {
-                const responseText = await callGemini(`مشروعي هو: ${biz}`, systemPrompt);
-                aiResultContent.textContent = responseText;
-            } catch (error) {
-                showGeneratorError(error.message);
-                aiResultBox.classList.add('hidden');
-            } finally {
-                generateCampaignBtn.disabled = false;
-            }
-        });
-
-        function showGeneratorError(msg) {
-            aiErrorBox.textContent = msg;
-            aiErrorBox.classList.remove('hidden');
-        }
-
-        function hideGeneratorError() {
-            aiErrorBox.classList.add('hidden');
-        }
-
-        // نسخ النص المبتكر
-        copyIdeaBtn.addEventListener('click', () => {
-            const textToCopy = aiResultContent.textContent;
-            // نسخ آمن للتطبيقات داخل إطارات العرض (iframe)
-            const el = document.createElement('textarea');
-            el.value = textToCopy;
-            document.body.appendChild(el);
-            el.select();
-            document.execCommand('copy');
-            document.body.removeChild(el);
-            
-            // تغيير مؤقت لشكل الزر لتأكيد النسخ
-            const originalHTML = copyIdeaBtn.innerHTML;
-            copyIdeaBtn.innerHTML = "تم النسخ بنجاح! ✔️";
-            setTimeout(() => {
-                copyIdeaBtn.innerHTML = originalHTML;
-            }, 2000);
-        });
-
-
-        // ==========================================
-        //  ميزة 2: ✨ مستشار السمكري العائم (Chatbot)
-        // ==========================================
-        const toggleChatBtn = document.getElementById('toggle-chat-btn');
-        const aiChatWindow = document.getElementById('ai-chat-window');
-        const closeChatBtn = document.getElementById('close-chat-btn');
-        const chatMessages = document.getElementById('chat-messages');
-        const chatUserInput = document.getElementById('chat-user-input');
-        const chatSendBtn = document.getElementById('chat-send-btn');
-
-        toggleChatBtn.addEventListener('click', () => {
-            aiChatWindow.classList.toggle('hidden');
-        });
-
-        closeChatBtn.addEventListener('click', () => {
-            aiChatWindow.classList.add('hidden');
-        });
-
-        // إرسال رسالة في الشات
-        async function sendChatMessage() {
-            const userMsg = chatUserInput.value.trim();
-            if (!userMsg) return;
-
-            // إضافة رسالة المستخدم في الشات
-            addMessageToChat(userMsg, true);
-            chatUserInput.value = "";
-
-            // إضافة مؤشر الانتظار
-            const loaderId = addMessageToChat("جاري التفكير والكتابة... 🤖", false, true);
-
-            const systemPrompt = `أنت المستشار التسويقي الذكي لوكالة "السمكري ميديا" (ELSMKARYMEDIA). هدفك مساعدة أصحاب المشاريع في التخطيط لحملاتهم الإعلانية، تصميمات الموشن جرافيك، وإنتاج الفيديوهات والموسيقى. تحدث بأسلوب احترافي، ودود، وسريع البديهة، واستخدم لمسة خفيفة من اللهجة المصرية المحببة لجعل النقاش ممتعاً. شجعهم دائماً على اتخاذ خطوة النجاح بالتعاون مع السمكري.`;
-
-            try {
-                const botResponse = await callGemini(userMsg, systemPrompt);
-                removeLoader(loaderId);
-                addMessageToChat(botResponse, false);
-            } catch (error) {
-                removeLoader(loaderId);
-                addMessageToChat("عذراً، واجهت مشكلة في الوصول للمستشار الآن. تقدر تتواصل مع السمكري مباشرة عبر واتساب!", false);
-            }
-        }
-
-        chatSendBtn.addEventListener('click', sendChatMessage);
-        chatUserInput.addEventListener('keydown', (e) => {
-            if (e.key === 'Enter') {
-                sendChatMessage();
-            }
-        });
-
-        // دالة مساعدة لإضافة الرسائل للشات
-        function addMessageToChat(text, isUser, isLoader = false) {
-            const msgDiv = document.createElement('div');
-            const uniqueId = 'msg-' + Date.now();
-            msgDiv.id = uniqueId;
-
-            if (isUser) {
-                msgDiv.className = "bg-purple-600 text-white p-3 rounded-2xl rounded-tl-none self-end max-w-[85%] text-right leading-relaxed shadow-md";
-            } else {
-                msgDiv.className = isLoader 
-                    ? "bg-slate-800/80 text-purple-400 p-3 rounded-2xl rounded-tr-none self-start max-w-[85%] text-right leading-relaxed animate-pulse" 
-                    : "bg-slate-800/80 text-gray-200 p-3 rounded-2xl rounded-tr-none self-start max-w-[85%] text-right leading-relaxed shadow-sm";
-            }
-
-            msgDiv.textContent = text;
-            chatMessages.appendChild(msgDiv);
-            chatMessages.scrollTop = chatMessages.scrollHeight;
-            return uniqueId;
-        }
-
-        function removeLoader(id) {
-            const loaderEl = document.getElementById(id);
-            if (loaderEl) {
-                loaderEl.remove();
-            }
-        }
-    </script>
+const bars = document.getElementById("soundBars");
+for(let i=0;i<80;i++){
+  const s=document.createElement("span");
+  s.style.animationDelay=(i*.035)+"s";
+  bars.appendChild(s);
+}
+let mood=true;
+function toggleMood(){
+  mood=!mood;
+  bars.style.opacity=mood?1:.15;
+}
+</script>
 </body>
 </html>
