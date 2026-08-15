@@ -1,955 +1,1732 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ELSMKARYMEDIA | مستقبل التسويق بالذكاء الاصطناعي</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary: #7A29C2;
-            --accent: #B388FF;
-            --bg: #05010d;
-            --card-bg: rgba(255, 255, 255, 0.03);
-        }
-        
-        body {
-            font-family: 'Cairo', sans-serif;
-            background-color: var(--bg);
-            color: #fff;
-            overflow-x: hidden;
-            scroll-behavior: smooth;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#050505">
 
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: var(--bg); }
-        ::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 10px; }
+<title>ELSMKARY MEDIA</title>
 
-        .glass-nav {
-            background: rgba(5, 1, 13, 0.8);
-            backdrop-filter: blur(15px);
-            border-bottom: 1px solid rgba(122, 41, 194, 0.2);
-        }
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
 
-        .btn-glow {
-            background: linear-gradient(45deg, var(--primary), var(--accent));
-            box-shadow: 0 0 20px rgba(122, 41, 194, 0.4);
-            transition: all 0.4s ease;
-        }
+html{
+  scroll-behavior:smooth;
+}
 
-        .btn-glow:hover {
-            box-shadow: 0 0 40px rgba(122, 41, 194, 0.8);
-            transform: translateY(-2px);
-        }
+body{
+  font-family:Arial,Tahoma,sans-serif;
+  background:#050505;
+  color:#fff;
+  line-height:1.8;
+  overflow-x:hidden;
+}
 
-        .logo-clip {
-            background: #fff;
-            clip-path: polygon(25% 0%, 100% 0%, 100% 20%, 45% 20%, 75% 40%, 45% 60%, 100% 60%, 100% 80%, 25% 100%, 0% 100%, 30% 50%, 0% 0%);
-        }
+a{
+  color:inherit;
+  text-decoration:none;
+}
 
-        .hero-mesh {
-            background-image: 
-                radial-gradient(at 0% 0%, rgba(122, 41, 194, 0.15) 0, transparent 50%), 
-                radial-gradient(at 100% 100%, rgba(179, 136, 255, 0.1) 0, transparent 50%);
-        }
+button{
+  font-family:inherit;
+}
 
-        .ai-card {
-            background: var(--card-bg);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            transition: all 0.3s ease;
-        }
+.container{
+  width:min(1150px,92%);
+  margin:auto;
+}
 
-        .ai-card:hover {
-            background: rgba(122, 41, 194, 0.1);
-            border-color: var(--primary);
-            transform: translateY(-10px);
-        }
+.gold{
+  color:#d4af37;
+}
 
-        .page-content {
-            display: none;
-            opacity: 0;
-            transform: translateY(10px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
+/* NAV */
 
-        .page-content.active {
-            display: block;
-            opacity: 1;
-            transform: translateY(0);
-        }
+nav{
+  position:fixed;
+  top:0;
+  right:0;
+  left:0;
+  z-index:1000;
+  background:rgba(5,5,5,.95);
+  backdrop-filter:blur(15px);
+  border-bottom:1px solid rgba(212,175,55,.2);
+}
 
-        #mobile-menu {
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            clip-path: circle(0% at 100% 0%);
-        }
+.nav{
+  min-height:70px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
 
-        #mobile-menu.open {
-            clip-path: circle(150% at 100% 0%);
-        }
+.logo{
+  font-size:20px;
+  font-weight:900;
+  letter-spacing:1px;
+}
 
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-            100% { transform: translateY(0px); }
-        }
+.logo span{
+  color:#d4af37;
+}
 
-        .floating-ai {
-            animation: float 6s ease-in-out infinite;
-        }
+.menu{
+  font-size:28px;
+  cursor:pointer;
+}
 
-        .text-gradient {
-            background: linear-gradient(to right, #fff, var(--accent));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
+.nav-links{
+  display:none;
+  position:absolute;
+  top:70px;
+  right:0;
+  width:100%;
+  background:#080808;
+  list-style:none;
+  padding:15px;
+  text-align:center;
+}
 
-        /* Shimmer loading effect */
-        .shimmer {
-            background: linear-gradient(90deg, rgba(255,255,255,0.03) 25%, rgba(255,255,255,0.08) 50%, rgba(255,255,255,0.03) 75%);
-            background-size: 200% 100%;
-            animation: loading-shimmer 1.5s infinite;
-        }
+.nav-links.active{
+  display:block;
+}
 
-        @keyframes loading-shimmer {
-            0% { background-position: 200% 0; }
-            100% { background-position: -200% 0; }
-        }
-    </style>
+.nav-links li{
+  padding:7px;
+}
+
+.nav-links a:hover{
+  color:#d4af37;
+}
+
+/* HERO */
+
+.hero{
+  min-height:100svh;
+  padding:120px 0 70px;
+  display:flex;
+  align-items:center;
+  text-align:center;
+  background:
+    radial-gradient(circle at 50% 20%,rgba(212,175,55,.16),transparent 35%),
+    linear-gradient(145deg,#050505,#111,#050505);
+}
+
+.badge{
+  display:inline-block;
+  color:#d4af37;
+  border:1px solid rgba(212,175,55,.4);
+  border-radius:50px;
+  padding:6px 15px;
+  font-size:12px;
+  margin-bottom:18px;
+}
+
+.hero h1{
+  font-size:clamp(48px,13vw,100px);
+  line-height:1;
+  font-weight:950;
+}
+
+.hero h1 span{
+  color:#d4af37;
+}
+
+.hero p{
+  max-width:750px;
+  margin:25px auto;
+  color:#aaa;
+  font-size:16px;
+}
+
+.buttons{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top:25px;
+}
+
+.btn{
+  display:inline-block;
+  padding:13px 22px;
+  border-radius:9px;
+  font-weight:bold;
+  transition:.25s;
+}
+
+.gold-btn{
+  background:#d4af37;
+  color:#000;
+  border:0;
+}
+
+.gold-btn:hover{
+  transform:translateY(-3px);
+  box-shadow:0 10px 30px rgba(212,175,55,.25);
+}
+
+.outline-btn{
+  border:1px solid #444;
+}
+
+.outline-btn:hover{
+  color:#d4af37;
+  border-color:#d4af37;
+}
+
+/* SECTIONS */
+
+section{
+  padding:80px 0;
+}
+
+.dark{
+  background:#090909;
+}
+
+.section-title{
+  text-align:center;
+  margin-bottom:40px;
+}
+
+.section-title small{
+  color:#d4af37;
+  font-weight:bold;
+}
+
+.section-title h2{
+  font-size:clamp(30px,7vw,52px);
+}
+
+.section-title p{
+  color:#888;
+}
+
+/* ABOUT */
+
+.about{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:25px;
+}
+
+.about-text h3{
+  font-size:29px;
+  margin-bottom:12px;
+}
+
+.about-text p{
+  color:#aaa;
+  margin-bottom:13px;
+}
+
+.about-card{
+  padding:28px;
+  border-radius:18px;
+  background:linear-gradient(145deg,#111,#080808);
+  border:1px solid #252525;
+}
+
+.year{
+  color:#d4af37;
+  font-size:65px;
+  font-weight:900;
+}
+
+/* SERVICES */
+
+.services-grid{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:14px;
+}
+
+.service-card{
+  background:#0d0d0d;
+  border:1px solid #222;
+  border-radius:16px;
+  padding:24px;
+  transition:.3s;
+}
+
+.service-card:hover{
+  border-color:#d4af37;
+  transform:translateY(-4px);
+}
+
+.service-icon{
+  font-size:35px;
+}
+
+.service-card h3{
+  margin:5px 0;
+}
+
+.service-card p{
+  color:#999;
+  font-size:14px;
+}
+
+.service-buttons{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  margin-top:17px;
+}
+
+.small-btn{
+  padding:10px 14px;
+  border-radius:7px;
+  font-size:13px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.details-btn{
+  background:transparent;
+  color:#fff;
+  border:1px solid #444;
+}
+
+.details-btn:hover{
+  border-color:#d4af37;
+  color:#d4af37;
+}
+
+.whatsapp-btn{
+  background:#25d366;
+  color:#fff;
+  border:0;
+}
+
+/* MODAL */
+
+.modal{
+  position:fixed;
+  inset:0;
+  z-index:2000;
+  background:rgba(0,0,0,.85);
+  backdrop-filter:blur(8px);
+  display:none;
+  align-items:flex-end;
+  justify-content:center;
+  padding:12px;
+}
+
+.modal.active{
+  display:flex;
+}
+
+.modal-box{
+  width:min(650px,100%);
+  max-height:90svh;
+  overflow:auto;
+  background:#111;
+  border:1px solid rgba(212,175,55,.35);
+  border-radius:22px 22px 12px 12px;
+  padding:28px;
+  position:relative;
+}
+
+.close{
+  position:absolute;
+  top:10px;
+  left:14px;
+  width:35px;
+  height:35px;
+  border-radius:50%;
+  background:#222;
+  border:0;
+  color:#fff;
+  font-size:22px;
+  cursor:pointer;
+}
+
+.modal-icon{
+  font-size:45px;
+}
+
+.modal-box h2{
+  color:#d4af37;
+  margin:7px 0 12px;
+}
+
+.modal-box p{
+  color:#aaa;
+}
+
+.modal-box ul{
+  padding-right:20px;
+  color:#ccc;
+  margin-top:12px;
+}
+
+.modal-box li{
+  margin:6px 0;
+}
+
+/* MUSIC */
+
+.music-feature{
+  padding:28px;
+  border-radius:20px;
+  border:1px solid rgba(212,175,55,.3);
+  background:#0b0b0b;
+  margin-bottom:30px;
+}
+
+.music-feature h3{
+  color:#d4af37;
+  font-size:27px;
+}
+
+.artists{
+  display:flex;
+  flex-wrap:wrap;
+  gap:9px;
+  margin-top:15px;
+}
+
+.artist{
+  padding:8px 13px;
+  border:1px solid #3a3a3a;
+  border-radius:30px;
+  background:#111;
+  font-size:14px;
+}
+
+.music-grid{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:14px;
+}
+
+.music-card{
+  text-align:center;
+  padding:25px;
+  background:#0e0e0e;
+  border:1px solid #242424;
+  border-radius:17px;
+}
+
+.music-card:hover{
+  border-color:#d4af37;
+}
+
+.music-icon{
+  font-size:42px;
+}
+
+.music-card p{
+  color:#888;
+}
+
+/* SUCCESS */
+
+.success-grid{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:14px;
+}
+
+.success{
+  background:#0d0d0d;
+  padding:22px;
+  border-right:3px solid #d4af37;
+  border-radius:10px;
+}
+
+.success h3{
+  color:#d4af37;
+}
+
+.success p{
+  color:#aaa;
+  font-size:14px;
+}
+
+/* SOCIAL */
+
+.social-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+}
+
+.social{
+  padding:20px 10px;
+  text-align:center;
+  background:#0d0d0d;
+  border:1px solid #242424;
+  border-radius:13px;
+}
+
+.social:hover{
+  border-color:#d4af37;
+  color:#d4af37;
+}
+
+.social small{
+  display:block;
+  color:#777;
+}
+
+/* CONTACT */
+
+.contact-box{
+  max-width:760px;
+  margin:auto;
+  padding:24px;
+  background:#0e0e0e;
+  border:1px solid #252525;
+  border-radius:18px;
+}
+
+.form-grid{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:12px;
+}
+
+input,
+select,
+textarea{
+  width:100%;
+  padding:14px;
+  border-radius:8px;
+  border:1px solid #292929;
+  background:#050505;
+  color:#fff;
+  outline:none;
+  font-size:15px;
+}
+
+input:focus,
+select:focus,
+textarea:focus{
+  border-color:#d4af37;
+}
+
+textarea{
+  min-height:130px;
+  resize:vertical;
+}
+
+.submit{
+  width:100%;
+  cursor:pointer;
+  font-size:16px;
+  margin-top:12px;
+}
+
+/* FOOTER */
+
+footer{
+  padding:40px 0;
+  text-align:center;
+  color:#777;
+  border-top:1px solid #222;
+}
+
+.footer-links{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:15px;
+  margin:18px 0;
+}
+
+.footer-links a:hover{
+  color:#d4af37;
+}
+
+/* FLOATING WHATSAPP */
+
+.floating-whatsapp{
+  position:fixed;
+  bottom:18px;
+  left:18px;
+  z-index:998;
+  width:58px;
+  height:58px;
+  border-radius:50%;
+  background:#25d366;
+  color:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:27px;
+  box-shadow:0 8px 25px rgba(0,0,0,.5);
+}
+
+/* DESKTOP */
+
+@media(min-width:700px){
+
+  .menu{
+    display:none;
+  }
+
+  .nav-links{
+    position:static;
+    display:flex;
+    width:auto;
+    background:none;
+    padding:0;
+    gap:20px;
+  }
+
+  .nav-links li{
+    padding:0;
+  }
+
+  .about{
+    grid-template-columns:1.15fr .85fr;
+  }
+
+  .services-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .success-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .music-grid{
+    grid-template-columns:repeat(3,1fr);
+  }
+
+  .form-grid{
+    grid-template-columns:1fr 1fr;
+  }
+
+}
+
+@media(min-width:1000px){
+
+  .services-grid{
+    grid-template-columns:repeat(3,1fr);
+  }
+
+  .social-grid{
+    grid-template-columns:repeat(4,1fr);
+  }
+
+  .modal{
+    align-items:center;
+  }
+
+  .modal-box{
+    border-radius:20px;
+  }
+
+}
+
+</style>
 </head>
+
 <body>
 
-    <nav class="fixed top-0 w-full z-[100] glass-nav">
-        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-            
-            <!-- Logo -->
-            <div class="flex items-center gap-3 cursor-pointer group" onclick="showPage('main-content')">
-                <div class="w-10 h-10 logo-clip bg-white group-hover:bg-purple-400 transition-colors"></div>
-                <div class="flex flex-col">
-                    <span class="text-xl font-black tracking-tighter uppercase leading-none text-white">ELSMKARY<span class="text-purple-500">MEDIA</span></span>
-                    <span class="text-[7px] uppercase tracking-[0.3em] text-zinc-500 font-bold italic">AI Powered Agency</span>
-                </div>
-            </div>
-
-            <!-- Desktop Menu -->
-            <div class="hidden lg:flex gap-8 items-center text-[12px] font-bold uppercase tracking-widest text-zinc-400">
-                <a href="javascript:void(0)" onclick="showPage('main-content')" class="hover:text-white transition">الرئيسية</a>
-                <a href="javascript:void(0)" onclick="showPage('about-page')" class="hover:text-white transition">عن الوكالة</a>
-                <a href="javascript:void(0)" onclick="showPage('ai-page')" class="text-purple-400 hover:text-white transition flex items-center gap-2">
-                    <span class="relative flex h-2 w-2">
-                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-purple-400 opacity-75"></span>
-                        <span class="relative inline-flex rounded-full h-2 w-2 bg-purple-500"></span>
-                    </span>
-                    مختبر الذكاء الاصطناعي 🧠
-                </a>
-                <a href="javascript:void(0)" onclick="showPage('success-page')" class="hover:text-white transition">النجاحات</a>
-                <a href="javascript:void(0)" onclick="showPage('social-page')" class="hover:text-white transition">تواصل معنا</a>
-            </div>
-
-            <!-- CTA -->
-            <div class="flex items-center gap-4">
-                <a href="https://wa.me/971585470450" target="_blank" class="hidden sm:block btn-glow px-6 py-2.5 rounded-full text-[10px] font-black uppercase tracking-tighter">
-                    ابدأ مشروعك الآن
-                </a>
-                <button onclick="toggleMenu()" class="lg:hidden w-10 h-10 flex flex-col items-center justify-center gap-1.5 bg-purple-500/10 border border-purple-500/20 rounded-lg">
-                    <div class="w-6 h-0.5 bg-white"></div>
-                    <div class="w-6 h-0.5 bg-white"></div>
-                    <div class="w-4 h-0.5 bg-white ml-auto"></div>
-                </button>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Mobile Menu Overlay -->
-    <div id="mobile-menu" class="fixed inset-0 z-[150] bg-[#05010d] flex flex-col p-8 lg:hidden">
-        <div class="flex justify-between items-center mb-12">
-            <div class="w-8 h-8 logo-clip bg-white"></div>
-            <button onclick="toggleMenu()" class="text-5xl text-purple-500 font-light">&times;</button>
-        </div>
-        
-        <div class="flex flex-col gap-8 text-3xl font-black italic">
-            <a href="javascript:void(0)" onclick="showPage('main-content'); toggleMenu()" class="hover:text-purple-500">الرئيسية</a>
-            <a href="javascript:void(0)" onclick="showPage('about-page'); toggleMenu()" class="hover:text-purple-500">من نحن</a>
-            <a href="javascript:void(0)" onclick="showPage('ai-page'); toggleMenu()" class="text-purple-400">مختبر الـ AI 🧪</a>
-            <a href="javascript:void(0)" onclick="showPage('success-page'); toggleMenu()" class="hover:text-purple-500">النجاحات</a>
-            <a href="javascript:void(0)" onclick="showPage('social-page'); toggleMenu()" class="hover:text-purple-500">تواصل معنا</a>
-        </div>
-
-        <div class="mt-auto">
-            <a href="https://wa.me/971585470450" target="_blank" class="btn-glow block text-center py-5 rounded-2xl font-black text-xl">
-                واتساب مباشر
-            </a>
-        </div>
-    </div>
-
-    <!-- MAIN PAGE -->
-    <main id="main-content" class="page-content active hero-mesh">
-        <!-- Hero -->
-        <section class="min-h-screen flex items-center justify-center pt-20 px-6 text-center">
-            <div class="max-w-5xl">
-                <div class="mb-8 inline-flex items-center gap-2 px-4 py-2 rounded-full border border-purple-500/30 bg-purple-500/5 text-purple-400 text-[10px] font-black tracking-widest uppercase">
-                    <span class="relative flex h-2 w-2">
-                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-purple-400 opacity-75"></span>
-                        <span class="relative inline-flex rounded-full h-2 w-2 bg-purple-500"></span>
-                    </span>
-                    وكالة عمر السمكري | الريادة في الميديا الحديثة
-                </div>
-                <h1 class="text-6xl md:text-9xl font-black leading-none mb-8 italic">
-                    <span class="text-white">نصنع</span> <br>
-                    <span class="text-gradient">المستقبل</span> <br>
-                    <span class="text-purple-500">بالذكاء.</span>
-                </h1>
-                <p class="text-zinc-400 text-lg md:text-2xl mb-12 max-w-3xl mx-auto leading-relaxed">
-                    لسنا مجرد وكالة تسويق، نحن مختبر إبداعي يدمج الفن بالتكنولوجيا لتحويل علامتك التجارية إلى ظاهرة عالمية. جرب أدواتنا المدعومة بـ Gemini فوراً!
-                </p>
-                <div class="flex flex-wrap justify-center gap-6">
-                    <button onclick="showPage('ai-page')" class="btn-glow px-12 py-5 rounded-2xl font-black text-lg">
-                        ادخل مختبر الـ AI التفاعلي ⚡
-                    </button>
-                    <button onclick="showPage('about-page')" class="bg-white/5 border border-white/10 px-12 py-5 rounded-2xl font-black text-lg hover:bg-white/10 transition backdrop-blur-sm">
-                        اكتشف قصتنا
-                    </button>
-                </div>
-            </div>
-        </section>
-
-        <!-- Brief Services -->
-        <section class="py-32 px-6">
-            <div class="max-w-7xl mx-auto">
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <div class="ai-card p-12 rounded-[3rem]">
-                        <div class="w-16 h-16 bg-purple-600/20 rounded-2xl flex items-center justify-center text-4xl mb-8">🤖</div>
-                        <h3 class="text-3xl font-black mb-4 italic">الـ AI Content</h3>
-                        <p class="text-zinc-500 leading-relaxed text-lg">صناعة فيديوهات ومحتوى بصري يتجاوز التوقعات باستخدام أحدث خوارزميات التوليد الرقمي.</p>
-                    </div>
-                    <div class="ai-card p-12 rounded-[3rem] border-purple-500/30 bg-purple-500/5">
-                        <div class="w-16 h-16 bg-purple-600/20 rounded-2xl flex items-center justify-center text-4xl mb-8">🎤</div>
-                        <h3 class="text-3xl font-black mb-4 italic">إدارة النجوم</h3>
-                        <p class="text-zinc-500 leading-relaxed text-lg">تنظيم الحفلات وإدارة أعمال المشاهير بأعلى معايير الاحترافية في الوطن العربي.</p>
-                    </div>
-                    <div class="ai-card p-12 rounded-[3rem]">
-                        <div class="w-16 h-16 bg-purple-600/20 rounded-2xl flex items-center justify-center text-4xl mb-8">📈</div>
-                        <h3 class="text-3xl font-black mb-4 italic">النمو السريع</h3>
-                        <p class="text-zinc-500 leading-relaxed text-lg">استراتيجيات تسويقية مبنية على تحليل البيانات العميقة لضمان أفضل عائد على الاستثمار.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <div id="ai-page" class="page-content min-h-screen pt-32 px-6">
-        <div class="max-w-7xl mx-auto">
-            <div class="flex flex-col lg:flex-row items-start gap-12">
-                <!-- Info Column -->
-                <div class="lg:w-1/3">
-                    <button onclick="showPage('main-content')" class="text-purple-500 font-bold mb-8 hover:tracking-widest transition-all">← العودة للرئيسية</button>
-                    <h2 class="text-5xl md:text-6xl font-black mb-6 italic leading-none">مختبر الـ <span class="text-purple-500">AI</span> <br> التفاعلي</h2>
-                    <p class="text-zinc-400 text-lg leading-relaxed mb-8">
-                        هنا لا نتحدث عن الذكاء الاصطناعي فحسب، بل ندعك تختبره مجاناً. استخدم أدواتنا المتقدمة لتجربة الجيل القادم من التسويق الرقمي بلمسة إبداعية من السمكري ميديا.
-                    </p>
-                    
-                    <div class="space-y-4">
-                        <div class="p-5 rounded-2xl bg-white/5 border border-white/10">
-                            <h4 class="font-bold text-white flex items-center gap-2 mb-1">
-                                <span class="text-purple-400">✓</span> استراتيجية فورية
-                            </h4>
-                            <p class="text-zinc-500 text-sm">خطط متكاملة للمحتوى والتسويق تلبي تطلعات جمهورك.</p>
-                        </div>
-                        <div class="p-5 rounded-2xl bg-white/5 border border-white/10">
-                            <h4 class="font-bold text-white flex items-center gap-2 mb-1">
-                                <span class="text-purple-400">✓</span> خطافات فيروسية (Hooks)
-                            </h4>
-                            <p class="text-zinc-500 text-sm">اجذب الأنظار لـ Reels و TikTok فوراً وبنسبة تفاعل أعلى.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Interactive AI Hub -->
-                <div class="lg:w-2/3 w-full bg-zinc-900/60 rounded-[2.5rem] border border-purple-500/20 p-8 relative overflow-hidden">
-                    <div class="absolute top-0 right-0 w-64 h-64 bg-purple-500/10 rounded-full blur-3xl pointer-events-none"></div>
-                    
-                    <!-- Tabs Header -->
-                    <div class="flex border-b border-white/10 mb-8 pb-1">
-                        <button onclick="switchAITab('planner')" id="tab-planner" class="flex-1 py-4 text-center font-black text-lg text-purple-400 border-b-2 border-purple-500 transition-all">
-                            🎯 مخطط الحملات الذكية
-                        </button>
-                        <button onclick="switchAITab('hooks')" id="tab-hooks" class="flex-1 py-4 text-center font-black text-lg text-zinc-400 border-b-2 border-transparent hover:text-white transition-all">
-                            🔥 صانع الهوكس الفيروسية
-                        </button>
-                    </div>
-
-                    <!-- TAB 1: Campaign Planner -->
-                    <div id="ai-planner-panel" class="space-y-6">
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <div>
-                                <label class="block text-xs font-black uppercase tracking-widest text-zinc-400 mb-2">اسم البراند / المشروع</label>
-                                <input id="brand-name" type="text" class="w-full bg-white/5 border border-white/10 rounded-xl p-4 focus:border-purple-500 outline-none transition text-white" placeholder="مثال: متجر لبيع الملابس العصرية">
-                            </div>
-                            <div>
-                                <label class="block text-xs font-black uppercase tracking-widest text-zinc-400 mb-2">المجال / التخصص</label>
-                                <input id="brand-niche" type="text" class="w-full bg-white/5 border border-white/10 rounded-xl p-4 focus:border-purple-500 outline-none transition text-white" placeholder="مثال: الأزياء والملابس الشبابية">
-                            </div>
-                        </div>
-                        <div>
-                            <label class="block text-xs font-black uppercase tracking-widest text-zinc-400 mb-2">الهدف الأساسي للحملة</label>
-                            <select id="brand-goal" class="w-full bg-[#0d071a] border border-white/10 rounded-xl p-4 focus:border-purple-500 outline-none transition text-white">
-                                <option value="viral-awareness">انتشار فيروسي وزيادة متابعين (TikTok & Reels)</option>
-                                <option value="sales-conversions">زيادة مبيعات وجذب عملاء مباشرين</option>
-                                <option value="rebranding">إعادة بناء الهوية والبراند ليكون "تريند"</option>
-                            </select>
-                        </div>
-
-                        <button onclick="generateCampaign()" class="w-full btn-glow py-4 rounded-xl font-black text-lg flex items-center justify-center gap-2">
-                            <span>توليد الاستراتيجية بذكاء الـ Gemini 🧠✨</span>
-                        </button>
-
-                        <!-- Output Section -->
-                        <div id="planner-output" class="hidden mt-8 p-6 rounded-2xl bg-white/5 border border-purple-500/30 space-y-4">
-                            <!-- Populated dynamically -->
-                        </div>
-                    </div>
-
-                    <!-- TAB 2: Viral Hooks Generator -->
-                    <div id="ai-hooks-panel" class="hidden space-y-6">
-                        <div>
-                            <label class="block text-xs font-black uppercase tracking-widest text-zinc-400 mb-2">موضوع الفيديو الأساسي</label>
-                            <input id="hook-topic" type="text" class="w-full bg-white/5 border border-white/10 rounded-xl p-4 focus:border-purple-500 outline-none transition text-white" placeholder="مثال: كواليس صناعة ملابسنا، أو نصائح لاختيار الستايل">
-                        </div>
-                        <div>
-                            <label class="block text-xs font-black uppercase tracking-widest text-zinc-400 mb-2">ستايل الفيديو المفضل</label>
-                            <select id="hook-style" class="w-full bg-[#0d071a] border border-white/10 rounded-xl p-4 focus:border-purple-500 outline-none transition text-white">
-                                <option value="provocative">صادم ومثير للجدل (تفجير الفضول)</option>
-                                <option value="educational">تعليمي ذكي (معلومة صادمة في ثوانٍ)</option>
-                                <option value="storytelling">قصة درامية سريعة (كيف بدأنا)</option>
-                            </select>
-                        </div>
-
-                        <button onclick="generateViralHooks()" class="w-full btn-glow py-4 rounded-xl font-black text-lg flex items-center justify-center gap-2">
-                            <span>صناعة الهوكس الفيروسية 🎥✨</span>
-                        </button>
-
-                        <!-- Output Section -->
-                        <div id="hooks-output" class="hidden mt-8 p-6 rounded-2xl bg-white/5 border border-purple-500/30 space-y-4">
-                            <!-- Populated dynamically -->
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- ABOUT PAGE -->
-    <div id="about-page" class="page-content min-h-screen pt-32 px-6">
-        <div class="max-w-4xl mx-auto">
-            <button onclick="showPage('main-content')" class="text-purple-500 font-bold mb-8 italic">← الرئيسية</button>
-            <h2 class="text-8xl font-black mb-12 italic text-gradient">قصتنا.</h2>
-            
-            <div class="prose prose-invert max-w-none text-zinc-400 text-xl leading-loose space-y-8">
-                <p class="p-10 rounded-[3rem] bg-white/5 border border-white/5 text-white font-medium">
-                    بدأت <span class="text-purple-500 font-bold underline">السمكري ميديا</span> برؤية طموحة من "عمر السمكري" لكسر الحواجز التقليدية في التسويق. نحن نجمع بين الأصالة المصرية والتكنولوجيا العالمية.
-                </p>
-                
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-                    <div class="space-y-4">
-                        <h3 class="text-3xl font-black text-white italic">رؤيتنا 2030</h3>
-                        <p>أن نكون الوكالة الأولى في الشرق الأوسط التي تعتمد بنسبة 100% على الذكاء الاصطناعي في تنفيذ العمليات الإبداعية والإدارية.</p>
-                    </div>
-                    <div class="space-y-4">
-                        <h3 class="text-3xl font-black text-white italic">لماذا نحن؟</h3>
-                        <p>لأننا لا نبيع وعوداً، نحن نبيع نتائج ملموسة. خبرتنا في تنظيم الفعاليات الكبرى تمنحنا رؤية شاملة لما يريده الجمهور فعلاً.</p>
-                    </div>
-                </div>
-
-                <div class="py-12">
-                    <div class="bg-gradient-to-r from-purple-900/40 to-transparent p-12 rounded-[3rem] border-l-4 border-purple-500">
-                        <p class="text-2xl italic font-light">"المستقبل ينتمي لأولئك الذين يستطيعون ترويض الآلة لخدمة الإبداع البشري."</p>
-                        <p class="mt-6 font-black text-white">— عمر السمكري</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- SUCCESS PAGE -->
-    <div id="success-page" class="page-content min-h-screen pt-32 px-6">
-        <div class="max-w-7xl mx-auto">
-            <h2 class="text-7xl font-black mb-16 italic text-center">بصمة <span class="text-purple-500">النجاح</span></h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Success Item -->
-                <div class="group relative overflow-hidden rounded-[2.5rem] bg-zinc-900 border border-white/5 h-80">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent z-10"></div>
-                    <div class="absolute inset-0 bg-purple-500/20 group-hover:bg-purple-500/40 transition-all duration-500"></div>
-                    <div class="absolute bottom-8 left-8 right-8 z-20">
-                        <p class="text-purple-400 text-xs font-black mb-2 uppercase tracking-widest">Concerts</p>
-                        <h3 class="text-2xl font-black text-white italic leading-tight">تنظيم حفل الساحل الشمالي - صيف 2024</h3>
-                    </div>
-                </div>
-                <!-- Success Item -->
-                <div class="group relative overflow-hidden rounded-[2.5rem] bg-zinc-900 border border-white/5 h-80">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent z-10"></div>
-                    <div class="absolute inset-0 bg-purple-500/20 group-hover:bg-purple-500/40 transition-all duration-500"></div>
-                    <div class="absolute bottom-8 left-8 right-8 z-20">
-                        <p class="text-purple-400 text-xs font-black mb-2 uppercase tracking-widest">AI Marketing</p>
-                        <h3 class="text-2xl font-black text-white italic leading-tight">إطلاق أول براند ملابس بالكامل عبر الـ AI</h3>
-                    </div>
-                </div>
-                <!-- Success Item -->
-                <div class="group relative overflow-hidden rounded-[2.5rem] bg-zinc-900 border border-white/5 h-80">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent z-10"></div>
-                    <div class="absolute inset-0 bg-purple-500/20 group-hover:bg-purple-500/40 transition-all duration-500"></div>
-                    <div class="absolute bottom-8 left-8 right-8 z-20">
-                        <p class="text-purple-400 text-xs font-black mb-2 uppercase tracking-widest">Production</p>
-                        <h3 class="text-2xl font-black text-white italic leading-tight">إنتاج كليبات لنجوم الصف الأول</h3>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="mt-20 text-center">
-                <p class="text-zinc-500 font-bold mb-6">والكثير من النجاحات التي لا تزال تُكتب...</p>
-                <button onclick="showPage('social-page')" class="btn-glow px-10 py-4 rounded-xl font-black">كن قصة نجاحنا القادمة</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- SOCIAL & CONTACT PAGE -->
-    <div id="social-page" class="page-content min-h-screen pt-32 px-6">
-        <div class="max-w-6xl mx-auto">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-20">
-                <div>
-                    <h2 class="text-6xl font-black mb-8 italic">تواصل <span class="text-purple-500">مباشر.</span></h2>
-                    <p class="text-zinc-500 text-xl mb-12">نحن متواجدون حيث يتواجد الإبداع. تابعنا أو راسلنا في أي وقت.</p>
-                    
-                    <div class="grid grid-cols-2 gap-4">
-                        <a href="https://www.tiktok.com/@omarelsmkary" target="_blank" class="p-8 rounded-3xl bg-white/5 border border-white/10 hover:bg-purple-600 transition group">
-                            <div class="text-4xl mb-4 group-hover:scale-110 transition">📱</div>
-                            <p class="font-black">تيك توك</p>
-                        </a>
-                        <a href="https://www.instagram.com/elsmkary_media/" target="_blank" class="p-8 rounded-3xl bg-white/5 border border-white/10 hover:bg-purple-600 transition group">
-                            <div class="text-4xl mb-4 group-hover:scale-110 transition">📸</div>
-                            <p class="font-black">إنستجرام</p>
-                        </a>
-                        <a href="https://www.facebook.com/ELSMARYMEDIA/" target="_blank" class="p-8 rounded-3xl bg-white/5 border border-white/10 hover:bg-purple-600 transition group">
-                            <div class="text-4xl mb-4 group-hover:scale-110 transition">🔵</div>
-                            <p class="font-black">فيسبوك</p>
-                        </a>
-                        <a href="https://www.youtube.com/@OMARELSMKARY" target="_blank" class="p-8 rounded-3xl bg-white/5 border border-white/10 hover:bg-purple-600 transition group">
-                            <div class="text-4xl mb-4 group-hover:scale-110 transition">📺</div>
-                            <p class="font-black">يوتيوب</p>
-                        </a>
-                    </div>
-
-                    <div class="mt-12 p-8 rounded-3xl bg-purple-500/5 border border-purple-500/20">
-                        <p class="text-zinc-400 mb-2 uppercase text-xs tracking-widest font-black">البريد الإلكتروني الرسمي</p>
-                        <a href="mailto:elsmkarymedi@gmail.com" class="text-2xl font-black text-white hover:text-purple-400 transition">elsmkarymedi@gmail.com</a>
-                    </div>
-                </div>
-
-                <div class="bg-zinc-900/50 p-10 rounded-[3rem] border border-white/5">
-                    <h3 class="text-3xl font-black mb-8 italic text-white">أرسل لنا تفاصيل مشروعك</h3>
-                    <form onsubmit="event.preventDefault(); alert('شكراً لتواصلك! سنقوم بالرد عليك قريباً جداً.')" class="space-y-6">
-                        <div>
-                            <label class="block text-xs font-black uppercase tracking-widest text-zinc-500 mb-2">الاسم بالكامل</label>
-                            <input type="text" class="w-full bg-white/5 border border-white/10 rounded-2xl p-4 focus:border-purple-500 outline-none transition" placeholder="عمر السمكري" required>
-                        </div>
-                        <div>
-                            <label class="block text-xs font-black uppercase tracking-widest text-zinc-500 mb-2">نوع المشروع</label>
-                            <select class="w-full bg-white/5 border border-white/10 rounded-2xl p-4 focus:border-purple-500 outline-none transition appearance-none">
-                                <option>تسويق بالذكاء الاصطناعي</option>
-                                <option>تنظيم حفلات</option>
-                                <option>إدارة محتوى</option>
-                                <option>إنتاج مرئي</option>
-                            </select>
-                        </div>
-                        <div>
-                            <label class="block text-xs font-black uppercase tracking-widest text-zinc-500 mb-2">رسالتك</label>
-                            <textarea rows="4" class="w-full bg-white/5 border border-white/10 rounded-2xl p-4 focus:border-purple-500 outline-none transition" placeholder="احكي لنا عن حلمك القادم..." required></textarea>
-                        </div>
-                        <button type="submit" class="w-full btn-glow py-5 rounded-2xl font-black text-xl">إرسال الطلب</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- FLOATING CHATWIDGET FOR AI CONSULTANT -->
-    <div id="ai-chat-bubble" onclick="toggleAIChat()" class="fixed bottom-6 right-6 w-16 h-16 rounded-full btn-glow flex items-center justify-center cursor-pointer z-[200] group">
-        <span class="text-2xl transition-transform group-hover:scale-110">🧠</span>
-        <!-- Notification dot -->
-        <span class="absolute top-0 right-0 h-4 w-4 rounded-full bg-emerald-500 border-2 border-[#05010d] animate-pulse"></span>
-    </div>
-
-    <div id="ai-chat-window" class="fixed bottom-24 right-6 w-[90%] sm:w-[400px] h-[550px] bg-[#0c0617] border border-purple-500/30 rounded-[2.5rem] shadow-2xl z-[200] flex flex-col overflow-hidden transition-all duration-300 transform translate-y-10 opacity-0 pointer-events-none">
-        <!-- Chat Header -->
-        <div class="p-6 bg-gradient-to-r from-purple-950 to-purple-900 border-b border-white/5 flex items-center justify-between">
-            <div class="flex items-center gap-3">
-                <div class="w-10 h-10 logo-clip bg-white"></div>
-                <div>
-                    <h4 class="font-black text-md leading-none">مستشار السمكري AI</h4>
-                    <span class="text-[10px] text-emerald-400 font-bold flex items-center gap-1 mt-1">
-                        <span class="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-ping"></span> نشط الآن بذكاء Gemini
-                    </span>
-                </div>
-            </div>
-            <button onclick="toggleAIChat()" class="text-2xl hover:text-purple-400 transition">&times;</button>
-        </div>
-
-        <!-- Chat Messages -->
-        <div id="chat-messages" class="flex-1 p-6 overflow-y-auto space-y-4 text-sm flex flex-col">
-            <!-- System Welcome Message -->
-            <div class="bg-white/5 border border-white/10 p-4 rounded-2xl self-start max-w-[85%]">
-                يا هلا بيك في وكالة <strong class="text-purple-400">السمكري ميديا</strong>! أنا المستشار الذكي لوكالتنا. 
-                <br><br>
-                أقدر أساعدك في فهم خدماتنا، وتخطيط حملاتك، أو حتى حجز موعد مباشر مع <strong class="text-white">عمر السمكري</strong> لتنظيم حفلتك القادمة أو تطوير البراند بتاعك بالكامل بالـ AI.
-                <br><br>
-                حابب تسأل عن إيه النهاردة؟ 😉
-            </div>
-        </div>
-
-        <!-- Chat Input Form -->
-        <form onsubmit="sendAIChatMessage(event)" class="p-4 bg-white/5 border-t border-white/5 flex gap-2">
-            <input id="chat-user-input" type="text" class="flex-1 bg-[#120a21] border border-white/10 rounded-xl px-4 py-3 outline-none focus:border-purple-500 text-white placeholder-zinc-500 text-sm" placeholder="اسألني أي حاجة عن خدماتنا..." required>
-            <button type="submit" class="btn-glow px-4 rounded-xl font-bold flex items-center justify-center">أرسل</button>
-        </form>
-    </div>
-
-    <!-- Footer -->
-    <footer class="py-20 border-t border-white/5 text-center mt-20">
-        <div class="mb-8 flex justify-center items-center gap-4">
-            <div class="w-6 h-6 logo-clip bg-zinc-600"></div>
-            <p class="text-[12px] uppercase tracking-[0.6em] text-zinc-600 font-black">ELSMKARYMEDIA GLOBAL 2026</p>
-        </div>
-        <p class="text-zinc-700 text-[10px]">Made with Intelligence for Intelligent Brands</p>
-    </footer>
-
-    <script>
-        // Menu Toggle
-        function toggleMenu() {
-            const menu = document.getElementById('mobile-menu');
-            menu.classList.toggle('open');
-            document.body.style.overflow = menu.classList.contains('open') ? 'hidden' : 'auto';
-        }
-
-        // Page Routing System
-        function showPage(pageId) {
-            const pages = document.querySelectorAll('.page-content');
-            
-            // Handle active state
-            pages.forEach(page => {
-                if (page.id === pageId) {
-                    page.style.display = 'block';
-                    setTimeout(() => page.classList.add('active'), 10);
-                } else {
-                    page.classList.remove('active');
-                    setTimeout(() => {
-                        if(!page.classList.contains('active')) page.style.display = 'none';
-                    }, 600);
-                }
-            });
-
-            // Update URL hash without reload
-            window.history.pushState(null, null, `#${pageId}`);
-            
-            // Scroll to top
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        // Handle browser back/forward
-        window.addEventListener('popstate', () => {
-            const hash = window.location.hash.replace('#', '') || 'main-content';
-            showPage(hash);
-        });
-
-        // Initialize first page
-        window.onload = () => {
-            const initialPage = window.location.hash.replace('#', '') || 'main-content';
-            showPage(initialPage);
-        };
-
-        // AI Lab Tab Switcher
-        function switchAITab(tab) {
-            const plannerBtn = document.getElementById('tab-planner');
-            const hooksBtn = document.getElementById('tab-hooks');
-            const plannerPanel = document.getElementById('ai-planner-panel');
-            const hooksPanel = document.getElementById('ai-hooks-panel');
-
-            if (tab === 'planner') {
-                plannerBtn.classList.add('text-purple-400', 'border-purple-500');
-                plannerBtn.classList.remove('text-zinc-400', 'border-transparent');
-                hooksBtn.classList.remove('text-purple-400', 'border-purple-500');
-                hooksBtn.classList.add('text-zinc-400', 'border-transparent');
-                plannerPanel.classList.remove('hidden');
-                hooksPanel.classList.add('hidden');
-            } else {
-                hooksBtn.classList.add('text-purple-400', 'border-purple-500');
-                hooksBtn.classList.remove('text-zinc-400', 'border-transparent');
-                plannerBtn.classList.remove('text-purple-400', 'border-purple-500');
-                plannerBtn.classList.add('text-zinc-400', 'border-transparent');
-                hooksPanel.classList.remove('hidden');
-                plannerPanel.classList.add('hidden');
-            }
-        }
-
-        // Gemini API Configuration
-        const apiKey = ""; // Canvas automatically supplies keys here during runtime
-        const modelName = "gemini-3-flash-preview";
-        const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/${modelName}:generateContent?key=${apiKey}`;
-
-        // Generic API fetch with exponential backoff handling
-        async function fetchGeminiAPI(systemPrompt, userPrompt, outputSchema = null) {
-            const payload = {
-                contents: [{ parts: [{ text: userPrompt }] }],
-                systemInstruction: {
-                    parts: [{ text: systemPrompt }]
-                }
-            };
-
-            // Force JSON response if schema is supplied
-            if (outputSchema) {
-                payload.generationConfig = {
-                    responseMimeType: "application/json",
-                    responseSchema: outputSchema
-                };
-            }
-
-            let delay = 1000;
-            const maxRetries = 3;
-
-            for (let i = 0; i < maxRetries; i++) {
-                try {
-                    const response = await fetch(apiUrl, {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify(payload)
-                    });
-
-                    if (!response.ok) {
-                        throw new Error(`API error: ${response.status}`);
-                    }
-
-                    const result = await response.json();
-                    return result.candidates?.[0]?.content?.parts?.[0]?.text;
-                } catch (error) {
-                    if (i === maxRetries - 1) throw error;
-                    await new Promise(resolve => setTimeout(resolve, delay));
-                    delay *= 2; // exponential backoff
-                }
-            }
-        }
-
-        // Campaign Planner Generator
-        async function generateCampaign() {
-            const brandName = document.getElementById('brand-name').value.trim();
-            const brandNiche = document.getElementById('brand-niche').value.trim();
-            const brandGoal = document.getElementById('brand-goal').value;
-            const outputDiv = document.getElementById('planner-output');
-
-            if (!brandName || !brandNiche) {
-                alert("برجاء إدخال اسم المشروع والتخصص أولاً لإنتاج خطة احترافية!");
-                return;
-            }
-
-            // UI Loading state
-            outputDiv.classList.remove('hidden');
-            outputDiv.innerHTML = `
-                <div class="space-y-4">
-                    <div class="h-6 w-1/3 rounded bg-white/10 shimmer"></div>
-                    <div class="h-10 w-full rounded bg-white/10 shimmer"></div>
-                    <div class="h-24 w-full rounded bg-white/10 shimmer"></div>
-                    <p class="text-zinc-400 text-sm text-center animate-pulse">مستشار الـ AI يقوم الآن بتحليل السوق ورسم استراتيجيتك الفيروسية...</p>
-                </div>
-            `;
-
-            const systemPrompt = `أنت الخبير الإستراتيجي الأكبر لوكالة ELSMKARYMEDIA التي أسسها عمر السمكري. 
-            دورك هو ابتكار استراتيجية تسويقية فائقة الإبداع ومعتمدة بالكامل على أدوات الذكاء الاصطناعي والميديا الحديثة.
-            رد بلهجة تسويقية مصرية ذكية، حماسية ومقنعة للغاية.
-            يجب أن يكون مخرج ردك بتنسيق JSON حصراً بناءً على المخطط المطلوب.`;
-
-            const userPrompt = `ابتكر حملة إبداعية متكاملة ومستهدفة لمشروع اسمه: "${brandName}"، يتخصص في مجال: "${brandNiche}".
-            هدف الحملة الأساسي هو: "${brandGoal}".`;
-
-            const campaignSchema = {
-                type: "OBJECT",
-                properties: {
-                    campaignName: { type: "STRING", description: "اسم مبتكر وجذاب للحملة التسويقية" },
-                    slogan: { type: "STRING", description: "شعار الحملة (Slogan) رنان وقصير ولطيف" },
-                    targetAudience: { type: "STRING", description: "شرح مبسط للفئة المستهدفة المثالية بدقة" },
-                    marketingAngle: { type: "STRING", description: "الزاوية التسويقية الفريدة والخدعة الذكية التي سنلعب عليها" },
-                    contentPlan: {
-                        type: "ARRAY",
-                        description: "3 أفكار محتوى خارقة لـ Reels و TikTok لضمان الانتشار السريع",
-                        items: {
-                            type: "OBJECT",
-                            properties: {
-                                ideaTitle: { type: "STRING" },
-                                ideaDescription: { type: "STRING" },
-                                aiRole: { type: "STRING", description: "كيف سنستخدم الذكاء الاصطناعي في تنفيذ هذه الفكرة بالذات" }
-                            },
-                            required: ["ideaTitle", "ideaDescription", "aiRole"]
-                        }
-                    }
-                },
-                required: ["campaignName", "slogan", "targetAudience", "marketingAngle", "contentPlan"]
-            };
-
-            try {
-                const responseText = await fetchGeminiAPI(systemPrompt, userPrompt, campaignSchema);
-                const data = JSON.parse(responseText);
-
-                outputDiv.innerHTML = `
-                    <div class="space-y-6">
-                        <div class="border-b border-purple-500/20 pb-4">
-                            <span class="text-xs font-black uppercase tracking-widest text-purple-400">الاسم المقترح للحملة ⚡</span>
-                            <h3 class="text-3xl font-black italic mt-1 text-white">${data.campaignName}</h3>
-                            <p class="text-purple-300 font-bold italic mt-1 text-lg">"${data.slogan}"</p>
-                        </div>
-                        
-                        <div>
-                            <span class="text-xs font-black uppercase tracking-widest text-zinc-500">من نستهدف؟ 🎯</span>
-                            <p class="text-zinc-300 mt-1">${data.targetAudience}</p>
-                        </div>
-
-                        <div>
-                            <span class="text-xs font-black uppercase tracking-widest text-zinc-500">السر وراء الفكرة (Marketing Angle) 💡</span>
-                            <p class="text-zinc-300 mt-1">${data.marketingAngle}</p>
-                        </div>
-
-                        <div>
-                            <span class="text-xs font-black uppercase tracking-widest text-purple-400 mb-3 block">خطة المحتوى البصري الفيروسي 🎬</span>
-                            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                                ${data.contentPlan.map((idea, index) => `
-                                    <div class="p-4 rounded-xl bg-white/5 border border-white/5 flex flex-col justify-between">
-                                        <div>
-                                            <span class="text-2xl mb-2 block">0${index+1}</span>
-                                            <h4 class="font-bold text-white text-md mb-2">${idea.ideaTitle}</h4>
-                                            <p class="text-zinc-400 text-xs leading-relaxed">${idea.ideaDescription}</p>
-                                        </div>
-                                        <div class="mt-4 pt-4 border-t border-white/5">
-                                            <span class="text-[10px] uppercase font-black tracking-widest text-purple-400 block">كيف نستخدم الـ AI؟</span>
-                                            <p class="text-zinc-500 text-xs mt-1">${idea.aiRole}</p>
-                                        </div>
-                                    </div>
-                                `).join('')}
-                            </div>
-                        </div>
-
-                        <div class="pt-4 text-center">
-                            <a href="https://wa.me/971585470450?text=أهلاً%20عمر،%20أنا%20مهتم%20بتطبيق%20حملة%20${encodeURIComponent(data.campaignName)}%20لمشروعي!" target="_blank" class="inline-block btn-glow px-8 py-3 rounded-xl font-black text-sm">
-                                نفذ خطتك الاحترافية معنا الآن 🚀
-                            </a>
-                        </div>
-                    </div>
-                `;
-            } catch (error) {
-                console.error("Gemini Error: ", error);
-                outputDiv.innerHTML = `
-                    <div class="p-4 rounded-xl bg-rose-500/10 border border-rose-500/30 text-rose-400 text-sm">
-                        حدث خطأ أثناء الاتصال بـ Gemini. برجاء التحقق من المدخلات والمحاولة مرة أخرى لاحقاً.
-                    </div>
-                `;
-            }
-        }
-
-        // Viral Hooks Generator
-        async function generateViralHooks() {
-            const topic = document.getElementById('hook-topic').value.trim();
-            const style = document.getElementById('hook-style').value;
-            const outputDiv = document.getElementById('hooks-output');
-
-            if (!topic) {
-                alert("برجاء إدخال فكرة أو موضوع الفيديو لتوليد الخطافات!");
-                return;
-            }
-
-            // UI Loading state
-            outputDiv.classList.remove('hidden');
-            outputDiv.innerHTML = `
-                <div class="space-y-4">
-                    <div class="h-6 w-1/4 rounded bg-white/10 shimmer"></div>
-                    <div class="h-20 w-full rounded bg-white/10 shimmer"></div>
-                    <div class="h-20 w-full rounded bg-white/10 shimmer"></div>
-                    <p class="text-zinc-400 text-sm text-center animate-pulse">نعمل على نحت خطافات نارية لخطف الانتباه من الثانية الأولى...</p>
-                </div>
-            `;
-
-            const systemPrompt = `أنت كاتب سيناريو وصانع محتوى فيروسي (Viral Creator) خبير في وكالة السمكري ميديا. 
-            مهمتك هي صياغة 3 أفكار خطافات بصرية وصوتية (Hooks) في أول 3 ثوانٍ من الفيديو لمنع المشاهدين من عمل Scroll.
-            يجب أن تكون جذابة باللهجة المصرية الإبداعية، ممتازة لـ TikTok و Instagram Reels.
-            أخرج الرد بصيغة JSON متوافقة تماماً مع المخطط المرفق.`;
-
-            const userPrompt = `موضوع الفيديو هو: "${topic}". 
-            الستايل المفضل للهوكس هو: "${style}".`;
-
-            const hooksSchema = {
-                type: "OBJECT",
-                properties: {
-                    hooksList: {
-                        type: "ARRAY",
-                        description: "3 أفكار هوكس مختلفة وقوية للفيديو مع فكرتها البصرية",
-                        items: {
-                            type: "OBJECT",
-                            properties: {
-                                hookText: { type: "STRING", description: "ما يقوله المتحدث بالعامية المصرية بجرأة" },
-                                visualCues: { type: "STRING", description: "الحركة البصرية الصادمة في الكاميرا المصاحبة للقول" },
-                                hookReason: { type: "STRING", description: "لماذا هذا الهوك ممتاز سيكولوجياً للمشاهدين" }
-                            },
-                            required: ["hookText", "visualCues", "hookReason"]
-                        }
-                    }
-                },
-                required: ["hooksList"]
-            };
-
-            try {
-                const responseText = await fetchGeminiAPI(systemPrompt, userPrompt, hooksSchema);
-                const data = JSON.parse(responseText);
-
-                outputDiv.innerHTML = `
-                    <div class="space-y-6">
-                        <div class="border-b border-purple-500/20 pb-4">
-                            <span class="text-xs font-black uppercase tracking-widest text-purple-400">خطافات فيروسية مقترحة لفيديوك 🔥</span>
-                            <h3 class="text-xl font-black italic mt-1 text-white">تفاصيل السيناريو البصري المبدئي</h3>
-                        </div>
-
-                        <div class="space-y-4">
-                            ${data.hooksList.map((hook, index) => `
-                                <div class="p-5 rounded-2xl bg-white/5 border border-white/5 hover:border-purple-500/30 transition-all">
-                                    <div class="flex items-center gap-3 mb-2">
-                                        <span class="w-7 h-7 rounded-full bg-purple-500/20 border border-purple-500/40 text-purple-300 flex items-center justify-center font-black text-sm">${index + 1}</span>
-                                        <h4 class="font-bold text-md text-white">القول المباشر (Hook Line):</h4>
-                                    </div>
-                                    <p class="text-purple-300 font-black text-lg mb-3 italic">"${hook.hookText}"</p>
-                                    
-                                    <div class="space-y-2 text-xs">
-                                        <div>
-                                            <span class="text-zinc-500 font-bold uppercase tracking-wider block">الحركة البصرية المرافقة (Visual Action):</span>
-                                            <p class="text-zinc-300">${hook.visualCues}</p>
-                                        </div>
-                                        <div>
-                                            <span class="text-zinc-500 font-bold uppercase tracking-wider block">التحليل السيكولوجي:</span>
-                                            <p class="text-zinc-400 italic">${hook.hookReason}</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            `).join('')}
-                        </div>
-
-                        <div class="pt-4 text-center">
-                            <button onclick="showPage('social-page')" class="btn-glow px-8 py-3 rounded-xl font-black text-sm">
-                                تواصل معنا لتصوير وإنتاج الفيديو بالكامل 🎬✨
-                            </button>
-                        </div>
-                    </div>
-                `;
-            } catch (error) {
-                console.error("Gemini Error: ", error);
-                outputDiv.innerHTML = `
-                    <div class="p-4 rounded-xl bg-rose-500/10 border border-rose-500/30 text-rose-400 text-sm">
-                        حدث خطأ أثناء إنتاج الهوكس. برجاء مراجعة المدخلات أو المحاولة لاحقاً.
-                    </div>
-                `;
-            }
-        }
-
-        // Chatbot Show/Hide toggle
-        function toggleAIChat() {
-            const chatWindow = document.getElementById('ai-chat-window');
-            const isVisible = !chatWindow.classList.contains('pointer-events-none');
-            
-            if (isVisible) {
-                chatWindow.classList.add('pointer-events-none', 'translate-y-10', 'opacity-0');
-            } else {
-                chatWindow.classList.remove('pointer-events-none', 'translate-y-10', 'opacity-0');
-            }
-        }
-
-        // Global Chat History state
-        const chatHistory = [];
-
-        // Send message inside Chat Widget
-        async function sendAIChatMessage(event) {
-            event.preventDefault();
-            const inputField = document.getElementById('chat-user-input');
-            const message = inputField.value.trim();
-            const chatMessagesContainer = document.getElementById('chat-messages');
-
-            if (!message) return;
-
-            // Clear Input
-            inputField.value = '';
-
-            // Render User Message
-            chatMessagesContainer.insertAdjacentHTML('beforeend', `
-                <div class="bg-purple-600/30 border border-purple-500/30 p-4 rounded-2xl self-end max-w-[85%] text-white">
-                    ${message}
-                </div>
-            `);
-            chatMessagesContainer.scrollTop = chatMessagesContainer.scrollHeight;
-
-            // Render Typing Indicator Placeholder
-            const tempId = 'ai-typing-' + Date.now();
-            chatMessagesContainer.insertAdjacentHTML('beforeend', `
-                <div id="${tempId}" class="bg-white/5 border border-white/10 p-4 rounded-2xl self-start max-w-[85%] text-zinc-400 italic flex items-center gap-2">
-                    <span class="animate-bounce">●</span>
-                    <span class="animate-bounce [animation-delay:0.2s]">●</span>
-                    <span class="animate-bounce [animation-delay:0.4s]">●</span>
-                    <span>يفكر بذكاء...</span>
-                </div>
-            `);
-            chatMessagesContainer.scrollTop = chatMessagesContainer.scrollHeight;
-
-            // Prepare API Instructions
-            const systemPrompt = `أنت المستشار الذكي لوكالة ELSMKARYMEDIA (السمكري ميديا) المتخصصة في الميديا الفيروسية، التسويق بالذكاء الاصطناعي، إدارة المشاهير، الحفلات في الساحل الشمالي والشرق الأوسط، وإنتاج الكليبات.
-            - أنت تمثل شخصية عمر السمكري (المؤسس) بروح ريادية، شبابية، حماسية، ذكية، ولهجة عامية مصرية لتريند كول (Cool corporate dialect).
-            - خدماتنا: الـ AI Content (فيديوهات وصور توليدية)، إدارة السوشيال ميديا والحسابات، إدارة النجوم والحفلات، الإنتاج السينمائي والموسيقي.
-            - حث العملاء على حجز موعد مباشر أو الضغط على زر "ابدأ مشروعك" لتجربة النجاح الحقيقي.
-            - حافظ على ردود سريعة، موجزة، وغنية بالأفكار التسويقية الجذابة.`;
-
-            // Prepare chat prompt including history
-            let combinedPrompt = "";
-            chatHistory.forEach(turn => {
-                combinedPrompt += `${turn.role === 'user' ? 'العميل' : 'عمر السمكري الرقمي'}: ${turn.text}\n`;
-            });
-            combinedPrompt += `العميل: ${message}\nعمر السمكري الرقمي:`;
-
-            try {
-                const aiReply = await fetchGeminiAPI(systemPrompt, combinedPrompt);
-                
-                // Remove typing indicator
-                const indicator = document.getElementById(tempId);
-                if (indicator) indicator.remove();
-
-                // Append AI Response
-                chatMessagesContainer.insertAdjacentHTML('beforeend', `
-                    <div class="bg-white/5 border border-white/10 p-4 rounded-2xl self-start max-w-[85%] text-zinc-200">
-                        ${aiReply}
-                    </div>
-                `);
-
-                // Update chat history
-                chatHistory.push({ role: 'user', text: message });
-                chatHistory.push({ role: 'model', text: aiReply });
-
-                // Keep history size optimized
-                if (chatHistory.length > 10) chatHistory.shift();
-
-            } catch (error) {
-                console.error("AI Assistant Error: ", error);
-                const indicator = document.getElementById(tempId);
-                if (indicator) indicator.remove();
-
-                chatMessagesContainer.insertAdjacentHTML('beforeend', `
-                    <div class="bg-rose-500/10 border border-rose-500/30 p-4 rounded-2xl self-start max-w-[85%] text-rose-400">
-                        حبيبي، الإرسال واقف ثواني، كلمنا وتساب مباشرة وهنرد عليك فوراً! 🚀
-                    </div>
-                `);
-            }
-
-            chatMessagesContainer.scrollTop = chatMessagesContainer.scrollHeight;
-        }
-    </script>
+<!-- NAV -->
+
+<nav>
+<div class="container nav">
+
+<a href="#home" class="logo">
+ELSMKARY<span>MEDIA</span>
+</a>
+
+<div class="menu" onclick="toggleMenu()">☰</div>
+
+<ul class="nav-links" id="navLinks">
+<li><a href="#home">الرئيسية</a></li>
+<li><a href="#about">عن الوكالة</a></li>
+<li><a href="#services">الخدمات</a></li>
+<li><a href="#music">الموسيقى</a></li>
+<li><a href="#success">نجاحاتنا</a></li>
+<li><a href="#social">منصاتنا</a></li>
+<li><a href="#contact">تواصل معنا</a></li>
+</ul>
+
+</div>
+</nav>
+
+
+<!-- HERO -->
+
+<section class="hero" id="home">
+
+<div class="container">
+
+<div class="badge">
+ELSMKARY MEDIA • MEDIA & DIGITAL AGENCY
+</div>
+
+<h1>
+نصنع<br>
+<span>التأثير</span>
+</h1>
+
+<p>
+منظومة إعلامية وتسويقية متكاملة لصناعة المحتوى،
+إدارة السوشيال ميديا، الإنتاج، الموسيقى،
+الفنانين، البراندات والحلول الرقمية.
+</p>
+
+<div class="buttons">
+
+<a class="btn gold-btn" href="#services">
+اكتشف خدماتنا
+</a>
+
+<a
+class="btn outline-btn"
+href="https://wa.me/971585470450"
+target="_blank"
+rel="noopener">
+تواصل معنا
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ABOUT -->
+
+<section id="about">
+
+<div class="container">
+
+<div class="section-title">
+<small>ABOUT US</small>
+<h2>ELSMKARY MEDIA</h2>
+<p>مش مجرد شركة... منظومة لصناعة الحضور والتأثير.</p>
+</div>
+
+<div class="about">
+
+<div class="about-text">
+
+<h3>
+من الفكرة إلى
+<span class="gold">التأثير الحقيقي</span>
+</h3>
+
+<p>
+ELSMKARY MEDIA تعمل في مجالات الإعلام والتسويق
+وصناعة المحتوى والإنتاج وإدارة الفنانين والموسيقى
+والحلول الرقمية.
+</p>
+
+<p>
+هدفنا بناء حضور قوي للعلامات التجارية والفنانين
+والمشروعات من خلال الإبداع والاستراتيجية والتكنولوجيا.
+</p>
+
+</div>
+
+<div class="about-card">
+
+<div class="year">2019</div>
+
+<h3>بداية الرحلة</h3>
+
+<p>
+انطلاقة ELSMKARY MEDIA والتوسع في مجالات
+الإعلام والتسويق والمحتوى.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- SERVICES -->
+
+<section class="dark" id="services">
+
+<div class="container">
+
+<div class="section-title">
+
+<small>OUR SERVICES</small>
+
+<h2>خدماتنا</h2>
+
+<p>
+اضغط على «اعرف أكتر» لمعرفة تفاصيل الخدمة،
+أو «اطلب الخدمة» للتواصل معنا مباشرة على WhatsApp.
+</p>
+
+</div>
+
+
+<div class="services-grid">
+
+
+<!-- MUSIC -->
+
+<div class="service-card">
+
+<div class="service-icon">🎵</div>
+
+<h3>توزيع وإدارة الموسيقى</h3>
+
+<p>
+رفع وتوزيع وإدارة الأعمال الموسيقية
+على المنصات الرقمية.
+</p>
+
+<div class="service-buttons">
+
+<button
+class="small-btn details-btn"
+onclick="openService('music')">
+اعرف أكتر
+</button>
+
+<button
+class="small-btn whatsapp-btn"
+onclick="whatsappService('توزيع وإدارة الموسيقى')">
+اطلب الخدمة
+</button>
+
+</div>
+
+</div>
+
+
+<!-- ARTISTS -->
+
+<div class="service-card">
+
+<div class="service-icon">⭐</div>
+
+<h3>إدارة الفنانين</h3>
+
+<p>
+إدارة الحضور الإعلامي والرقمي للفنان
+والترويج لأعماله.
+</p>
+
+<div class="service-buttons">
+
+<button
+class="small-btn details-btn"
+onclick="openService('artists')">
+اعرف أكتر
+</button>
+
+<button
+class="small-btn whatsapp-btn"
+onclick="whatsappService('إدارة الفنانين')">
+اطلب الخدمة
+</button>
+
+</div>
+
+</div>
+
+
+<!-- SOCIAL -->
+
+<div class="service-card">
+
+<div class="service-icon">📱</div>
+
+<h3>إدارة السوشيال ميديا</h3>
+
+<p>
+إدارة صفحاتك ومحتواك الرقمي من التخطيط
+حتى النشر والمتابعة.
+</p>
+
+<div class="service-buttons">
+
+<button
+class="small-btn details-btn"
+onclick="openService('social')">
+اعرف أكتر
+</button>
+
+<button
+class="small-btn whatsapp-btn"
+onclick="whatsappService('إدارة السوشيال ميديا')">
+اطلب الخدمة
+</button>
+
+</div>
+
+</div>
+
+
+<!-- ADS -->
+
+<div class="service-card">
+
+<div class="service-icon">📢</div>
+
+<h3>الإعلانات والتسويق</h3>
+
+<p>
+حملات إعلانية للوصول للجمهور المناسب
+وتحقيق أهداف المشروع.
+</p>
+
+<div class="service-buttons">
+
+<button
+class="small-btn details-btn"
+onclick="openService('ads')">
+اعرف أكتر
+</button>
+
+<button
+class="small-btn whatsapp-btn"
+onclick="whatsappService('الإعلانات والتسويق')">
+اطلب الخدمة
+</button>
+
+</div>
+
+</div>
+
+
+<!-- CONTENT -->
+
+<div class="service-card">
+
+<div class="service-icon">🎬</div>
+
+<h3>صناعة المحتوى والإنتاج</h3>
+
+<p>
+تصوير وإنتاج فيديوهات ومحتوى إعلاني
+وإعلامي للمنصات المختلفة.
+</p>
+
+<div class="service-buttons">
+
+<button
+class="small-btn details-btn"
+onclick="openService('content')">
+اعرف أكتر
+</button>
+
+<button
+class="small-btn whatsapp-btn"
+onclick="whatsappService('صناعة المحتوى والإنتاج')">
+اطلب الخدمة
+</button>
+
+</div>
+
+</div>
+
+
+<!-- AI -->
+
+<div class="service-card">
+
+<div class="service-icon">🤖</div>
+
+<h3>ELSMKARY AI</h3>
+
+<p>
+حلول إبداعية باستخدام الذكاء الاصطناعي
+لتطوير المحتوى والتصميم.
+</p>
+
+<div class="service-buttons">
+
+<button
+class="small-btn details-btn"
+onclick="openService('ai')">
+اعرف أكتر
+</button>
+
+<button
+class="small-btn whatsapp-btn"
+onclick="whatsappService('ELSMKARY AI')">
+اطلب الخدمة
+</button>
+
+</div>
+
+</div>
+
+
+<!-- BRANDING -->
+
+<div class="service-card">
+
+<div class="service-icon">🎨</div>
+
+<h3>الهوية البصرية</h3>
+
+<p>
+بناء هوية واضحة ومميزة للبراند
+من الشعار وحتى المنصات.
+</p>
+
+<div class="service-buttons">
+
+<button
+class="small-btn details-btn"
+onclick="openService('branding')">
+اعرف أكتر
+</button>
+
+<button
+class="small-btn whatsapp-btn"
+onclick="whatsappService('الهوية البصرية')">
+اطلب الخدمة
+</button>
+
+</div>
+
+</div>
+
+
+<!-- WEBSITES -->
+
+<div class="service-card">
+
+<div class="service-icon">🌐</div>
+
+<h3>تصميم المواقع</h3>
+
+<p>
+مواقع ولاندنج بيدج سريعة ومتجاوبة
+مع الموبايل والكمبيوتر.
+</p>
+
+<div class="service-buttons">
+
+<button
+class="small-btn details-btn"
+onclick="openService('websites')">
+اعرف أكتر
+</button>
+
+<button
+class="small-btn whatsapp-btn"
+onclick="whatsappService('تصميم المواقع')">
+اطلب الخدمة
+</button>
+
+</div>
+
+</div>
+
+
+</div>
+</div>
+
+</section>
+
+
+<!-- SERVICE MODAL -->
+
+<div class="modal" id="serviceModal" onclick="closeOutside(event)">
+
+<div class="modal-box">
+
+<button class="close" onclick="closeService()">×</button>
+
+<div class="modal-icon" id="modalIcon"></div>
+
+<h2 id="modalTitle"></h2>
+
+<p id="modalText"></p>
+
+<ul id="modalList"></ul>
+
+<button
+id="modalWhatsapp"
+class="btn gold-btn"
+style="width:100%;margin-top:20px;cursor:pointer">
+
+اطلب الخدمة عبر WhatsApp
+
+</button>
+
+</div>
+
+</div>
+
+
+<!-- MUSIC -->
+
+<section id="music">
+
+<div class="container">
+
+<div class="section-title">
+
+<small>MUSIC</small>
+
+<h2>توزيع وإدارة الموسيقى</h2>
+
+<p>أعمال ومنصات عمر السمكري والفنانين.</p>
+
+</div>
+
+<div class="music-feature">
+
+<h3>🎧 فنانون وأعمال</h3>
+
+<p>
+الأسماء المضافة ضمن قسم الموسيقى:
+</p>
+
+<div class="artists">
+
+<span class="artist">حسن أبو علي</span>
+<span class="artist">أحمد لسمر</span>
+<span class="artist">طارق الشيخ</span>
+<span class="artist">يمنى فارس</span>
+
+</div>
+
+</div>
+
+
+<div class="music-grid">
+
+<a
+class="music-card"
+href="https://open.spotify.com/artist/5dEA5Leh0WQ65iALAT0ooe"
+target="_blank"
+rel="noopener">
+
+<div class="music-icon">🎧</div>
+<h3>Spotify</h3>
+<p>استمع إلى عمر السمكري</p>
+
+</a>
+
+
+<a
+class="music-card"
+href="https://music.apple.com/ae/artist/%D8%B9%D9%85%D8%B1-%D8%A7%D9%84%D8%B3%D9%85%D9%83%D8%B1%D9%8A/1794289219?l=ar"
+target="_blank"
+rel="noopener">
+
+<div class="music-icon">🍎</div>
+<h3>Apple Music</h3>
+<p>عمر السمكري على Apple Music</p>
+
+</a>
+
+
+<a
+class="music-card"
+href="https://music.youtube.com/@omarelsmkary"
+target="_blank"
+rel="noopener">
+
+<div class="music-icon">▶️</div>
+<h3>YouTube Music</h3>
+<p>عمر السمكري على YouTube Music</p>
+
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- SUCCESS -->
+
+<section class="dark" id="success">
+
+<div class="container">
+
+<div class="section-title">
+
+<small>PORTFOLIO</small>
+
+<h2>نجاحاتنا</h2>
+
+<p>نماذج من المشروعات والأعمال.</p>
+
+</div>
+
+<div class="success-grid">
+
+<div class="success">
+<h3>الراسخون للعقارات 🇦🇪</h3>
+<p>
+مشروع في الإمارات العربية المتحدة ضمن أعمال
+الإعلام والتسويق والحضور الرقمي.
+</p>
+</div>
+
+
+<div class="success">
+<h3>KEMIT 🇦🇪</h3>
+<p>
+مشروع في الإمارات العربية المتحدة مع الاهتمام
+بالهوية والمحتوى والحضور الرقمي.
+</p>
+</div>
+
+
+<div class="success">
+<h3>طلباتك 🇦🇪</h3>
+<p>
+مشروع مطعم في الإمارات العربية المتحدة
+ضمن المشروعات التي تم التعامل معها.
+</p>
+</div>
+
+
+<div class="success">
+<h3>حفلات أبو علي – فارسكور</h3>
+<p>
+إدارة صفحات وتغطيات ومحتوى مرتبط بالحفلات
+والفعاليات.
+</p>
+</div>
+
+
+<div class="success">
+<h3>إدارة وتوزيع أعمال موسيقية</h3>
+<p>
+إدارة المحتوى والحضور الرقمي وتوزيع الأعمال
+الموسيقية على المنصات.
+</p>
+</div>
+
+
+<div class="success">
+<h3>غريب الحياة</h3>
+<p>
+عمل موسيقي مرتبط بوداع الصافي وبغناء ياسمين عادل.
+</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- SOCIAL -->
+
+<section id="social">
+
+<div class="container">
+
+<div class="section-title">
+
+<small>SOCIAL MEDIA</small>
+
+<h2>منصاتنا</h2>
+
+</div>
+
+<div class="social-grid">
+
+<a
+class="social"
+href="https://www.facebook.com/share/1EkPeFVm6c/?mibextid=wwXIfr"
+target="_blank"
+rel="noopener">
+
+<b>Facebook</b>
+<small>ELSMKARY MEDIA</small>
+
+</a>
+
+
+<a
+class="social"
+href="https://youtube.com/@omarelsmkary"
+target="_blank"
+rel="noopener">
+
+<b>YouTube</b>
+<small>Omar ELSMKARY</small>
+
+</a>
+
+
+<a
+class="social"
+href="https://www.instagram.com/elsmkary_media"
+target="_blank"
+rel="noopener">
+
+<b>Instagram</b>
+<small>ELSMKARY MEDIA</small>
+
+</a>
+
+
+<a
+class="social"
+href="https://www.tiktok.com/@omarelsmkary"
+target="_blank"
+rel="noopener">
+
+<b>TikTok</b>
+<small>Omar ELSMKARY</small>
+
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- CONTACT -->
+
+<section class="dark" id="contact">
+
+<div class="container">
+
+<div class="section-title">
+
+<small>START YOUR PROJECT</small>
+
+<h2>ابدأ مشروعك</h2>
+
+<p>
+املأ البيانات، وهيفتح واتساب بالرسالة جاهزة.
+</p>
+
+</div>
+
+<div class="contact-box">
+
+<form id="contactForm">
+
+<div class="form-grid">
+
+<input
+id="name"
+type="text"
+placeholder="الاسم"
+required>
+
+<input
+id="company"
+type="text"
+placeholder="اسم الشركة / البراند">
+
+<select id="service" required>
+
+<option value="">اختر الخدمة</option>
+
+<option>توزيع وإدارة الموسيقى</option>
+<option>إدارة الفنانين</option>
+<option>إدارة السوشيال ميديا</option>
+<option>الإعلانات والتسويق</option>
+<option>صناعة المحتوى والإنتاج</option>
+<option>ELSMKARY AI</option>
+<option>الهوية البصرية</option>
+<option>تصميم المواقع</option>
+
+</select>
+
+<input
+id="project"
+type="text"
+placeholder="نوع المشروع">
+
+<textarea
+id="message"
+placeholder="اكتب تفاصيل مشروعك..."></textarea>
+
+</div>
+
+<button
+class="btn gold-btn submit"
+type="submit">
+
+إرسال الطلب عبر WhatsApp
+
+</button>
+
+</form>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+<div class="container">
+
+<div class="logo">
+ELSMKARY<span>MEDIA</span>
+</div>
+
+<div class="footer-links">
+
+<a href="https://www.facebook.com/share/1EkPeFVm6c/?mibextid=wwXIfr" target="_blank">Facebook</a>
+
+<a href="https://youtube.com/@omarelsmkary" target="_blank">YouTube</a>
+
+<a href="https://www.instagram.com/elsmkary_media" target="_blank">Instagram</a>
+
+<a href="https://www.tiktok.com/@omarelsmkary" target="_blank">TikTok</a>
+
+<a href="https://open.spotify.com/artist/5dEA5Leh0WQ65iALAT0ooe" target="_blank">Spotify</a>
+
+<a href="https://music.apple.com/ae/artist/%D8%B9%D9%85%D8%B1-%D8%A7%D9%84%D8%B3%D9%85%D9%83%D8%B1%D9%8A/1794289219?l=ar" target="_blank">Apple Music</a>
+
+<a href="https://music.youtube.com/@omarelsmkary" target="_blank">YouTube Music</a>
+
+</div>
+
+<p>
+© 2026 ELSMKARY MEDIA — جميع الحقوق محفوظة
+</p>
+
+</div>
+
+</footer>
+
+
+<!-- FLOATING WHATSAPP -->
+
+<a
+class="floating-whatsapp"
+href="https://wa.me/971585470450"
+target="_blank"
+rel="noopener"
+aria-label="WhatsApp">
+
+☏
+
+</a>
+
+
+<script>
+
+/* رقم الواتساب الرسمي */
+const WHATSAPP_NUMBER = "971585470450";
+
+
+/* القائمة */
+
+function toggleMenu(){
+
+document
+.getElementById("navLinks")
+.classList.toggle("active");
+
+}
+
+
+/* بيانات الخدمات */
+
+const services = {
+
+music:{
+icon:"🎵",
+title:"توزيع وإدارة الموسيقى",
+text:"بنساعد الفنان في تجهيز وإدارة أعماله الموسيقية ورفعها وتوزيعها على المنصات الرقمية.",
+list:[
+"رفع وتوزيع الأعمال الموسيقية",
+"Spotify",
+"Apple Music",
+"YouTube Music",
+"إدارة المحتوى الموسيقي",
+"تنظيم العمل الموسيقي"
+]
+},
+
+artists:{
+icon:"⭐",
+title:"إدارة الفنانين",
+text:"إدارة الحضور الرقمي والإعلامي للفنان والترويج لأعماله.",
+list:[
+"إدارة صفحات الفنان",
+"صناعة المحتوى",
+"الترويج للأعمال",
+"تنظيم الهوية الرقمية",
+"إدارة الحضور على المنصات"
+]
+},
+
+social:{
+icon:"📱",
+title:"إدارة السوشيال ميديا",
+text:"بنستلم إدارة صفحات البراند أو الشخص من التخطيط وصناعة المحتوى وحتى النشر والمتابعة.",
+list:[
+"Facebook",
+"Instagram",
+"TikTok",
+"YouTube",
+"خطة محتوى",
+"تصميم ونشر المحتوى",
+"متابعة الحسابات"
+]
+},
+
+ads:{
+icon:"📢",
+title:"الإعلانات والتسويق",
+text:"بنساعدك توصل للعميل المناسب من خلال الحملات الإعلانية والاستراتيجية المناسبة.",
+list:[
+"تخطيط الحملات",
+"تحديد الجمهور",
+"المحتوى الإعلاني",
+"إدارة الحملات",
+"تحسين النتائج"
+]
+},
+
+content:{
+icon:"🎬",
+title:"صناعة المحتوى والإنتاج",
+text:"بنحوّل فكرة البراند أو الفنان إلى محتوى بصري وإعلامي قابل للنشر والتسويق.",
+list:[
+"تصوير فيديو",
+"إنتاج محتوى إعلاني",
+"تغطية فعاليات",
+"فيديوهات للسوشيال",
+"مونتاج"
+]
+},
+
+ai:{
+icon:"🤖",
+title:"ELSMKARY AI",
+text:"استخدام الذكاء الاصطناعي لتطوير المحتوى والتصميم والإنتاج والحلول الإبداعية.",
+list:[
+"أفكار المحتوى",
+"التصميم",
+"تطوير الصور والمشاهد",
+"أفكار إعلانية",
+"حلول إبداعية بالذكاء الاصطناعي"
+]
+},
+
+branding:{
+icon:"🎨",
+title:"الهوية البصرية",
+text:"بناء هوية واضحة ومتناسقة تخلي البراند معروف ومميز من أول نظرة.",
+list:[
+"الشعار",
+"الألوان",
+"الخطوط",
+"الهوية البصرية",
+"تطبيق الهوية على المنصات"
+]
+},
+
+websites:{
+icon:"🌐",
+title:"تصميم المواقع",
+text:"بنصمم مواقع ولاندنج بيدج حديثة وسريعة، والأولوية فيها للموبايل.",
+list:[
+"Mobile First",
+"توافق مع الكمبيوتر",
+"صفحات الخدمات",
+"أزرار WhatsApp",
+"روابط السوشيال والموسيقى",
+"تجربة استخدام سهلة"
+]
+}
+
+};
+
+
+/* فتح تفاصيل الخدمة */
+
+function openService(key){
+
+const service = services[key];
+
+if(!service) return;
+
+document.getElementById("modalIcon").textContent =
+service.icon;
+
+document.getElementById("modalTitle").textContent =
+service.title;
+
+document.getElementById("modalText").textContent =
+service.text;
+
+const list =
+document.getElementById("modalList");
+
+list.innerHTML="";
+
+service.list.forEach(function(item){
+
+const li=document.createElement("li");
+
+li.textContent=item;
+
+list.appendChild(li);
+
+});
+
+
+document
+.getElementById("modalWhatsapp")
+.onclick=function(){
+
+whatsappService(service.title);
+
+};
+
+
+document
+.getElementById("serviceModal")
+.classList.add("active");
+
+document.body.style.overflow="hidden";
+
+}
+
+
+/* إغلاق التفاصيل */
+
+function closeService(){
+
+document
+.getElementById("serviceModal")
+.classList.remove("active");
+
+document.body.style.overflow="";
+
+}
+
+
+function closeOutside(event){
+
+if(event.target.id==="serviceModal"){
+
+closeService();
+
+}
+
+}
+
+
+/* واتساب */
+
+function whatsappService(service){
+
+const message =
+`السلام عليكم ELSMKARY MEDIA 👋
+
+أنا حابب أستفسر عن خدمة:
+${service}
+
+ممكن أعرف التفاصيل والباقات وطريقة العمل؟
+
+شكراً لكم.`;
+
+const whatsappURL =
+"https://wa.me/" +
+WHATSAPP_NUMBER +
+"?text=" +
+encodeURIComponent(message);
+
+window.location.href = whatsappURL;
+
+}
+
+
+/* فورم التواصل */
+
+document
+.getElementById("contactForm")
+.addEventListener("submit",function(e){
+
+e.preventDefault();
+
+const name =
+document.getElementById("name").value.trim();
+
+const company =
+document.getElementById("company").value.trim();
+
+const service =
+document.getElementById("service").value;
+
+const project =
+document.getElementById("project").value.trim();
+
+const message =
+document.getElementById("message").value.trim();
+
+
+const text =
+`السلام عليكم ELSMKARY MEDIA 👋
+
+الاسم:
+${name}
+
+الشركة / البراند:
+${company || "غير محدد"}
+
+الخدمة المطلوبة:
+${service}
+
+نوع المشروع:
+${project || "غير محدد"}
+
+تفاصيل المشروع:
+${message || "أرغب في معرفة التفاصيل والباقات."}`;
+
+
+const whatsappURL =
+"https://wa.me/" +
+WHATSAPP_NUMBER +
+"?text=" +
+encodeURIComponent(text);
+
+
+window.location.href = whatsappURL;
+
+});
+
+
+/* زر ESC */
+
+document.addEventListener("keydown",function(e){
+
+if(e.key==="Escape"){
+
+closeService();
+
+}
+
+});
+
+</script>
+
 </body>
 </html>
